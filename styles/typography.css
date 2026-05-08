@@ -1,0 +1,211 @@
+/* =============================================================================
+   typography.css — Font Faces & Type Styles
+   Floppa3D — floppa3d.de
+
+   TODO: Schriftdateien manuell in /assets/fonts/ ablegen
+   ============================================================================= */
+
+/* --- @font-face: Fraunces (Variable, Display Serif) ------------------------ */
+@font-face {
+  font-family: "Fraunces";
+  src: url("../assets/fonts/Fraunces[opsz,SOFT,WONK,wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- @font-face: Inter Tight (Variable, Body Sans) ------------------------- */
+@font-face {
+  font-family: "Inter Tight";
+  src: url("../assets/fonts/InterTight[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter Tight";
+  src: url("../assets/fonts/InterTight-Italic[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- @font-face: JetBrains Mono (Variable, Code) --------------------------- */
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../assets/fonts/JetBrainsMono[wght].woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =============================================================================
+   Heading Styles
+   ============================================================================= */
+
+h1,
+.h-display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  font-size: var(--fs-display);
+}
+
+h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-variation-settings: "opsz" 72;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  font-size: var(--fs-3xl);
+}
+
+h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+  font-size: var(--fs-xl);
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.3;
+  font-size: var(--fs-md);
+}
+
+h5,
+h6 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  line-height: 1.4;
+  font-size: var(--fs-base);
+}
+
+/* =============================================================================
+   Body & Prose
+   ============================================================================= */
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.65;
+  color: var(--color-fg);
+}
+
+.prose p,
+.prose li {
+  max-width: 65ch;
+}
+
+p {
+  line-height: 1.65;
+}
+
+.lead {
+  font-size: var(--fs-md);
+  line-height: 1.55;
+  color: var(--color-fg-muted);
+}
+
+small,
+.text-sm { font-size: var(--fs-sm); }
+.text-xs { font-size: var(--fs-xs); }
+
+/* =============================================================================
+   Links
+   ============================================================================= */
+
+a {
+  color: var(--color-accent);
+  text-underline-offset: 3px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  transition: opacity var(--transition-fast);
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+/* =============================================================================
+   Inline & Editorial Details
+   ============================================================================= */
+
+em {
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.1em 0.35em;
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* =============================================================================
+   Font Family Utility Classes
+   ============================================================================= */
+
+.serif { font-family: var(--font-serif); }
+.sans  { font-family: var(--font-sans); }
+.mono  { font-family: var(--font-mono); }
+
+/* =============================================================================
+   Blockquote
+   ============================================================================= */
+
+blockquote {
+  font-family: var(--font-serif);
+  font-size: var(--fs-lg);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.4;
+  border-left: 3px solid var(--color-accent);
+  padding-left: var(--space-5);
+  margin: 0;
+  color: var(--color-fg-muted);
+}

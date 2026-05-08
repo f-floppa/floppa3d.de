@@ -1,0 +1,44 @@
+<!-- SHOP HEADER -->
+<section class="shop-header section--tight">
+  <div class="container flow">
+    <p class="eyebrow">Shop</p>
+    <h1 class="serif">Alle Stücke.</h1>
+    <p class="lead">{{productCount}} Stücke aus drei Kategorien. Verkauf läuft direkt über Etsy.</p>
+  </div>
+</section>
+
+<!-- FILTER -->
+<section class="shop-filter" aria-label="Produktfilter">
+  <div class="container shop-filter__inner cluster">
+
+    <div data-filter-group="kategorie" class="cluster">
+      <span class="shop-filter__label eyebrow">Kategorie</span>
+      <button type="button" class="shop-filter__chip" data-filter="all">Alle</button>
+      <button type="button" class="shop-filter__chip" data-filter="kategorie:blumen">Blume</button>
+      <button type="button" class="shop-filter__chip" data-filter="kategorie:organisation">Organisation</button>
+      <button type="button" class="shop-filter__chip" data-filter="kategorie:deko">Deko</button>
+    </div>
+
+    <div data-filter-group="material" class="cluster">
+      <span class="shop-filter__label eyebrow">Material</span>
+      <button type="button" class="shop-filter__chip" data-filter="material:pla">PLA</button>
+      <button type="button" class="shop-filter__chip" data-filter="material:petg">PETG</button>
+    </div>
+
+    <p class="shop-filter__count text-sm" data-result-count></p>
+  </div>
+</section>
+
+<!-- PRODUKTE -->
+<section class="shop-grid-section section">
+  <div class="container">
+    <div class="shop-grid bento">
+      {{allProductsHtml}}
+    </div>
+
+    <div class="empty-state empty-state--centered" data-empty-state hidden>
+      <p class="empty-state__heading serif">Kein Stück passt zu Ihrer Auswahl.</p>
+      <p class="empty-state__body">Versuchen Sie eine andere Kombination – oder starten Sie mit allen Kategorien.</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,181 @@
+{
+  "products": [
+    {
+      "slug": "nordic-flow",
+      "name": "Nordic Flow – Geriffelter Blumentopf",
+      "category": "blumen",
+      "categoryLabel": "Blume",
+      "material": "PETG",
+      "price": "22,00 €",
+      "priceNumeric": "22.00",
+      "shortDescription": "Minimalistischer Blumentopf mit feinen vertikalen Rillen – schlicht, hochwertig und ideal für moderne Wohnräume.",
+      "longDescription": "Der «Nordic Flow» bricht mit der klassischen Topf-Form durch ein feines, gleichmäßiges Rillenmuster, das dem Stück eine ruhige Textur verleiht, ohne es zu überladen. Die leicht matte Oberfläche wirkt in jedem Licht gleichmäßig und macht ihn zur stilsicheren Ergänzung für Schreibtisch, Regal oder Fensterbrett. Er passt besonders gut zu Monstera, Efeutute oder kleinen Palmen.\n\nWir drucken den «Nordic Flow» aus PETG – einem robusten Kunststoff, der gegenüber Feuchtigkeit beständig und im Vergleich zu PLA deutlich UV-stabiler ist. Für den Einsatz im Innenbereich sowie auf überdachten Balkonen oder Terrassen ist er gut geeignet; bei dauerhafter direkter Sonneneinstrahlung kann es langfristig zu Farbveränderungen kommen. Im Lieferumfang ist ein versteckter Untersetzer enthalten, der das Abflusswasser aufnimmt, ohne sichtbar zu sein.",
+      "details": {
+        "Material": "PETG",
+        "Oberfläche": "Matt, gerillt",
+        "Drainage": "ja, mit verdecktem Untersetzer",
+        "Einsatzbereich": "Innenbereich, überdachter Außenbereich",
+        "Schichthöhe": "0,2 mm"
+      },
+      "colors": ["Sand Beige", "Sage Green", "Terracotta", "Matt Schwarz", "Cremeweiß"],
+      "images": [
+        "nordic-flow/01.png",
+        "nordic-flow/02.png",
+        "nordic-flow/03.png",
+        "nordic-flow/04.png",
+        "nordic-flow/05.png"
+      ],
+      "etsyUrl": "https://www.etsy.com/de/shop/Floppa3D?listing=PLATZHALTER",
+      "tags": ["blume", "gerillt", "minimalistisch", "petg", "indoor"],
+      "featured": true
+    },
+    {
+      "slug": "stack-pot",
+      "name": "StackPot – Modularer Pflanzenwürfel",
+      "category": "blumen",
+      "categoryLabel": "Blume",
+      "material": "PETG",
+      "price": "18,00 €",
+      "priceNumeric": "18.00",
+      "shortDescription": "Geometrischer Pflanzwürfel mit stapelbarem Design – perfekt für Kräuter, Sukkulenten und kleine Indoor-Gärten.",
+      "longDescription": "Der «StackPot» ist kein einzelner Topf, sondern ein System. Jeder Würfel lässt sich mit weiteren Exemplaren nebeneinander stellen oder versetzt stapeln – so entstehen kleine Indoor-Gärten, die sich mit der Zeit erweitern lassen. Die klare, geometrische Form macht ihn besonders bei Kräutern und Sukkulenten zur Bühne: Die Pflanzen wirken, der Topf tritt zurück.\n\nJeder «StackPot» ist optional mit einem Wasserablaufloch erhältlich – einfach beim Kauf vermerken. Wir drucken ihn aus PETG – einem robusten Kunststoff, der gegenüber Feuchtigkeit beständig und im Vergleich zu PLA deutlich UV-stabiler ist. Gerade für Töpfe mit regelmäßigem Wasserkontakt ist das die richtige Wahl.",
+      "details": {
+        "Material": "PETG",
+        "Form": "Würfel, stapelbar",
+        "Drainage": "optional (bitte bei Bestellung angeben)",
+        "Ideal für": "Kräuter, Sukkulenten, kleine Pflanzen",
+        "Einsatzbereich": "Innenbereich",
+        "Schichthöhe": "0,2 mm"
+      },
+      "colors": ["Olive Green", "Dusty Rose", "Stone Grey", "Soft Lavender", "Arctic White"],
+      "images": [
+        "stack-pot/01.png",
+        "stack-pot/02.png",
+        "stack-pot/03.png",
+        "stack-pot/04.png",
+        "stack-pot/05.png"
+      ],
+      "etsyUrl": "https://www.etsy.com/de/shop/Floppa3D?listing=PLATZHALTER",
+      "tags": ["blume", "modular", "sukkulenten", "kräuter", "pla", "indoor"],
+      "featured": true
+    },
+    {
+      "slug": "leaf-dock",
+      "name": "LeafDock – Pflanzen-Zubehörstation",
+      "category": "organisation",
+      "categoryLabel": "Organisation",
+      "material": "PLA",
+      "price": "16,00 €",
+      "priceNumeric": "16.00",
+      "shortDescription": "Organische Zubehörstation für Pflanzenliebhaber – Platz für Schere, Sprüher und Pflanzenschilder, getarnt als Deko.",
+      "longDescription": "Der «LeafDock» löst ein stilles Problem: Pflanzenschere, Mini-Sprüher, Pflanzenschilder und Dünger-Pods landen entweder in einer Schublade oder wirken herumgelegt unordentlich. Die Station fasst all das zusammen – in einer organischen Form mit Blattoptik, die neben jedem Topf aussieht wie gewollt und nicht wie Aufbewahrung.\n\nDie Fächer sind für gängige Scheren-Größen, Standard-Mini-Sprüher und handelsübliche Pflanzenschilder ausgelegt. Der niedrige Materialverbrauch macht den «LeafDock» zu einem der am schnellsten produzierbaren Stücke im Sortiment – und zum idealen Geschenk für Pflanzenfreunde, die schon alles haben.\n\nWir drucken ihn aus pflanzenbasiertem PLA. PLA besteht aus nachwachsenden Rohstoffen und ist gemäß EN 13432 unter industriellen Kompostierbedingungen biologisch abbaubar – nicht jedoch im heimischen Kompost.",
+      "details": {
+        "Material": "PLA",
+        "Form": "Organisch, Blattoptik",
+        "Fächer": "Schere, Sprüher, Pflanzenschilder, Pods",
+        "Einsatzbereich": "Innenbereich",
+        "Schichthöhe": "0,2 mm",
+        "Geschenkeignung": "sehr gut"
+      },
+      "colors": ["Forest Green", "Moss Green", "Sandstone", "Clay Brown", "Matte Cream"],
+      "images": [
+        "leaf-dock/01.png",
+        "leaf-dock/02.png",
+        "leaf-dock/03.png",
+        "leaf-dock/04.png",
+        "leaf-dock/05.png"
+      ],
+      "etsyUrl": "https://www.etsy.com/de/shop/Floppa3D?listing=PLATZHALTER",
+      "tags": ["organisation", "deko", "geschenk", "pflanzen", "pla", "indoor"],
+      "featured": true
+    },
+    {
+      "slug": "luma-arch",
+      "name": "Luma Arch – Moderne Bogenfigur",
+      "category": "deko",
+      "categoryLabel": "Deko",
+      "material": "PLA",
+      "price": "19,00 €",
+      "priceNumeric": "19.00",
+      "shortDescription": "Minimalistische Bogenfigur im skandinavischen Stil – weiche Rundungen, matte Oberfläche, perfekt auf Regal oder Sideboard.",
+      "longDescription": "Der «Luma Arch» ist eine Bogenfigur, die nichts behaupten muss. Weiche, mehrschichtige Rundungen und eine konsequent matte Oberfläche machen ihn zur ruhigen Ergänzung für Regal, Schreibtisch oder Sideboard – einzeln als Akzent, zu mehreren als kleines Arrangement.\n\nDas Design ist bewusst zeitlos gehalten: kein Trend, kein Kitsch. Er funktioniert neben Büchern genauso gut wie neben Pflanzen oder Kerzen. Einzeln erhältlich oder als 2er-Set in zwei Größen.\n\nWir drucken den «Luma Arch» aus pflanzenbasiertem PLA. PLA besteht aus nachwachsenden Rohstoffen und ist gemäß EN 13432 unter industriellen Kompostierbedingungen biologisch abbaubar – nicht jedoch im heimischen Kompost.",
+      "details": {
+        "Material": "PLA",
+        "Oberfläche": "Matt",
+        "Erhältlich als": "Einzelstück oder 2er-Set",
+        "Einsatzbereich": "Innenbereich",
+        "Schichthöhe": "0,15 mm"
+      },
+      "colors": ["Sage Green", "Sand Beige", "Dusty Rose", "Lavendel", "Cremeweiß"],
+      "images": [
+        "luma-arch/01.png",
+        "luma-arch/02.png",
+        "luma-arch/03.png",
+        "luma-arch/04.png",
+        "luma-arch/05.png"
+      ],
+      "etsyUrl": "https://www.etsy.com/de/shop/Floppa3D?listing=PLATZHALTER",
+      "tags": ["deko", "bogen", "skandinavisch", "regal", "pla", "indoor"],
+      "featured": true
+    },
+    {
+      "slug": "cozy-bunny",
+      "name": "Cozy Bunny – Stilisierter Deko-Hase",
+      "category": "deko",
+      "categoryLabel": "Deko",
+      "material": "PLA",
+      "price": "17,00 €",
+      "priceNumeric": "17.00",
+      "shortDescription": "Minimalistischer Deko-Hase mit geriffelter Oberfläche – ganzjährig schön, unschlagbar im Frühling.",
+      "longDescription": "Der «Cozy Bunny» ist stilisiert genug, um das ganze Jahr auf dem Regal zu stehen, und charmant genug, um zu Ostern und im Frühling besonders zu wirken. Die organisch-runde Form und die gerillte Oberfläche – passend zu unseren Blumentöpfen – machen ihn zu einem kohärenten Teil eines größeren Arrangements.\n\nEr ist in zwei Größen erhältlich: die kleine Version (ca. 8 cm) als Einzelfigur oder Tischkarte, die große Version (ca. 14 cm) als zentrales Deko-Element. Optional mit einer Öffnung für ein LED-Teelicht erhältlich – einfach beim Kauf vermerken.\n\nWir drucken den «Cozy Bunny» aus pflanzenbasiertem PLA. PLA besteht aus nachwachsenden Rohstoffen und ist gemäß EN 13432 unter industriellen Kompostierbedingungen biologisch abbaubar – nicht jedoch im heimischen Kompost.",
+      "details": {
+        "Material": "PLA",
+        "Oberfläche": "Matt, gerillt",
+        "Größen": "Klein (ca. 8 cm) · Groß (ca. 14 cm)",
+        "LED-Teelicht-Öffnung": "optional (bitte bei Bestellung angeben)",
+        "Einsatzbereich": "Innenbereich",
+        "Schichthöhe": "0,15 mm"
+      },
+      "colors": ["Terracotta", "Soft Peach", "Matt Weiß", "Olive Green", "Warm Grey"],
+      "images": [
+        "cozy-bunny/01.png",
+        "cozy-bunny/02.png",
+        "cozy-bunny/03.png",
+        "cozy-bunny/04.png",
+        "cozy-bunny/05.png"
+      ],
+      "etsyUrl": "https://www.etsy.com/de/shop/Floppa3D?listing=PLATZHALTER",
+      "tags": ["deko", "hase", "ostern", "fruehling", "geschenk", "pla", "indoor"],
+      "featured": true
+    },
+    {
+      "slug": "orbit-key-tray",
+      "name": "Orbit Key Tray – Schlüssel- & Schmuckablage",
+      "category": "organisation",
+      "categoryLabel": "Organisation",
+      "material": "PLA",
+      "price": "21,00 €",
+      "priceNumeric": "21.00",
+      "shortDescription": "Elegante Ablageschale mit organischer Wellenstruktur – für Schlüssel, Schmuck und Kleinteile am Eingang oder Schreibtisch.",
+      "longDescription": "Der «Orbit Key Tray» ist die Antwort auf den Moment, in dem Schlüssel, Ring und Kopfhörer auf der Ablage landen. Die organische Spiral- und Wellenstruktur des Randes macht aus diesem alltäglichen Moment etwas Bewusstes – die Ablage sieht wie Deko aus, funktioniert aber wie ein Organizer.\n\nDer erhöhte Rand hält Kleinteile an Ort und Stelle. Eine optionale Vertiefung im Boden bietet Platz für einen AirTag oder Münzen – einfach beim Kauf vermerken. Die minimalistische Luxusoptik passt zum Eingangsbereich genauso gut wie zum Nachttisch oder Schreibtisch.\n\nWir drucken den «Orbit Key Tray» aus PLA. Die Variante in Marble White verwendet ein Effektfilament mit natürlicher Maserung – jedes Stück ist dadurch ein Unikat.",
+      "details": {
+        "Material": "PLA (Marble White: Effektfilament)",
+        "Rand": "Organische Wellenstruktur, erhöht",
+        "AirTag-Vertiefung": "optional (bitte bei Bestellung angeben)",
+        "Einsatzbereich": "Innenbereich",
+        "Schichthöhe": "0,15 mm"
+      },
+      "colors": ["Matte Black", "Stone Grey", "Sandstone", "Forest Green", "Marble White"],
+      "images": [
+        "orbit-key-tray/01.png",
+        "orbit-key-tray/02.png",
+        "orbit-key-tray/03.png",
+        "orbit-key-tray/04.png",
+        "orbit-key-tray/05.png"
+      ],
+      "etsyUrl": "https://www.etsy.com/de/shop/Floppa3D?listing=PLATZHALTER",
+      "tags": ["organisation", "deko", "schluessel", "schmuck", "eingang", "pla", "indoor"],
+      "featured": true
+    }
+  ]
+}

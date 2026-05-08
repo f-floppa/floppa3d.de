@@ -1,0 +1,101 @@
+/* =============================================================================
+   variables.css — Design Tokens
+   Floppa3D — floppa3d.de
+   ============================================================================= */
+
+/* --- Brand Palette (raw, theme-independent) --------------------------------- */
+:root {
+  --brand-green:       #00875A;
+  --brand-mint:        #26B99F;
+  --brand-dark:        #121820;
+  --brand-divider:     #4a5a6a;
+  --brand-tagline:     #666666;
+
+  /* --- Light Theme (default) ----------------------------------------------- */
+  --color-bg:          #F5F1EA;
+  --color-surface:     #FAF7F1;
+  --color-fg:          #121820;
+  --color-fg-muted:    #666666;
+  --color-accent:      #00875A;
+  --color-border:      #E8E1D2;
+
+  /* --- Mark Colors (used by SVG via CSS Custom Properties) ----------------- */
+  --mark-color-1:      var(--brand-green);
+  --mark-color-2:      var(--brand-mint);
+
+  /* --- Type Scale (fluid) --------------------------------------------------- */
+  --fs-xs:      0.75rem;
+  --fs-sm:      0.875rem;
+  --fs-base:    1rem;
+  --fs-md:      1.125rem;
+  --fs-lg:      1.5rem;
+  --fs-xl:      clamp(1.875rem, 3vw, 2.25rem);
+  --fs-2xl:     clamp(2.25rem, 4vw, 3rem);
+  --fs-3xl:     clamp(3rem, 6vw, 4.5rem);
+  --fs-display: clamp(3.5rem, 9vw, 7rem);
+
+  /* --- Spacing Scale (8px base) --------------------------------------------- */
+  --space-1:   0.25rem;   /*  4px */
+  --space-2:   0.5rem;    /*  8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.5rem;    /* 24px */
+  --space-6:   2rem;      /* 32px */
+  --space-7:   3rem;      /* 48px */
+  --space-8:   4rem;      /* 64px */
+  --space-10:  6rem;      /* 96px */
+  --space-12:  8rem;      /* 128px */
+  --space-16:  12rem;     /* 192px */
+
+  /* --- Font Families -------------------------------------------------------- */
+  --font-serif: Fraunces, "Iowan Old Style", "Apple Garamond", Baskerville,
+                "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif;
+  --font-sans:  "Inter Tight", system-ui, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", sans-serif;
+  --font-mono:  "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo,
+                Consolas, monospace;
+
+  /* --- Transitions ---------------------------------------------------------- */
+  --transition-theme: background-color 0.3s ease, color 0.3s ease,
+                      border-color 0.3s ease;
+  --transition-fast:  0.15s ease;
+  --transition-base:  0.25s ease;
+  --transition-slow:  0.4s cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* --- Radii ---------------------------------------------------------------- */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-pill: 9999px;
+
+  /* --- Optional: dark bg gradient (use as background-image where wanted) --- */
+  --dark-bg-gradient: linear-gradient(180deg, #1F1B17, #2A2520);
+
+  /* --- z-index scale --- */
+  --z-nav:        100;
+  --z-overlay:    900;
+  --z-modal:      1000;
+  --z-skip-link:  9999;
+}
+
+/* --- Dark Theme: explicit via data-theme attribute -------------------------- */
+[data-theme="dark"] {
+  --color-bg:       #16181D;
+  --color-surface:  #1C1E25;
+  --color-fg:       #E8ECF0;
+  --color-fg-muted: #8A909A;
+  --color-accent:   #26B99F;
+  --color-border:   #2A2D36;
+}
+
+/* --- Dark Theme: system preference fallback (only when no data-theme set) -- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg:       #16181D;
+    --color-surface:  #1C1E25;
+    --color-fg:       #E8ECF0;
+    --color-fg-muted: #8A909A;
+    --color-accent:   #26B99F;
+    --color-border:   #2A2D36;
+  }
+}

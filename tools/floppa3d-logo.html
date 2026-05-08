@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Floppa3D Logo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0e12;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      padding: 60px 20px;
+    }
+
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 80px;
+      color: #00875A;
+      font-size: 32px;
+      font-weight: 300;
+      letter-spacing: 3px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 80px;
+      margin-bottom: 100px;
+    }
+
+    .logo-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      color: #5A7068;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      width: 100%;
+      text-align: center;
+    }
+
+    .logo-box {
+      background: #121820;
+      padding: 80px;
+      border-radius: 6px;
+      border: 1px solid #1E2D3D;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 280px;
+    }
+
+    .logo-box.dark {
+      background: #0a0e12;
+    }
+
+    .logo-box.light {
+      background: #f5f5f5;
+    }
+
+    .logo-box.gradient {
+      background: linear-gradient(135deg, #121820 0%, #1a2332 100%);
+    }
+
+    /* Logo Display */
+    .logo-display {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    .logo-icon {
+      flex-shrink: 0;
+    }
+
+    .logo-divider {
+      width: 1px;
+      height: 100px;
+      background: #4a5a6a;
+      opacity: 0.6;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .wordmark {
+      font-weight: 900;
+      font-size: 42px;
+      letter-spacing: -2px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .wordmark .f { color: #00875A; }
+    .wordmark .loppa { color: #FFFFFF; }
+    .wordmark .three { color: #26B99F; }
+    .wordmark .d { color: #FFFFFF; }
+
+    .tagline {
+      font-size: 10px;
+      color: #5A7068;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    svg {
+      display: block;
+    }
+
+    .specs {
+      background: #1a2332;
+      border: 1px solid #1E2D3D;
+      padding: 32px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: 'Courier New', monospace;
+      margin-top: 60px;
+    }
+
+    .specs h3 {
+      color: #00875A;
+      margin-bottom: 16px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .specs p {
+      color: #5A7068;
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+
+    .color-swatch {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border-radius: 2px;
+      margin-right: 8px;
+      vertical-align: middle;
+      border: 1px solid #1E2D3D;
+    }
+
+    .icon-only {
+      display: flex;
+      justify-content: center;
+    }
+
+    .icon-only svg {
+      max-width: 200px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>FLOPPA3D LOGO VARIATIONS</h1>
+
+    <div class="grid">
+      <!-- Version 1: Main Logo (Dark) -->
+      <div class="logo-section">
+        <div class="section-title">Main Logo (Dark)</div>
+        <div class="logo-box dark">
+          <div class="logo-display">
+            <div class="logo-icon">
+              <svg width="120" height="100" viewBox="0 0 168 128">
+                <rect width="168" height="128" fill="#0a0e12"/>
+                <!-- F #00875A -->
+                <rect x="0" y="0" width="80" height="7" fill="#00875A"/>
+                <rect x="0" y="11" width="80" height="7" fill="#00875A"/>
+                <rect x="0" y="22" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="33" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="44" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="55" width="58" height="7" fill="#00875A"/>
+                <rect x="0" y="66" width="58" height="7" fill="#00875A"/>
+                <rect x="0" y="77" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="88" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="99" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="110" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="121" width="14" height="7" fill="#00875A"/>
+                <!-- 3 #26B99F -->
+                <rect x="88" y="0" width="80" height="7" fill="#26B99F"/>
+                <rect x="88" y="11" width="80" height="7" fill="#26B99F"/>
+                <rect x="154" y="22" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="33" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="44" width="14" height="7" fill="#26B99F"/>
+                <rect x="88" y="55" width="80" height="7" fill="#26B99F"/>
+                <rect x="88" y="66" width="80" height="7" fill="#26B99F"/>
+                <rect x="154" y="77" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="88" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="99" width="14" height="7" fill="#26B99F"/>
+                <rect x="88" y="110" width="80" height="7" fill="#26B99F"/>
+                <rect x="88" y="121" width="80" height="7" fill="#26B99F"/>
+              </svg>
+            </div>
+            <div class="logo-divider"></div>
+            <div class="logo-text">
+              <div class="wordmark">
+                <span class="f">F</span><span class="loppa">loppa</span><span class="three">3</span><span class="d">D</span>
+              </div>
+              <div class="tagline">Professional Print Studio</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Version 2: Main Logo (Standard) -->
+      <div class="logo-section">
+        <div class="section-title">Main Logo (Standard)</div>
+        <div class="logo-box">
+          <div class="logo-display">
+            <div class="logo-icon">
+              <svg width="120" height="100" viewBox="0 0 168 128">
+                <rect width="168" height="128" fill="#121820"/>
+                <!-- F #00875A -->
+                <rect x="0" y="0" width="80" height="7" fill="#00875A"/>
+                <rect x="0" y="11" width="80" height="7" fill="#00875A"/>
+                <rect x="0" y="22" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="33" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="44" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="55" width="58" height="7" fill="#00875A"/>
+                <rect x="0" y="66" width="58" height="7" fill="#00875A"/>
+                <rect x="0" y="77" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="88" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="99" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="110" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="121" width="14" height="7" fill="#00875A"/>
+                <!-- 3 #26B99F -->
+                <rect x="88" y="0" width="80" height="7" fill="#26B99F"/>
+                <rect x="88" y="11" width="80" height="7" fill="#26B99F"/>
+                <rect x="154" y="22" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="33" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="44" width="14" height="7" fill="#26B99F"/>
+                <rect x="88" y="55" width="80" height="7" fill="#26B99F"/>
+                <rect x="88" y="66" width="80" height="7" fill="#26B99F"/>
+                <rect x="154" y="77" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="88" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="99" width="14" height="7" fill="#26B99F"/>
+                <rect x="88" y="110" width="80" height="7" fill="#26B99F"/>
+                <rect x="88" y="121" width="80" height="7" fill="#26B99F"/>
+              </svg>
+            </div>
+            <div class="logo-divider"></div>
+            <div class="logo-text">
+              <div class="wordmark">
+                <span class="f">F</span><span class="loppa">loppa</span><span class="three">3</span><span class="d">D</span>
+              </div>
+              <div class="tagline">Professional Print Studio</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Version 3: With Gradient -->
+      <div class="logo-section">
+        <div class="section-title">With Gradient Background</div>
+        <div class="logo-box gradient">
+          <div class="logo-display">
+            <div class="logo-icon">
+              <svg width="120" height="100" viewBox="0 0 168 128">
+                <defs>
+                  <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#121820;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#1a2332;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <rect width="168" height="128" fill="url(#bg1)"/>
+                <!-- F #00875A -->
+                <rect x="0" y="0" width="80" height="7" fill="#00875A"/>
+                <rect x="0" y="11" width="80" height="7" fill="#00875A"/>
+                <rect x="0" y="22" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="33" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="44" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="55" width="58" height="7" fill="#00875A"/>
+                <rect x="0" y="66" width="58" height="7" fill="#00875A"/>
+                <rect x="0" y="77" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="88" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="99" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="110" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="121" width="14" height="7" fill="#00875A"/>
+                <!-- 3 #26B99F -->
+                <rect x="88" y="0" width="80" height="7" fill="#26B99F"/>
+                <rect x="88" y="11" width="80" height="7" fill="#26B99F"/>
+                <rect x="154" y="22" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="33" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="44" width="14" height="7" fill="#26B99F"/>
+                <rect x="88" y="55" width="80" height="7" fill="#26B99F"/>
+                <rect x="88" y="66" width="80" height="7" fill="#26B99F"/>
+                <rect x="154" y="77" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="88" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="99" width="14" height="7" fill="#26B99F"/>
+                <rect x="88" y="110" width="80" height="7" fill="#26B99F"/>
+                <rect x="88" y="121" width="80" height="7" fill="#26B99F"/>
+              </svg>
+            </div>
+            <div class="logo-divider"></div>
+            <div class="logo-text">
+              <div class="wordmark">
+                <span class="f">F</span><span class="loppa">loppa</span><span class="three">3</span><span class="d">D</span>
+              </div>
+              <div class="tagline">Professional Print Studio</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Version 4: Light Background -->
+      <div class="logo-section">
+        <div class="section-title">Light Background</div>
+        <div class="logo-box light">
+          <div class="logo-display">
+            <div class="logo-icon">
+              <svg width="120" height="100" viewBox="0 0 168 128">
+                <rect width="168" height="128" fill="#f5f5f5"/>
+                <!-- F #00875A -->
+                <rect x="0" y="0" width="80" height="7" fill="#00875A"/>
+                <rect x="0" y="11" width="80" height="7" fill="#00875A"/>
+                <rect x="0" y="22" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="33" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="44" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="55" width="58" height="7" fill="#00875A"/>
+                <rect x="0" y="66" width="58" height="7" fill="#00875A"/>
+                <rect x="0" y="77" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="88" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="99" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="110" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="121" width="14" height="7" fill="#00875A"/>
+                <!-- 3 #26B99F -->
+                <rect x="88" y="0" width="80" height="7" fill="#26B99F"/>
+                <rect x="88" y="11" width="80" height="7" fill="#26B99F"/>
+                <rect x="154" y="22" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="33" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="44" width="14" height="7" fill="#26B99F"/>
+                <rect x="88" y="55" width="80" height="7" fill="#26B99F"/>
+                <rect x="88" y="66" width="80" height="7" fill="#26B99F"/>
+                <rect x="154" y="77" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="88" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="99" width="14" height="7" fill="#26B99F"/>
+                <rect x="88" y="110" width="80" height="7" fill="#26B99F"/>
+                <rect x="88" y="121" width="80" height="7" fill="#26B99F"/>
+              </svg>
+            </div>
+            <div class="logo-divider" style="background: #999;"></div>
+            <div class="logo-text">
+              <div class="wordmark" style="color: #121820;">
+                <span class="f" style="color: #00875A;">F</span><span class="loppa" style="color: #121820;">loppa</span><span class="three" style="color: #26B99F;">3</span><span class="d" style="color: #121820;">D</span>
+              </div>
+              <div class="tagline" style="color: #666;">Professional Print Studio</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Version 5: Icon Only (Dark) -->
+      <div class="logo-section">
+        <div class="section-title">Icon Only (Dark)</div>
+        <div class="logo-box dark">
+          <div class="icon-only">
+            <svg width="140" height="115" viewBox="0 0 168 128">
+              <rect width="168" height="128" fill="#0a0e12"/>
+              <!-- F #00875A -->
+              <rect x="0" y="0" width="80" height="7" fill="#00875A"/>
+              <rect x="0" y="11" width="80" height="7" fill="#00875A"/>
+              <rect x="0" y="22" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="33" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="44" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="55" width="58" height="7" fill="#00875A"/>
+              <rect x="0" y="66" width="58" height="7" fill="#00875A"/>
+              <rect x="0" y="77" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="88" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="99" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="110" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="121" width="14" height="7" fill="#00875A"/>
+              <!-- 3 #26B99F -->
+              <rect x="88" y="0" width="80" height="7" fill="#26B99F"/>
+              <rect x="88" y="11" width="80" height="7" fill="#26B99F"/>
+              <rect x="154" y="22" width="14" height="7" fill="#26B99F"/>
+              <rect x="154" y="33" width="14" height="7" fill="#26B99F"/>
+              <rect x="154" y="44" width="14" height="7" fill="#26B99F"/>
+              <rect x="88" y="55" width="80" height="7" fill="#26B99F"/>
+              <rect x="88" y="66" width="80" height="7" fill="#26B99F"/>
+              <rect x="154" y="77" width="14" height="7" fill="#26B99F"/>
+              <rect x="154" y="88" width="14" height="7" fill="#26B99F"/>
+              <rect x="154" y="99" width="14" height="7" fill="#26B99F"/>
+              <rect x="88" y="110" width="80" height="7" fill="#26B99F"/>
+              <rect x="88" y="121" width="80" height="7" fill="#26B99F"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Version 7: Icon Only (Light) -->
+      <div class="logo-section">
+        <div class="section-title">Icon Only (Light Background)</div>
+        <div class="logo-box light">
+          <div class="icon-only">
+            <svg width="140" height="115" viewBox="0 0 168 128">
+              <rect width="168" height="128" fill="#f5f5f5"/>
+              <rect x="0" y="0" width="80" height="7" fill="#00875A"/>
+              <rect x="0" y="11" width="80" height="7" fill="#00875A"/>
+              <rect x="0" y="22" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="33" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="44" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="55" width="58" height="7" fill="#00875A"/>
+              <rect x="0" y="66" width="58" height="7" fill="#00875A"/>
+              <rect x="0" y="77" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="88" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="99" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="110" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="121" width="14" height="7" fill="#00875A"/>
+              <rect x="88" y="0" width="80" height="7" fill="#26B99F"/>
+              <rect x="88" y="11" width="80" height="7" fill="#26B99F"/>
+              <rect x="154" y="22" width="14" height="7" fill="#26B99F"/>
+              <rect x="154" y="33" width="14" height="7" fill="#26B99F"/>
+              <rect x="154" y="44" width="14" height="7" fill="#26B99F"/>
+              <rect x="88" y="55" width="80" height="7" fill="#26B99F"/>
+              <rect x="88" y="66" width="80" height="7" fill="#26B99F"/>
+              <rect x="154" y="77" width="14" height="7" fill="#26B99F"/>
+              <rect x="154" y="88" width="14" height="7" fill="#26B99F"/>
+              <rect x="154" y="99" width="14" height="7" fill="#26B99F"/>
+              <rect x="88" y="110" width="80" height="7" fill="#26B99F"/>
+              <rect x="88" y="121" width="80" height="7" fill="#26B99F"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Version 8: Transparent (Email Signatur) -->
+      <div class="logo-section">
+        <div class="section-title">Transparent — Email Signatur</div>
+        <div class="logo-box" style="background-image: repeating-conic-gradient(#1e2d3d 0% 25%, #121820 0% 50%); background-size: 20px 20px;">
+          <div class="logo-display">
+            <div class="logo-icon">
+              <svg width="120" height="100" viewBox="0 0 168 128">
+                <rect x="0" y="0" width="80" height="7" fill="#00875A"/>
+                <rect x="0" y="11" width="80" height="7" fill="#00875A"/>
+                <rect x="0" y="22" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="33" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="44" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="55" width="58" height="7" fill="#00875A"/>
+                <rect x="0" y="66" width="58" height="7" fill="#00875A"/>
+                <rect x="0" y="77" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="88" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="99" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="110" width="14" height="7" fill="#00875A"/>
+                <rect x="0" y="121" width="14" height="7" fill="#00875A"/>
+                <rect x="88" y="0" width="80" height="7" fill="#26B99F"/>
+                <rect x="88" y="11" width="80" height="7" fill="#26B99F"/>
+                <rect x="154" y="22" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="33" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="44" width="14" height="7" fill="#26B99F"/>
+                <rect x="88" y="55" width="80" height="7" fill="#26B99F"/>
+                <rect x="88" y="66" width="80" height="7" fill="#26B99F"/>
+                <rect x="154" y="77" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="88" width="14" height="7" fill="#26B99F"/>
+                <rect x="154" y="99" width="14" height="7" fill="#26B99F"/>
+                <rect x="88" y="110" width="80" height="7" fill="#26B99F"/>
+                <rect x="88" y="121" width="80" height="7" fill="#26B99F"/>
+              </svg>
+            </div>
+            <div class="logo-divider" style="background: #999;"></div>
+            <div class="logo-text">
+              <div class="wordmark">
+                <span style="color: #00875A;">F</span><span style="color: #121820;">loppa</span><span style="color: #26B99F;">3</span><span style="color: #121820;">D</span>
+              </div>
+              <div class="tagline" style="color: #666;">Professional Print Studio</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Version 6: Icon Only (Standard) -->
+      <div class="logo-section">
+        <div class="section-title">Icon Only (Standard)</div>
+        <div class="logo-box">
+          <div class="icon-only">
+            <svg width="140" height="115" viewBox="0 0 168 128">
+              <rect width="168" height="128" fill="#121820"/>
+              <!-- F #00875A -->
+              <rect x="0" y="0" width="80" height="7" fill="#00875A"/>
+              <rect x="0" y="11" width="80" height="7" fill="#00875A"/>
+              <rect x="0" y="22" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="33" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="44" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="55" width="58" height="7" fill="#00875A"/>
+              <rect x="0" y="66" width="58" height="7" fill="#00875A"/>
+              <rect x="0" y="77" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="88" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="99" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="110" width="14" height="7" fill="#00875A"/>
+              <rect x="0" y="121" width="14" height="7" fill="#00875A"/>
+              <!-- 3 #26B99F -->
+              <rect x="88" y="0" width="80" height="7" fill="#26B99F"/>
+              <rect x="88" y="11" width="80" height="7" fill="#26B99F"/>
+              <rect x="154" y="22" width="14" height="7" fill="#26B99F"/>
+              <rect x="154" y="33" width="14" height="7" fill="#26B99F"/>
+              <rect x="154" y="44" width="14" height="7" fill="#26B99F"/>
+              <rect x="88" y="55" width="80" height="7" fill="#26B99F"/>
+              <rect x="88" y="66" width="80" height="7" fill="#26B99F"/>
+              <rect x="154" y="77" width="14" height="7" fill="#26B99F"/>
+              <rect x="154" y="88" width="14" height="7" fill="#26B99F"/>
+              <rect x="154" y="99" width="14" height="7" fill="#26B99F"/>
+              <rect x="88" y="110" width="80" height="7" fill="#26B99F"/>
+              <rect x="88" y="121" width="80" height="7" fill="#26B99F"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spezifikationen -->
+    <div class="specs">
+      <h3>🎨 TECHNISCHE SPEZIFIKATION</h3>
+      <p><strong>Logo Mark:</strong> F3 Design | <strong>Schichthöhe:</strong> 7px | <strong>Abstand:</strong> 4px | <strong>Rhythmus:</strong> 11px</p>
+      <p><strong>Anzahl Schichten:</strong> 12 | <strong>Gesamthöhe:</strong> 128px | <strong>Zeichenbreite:</strong> 80px | <strong>Gap (F–3):</strong> 8px | <strong>Gesamtbreite Mark:</strong> 168px</p>
+
+      <h3 style="margin-top: 24px;">🎨 FARBEN</h3>
+      <p><span class="color-swatch" style="background: #00875A;"></span> <strong>F:</strong> #00875A</p>
+      <p><span class="color-swatch" style="background: #26B99F;"></span> <strong>3:</strong> #26B99F</p>
+      <p><span class="color-swatch" style="background: #FFFFFF;"></span> <strong>LOPPA & D:</strong> #FFFFFF</p>
+      <p><span class="color-swatch" style="background: #4a5a6a;"></span> <strong>Divider:</strong> #4a5a6a (60% opacity)</p>
+      <p><span class="color-swatch" style="background: #5A7068;"></span> <strong>Tagline:</strong> #5A7068</p>
+
+      <h3 style="margin-top: 24px;">🔤 WORDMARK LAYOUT</h3>
+      <p><strong>Font:</strong> Arial Black, weight 900 | <strong>Font Size:</strong> 42px | <strong>Letter-spacing:</strong> -2px</p>
+      <p><strong>Tagline:</strong> 10px | <strong>Layout:</strong> F3 Icon | Divider (1px, grau) | FLOPPA3D (eine Zeile) + Tagline</p>
+    </div>
+  </div>
+</body>
+</html>

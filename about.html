@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F5F1EA" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1F1B17" media="(prefers-color-scheme: dark)">
+
+  <title>Über uns | Floppa3D</title>
+  <meta name="description" content="Wer steckt hinter Floppa3D, wie drucken wir und warum. Unsere Material-Philosophie und der Anspruch an gute Form.">
+  <link rel="canonical" href="https://floppa3d.de/about.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Floppa3D">
+  <meta property="og:title" content="Über uns">
+  <meta property="og:description" content="Wer steckt hinter Floppa3D, wie drucken wir und warum. Unsere Material-Philosophie und der Anspruch an gute Form.">
+  <meta property="og:url" content="https://floppa3d.de/about.html">
+  <meta property="og:image" content="https://floppa3d.de/assets/logos/full-on-light.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Über uns">
+  <meta name="twitter:description" content="Wer steckt hinter Floppa3D, wie drucken wir und warum. Unsere Material-Philosophie und der Anspruch an gute Form.">
+  <meta name="twitter:image" content="https://floppa3d.de/assets/logos/full-on-light.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/logos/mark.svg">
+  <link rel="alternate icon" href="/assets/logos/mark-on-light.png">
+
+  <!-- Preload Critical Assets -->
+  <link rel="preload" href="/styles/main.css" as="style">
+  <link rel="preload" href="/assets/logos/mark.svg" as="image" type="image/svg+xml">
+
+  <!-- Theme: prevent flash by setting before render -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('floppa3d-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/styles/main.css">
+
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- HEADER (Navigation Slot) -->
+  <header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__logo" href="/" aria-label="Floppa3D Startseite">
+      <img class="site-header__mark" src="/assets/logos/mark.svg" alt="" width="42" height="32" aria-hidden="true">
+      <span class="site-header__wordmark serif">Floppa3D</span>
+    </a>
+
+    <nav class="site-header__nav" aria-label="Hauptnavigation">
+      <ul class="site-header__nav-list">
+        <li><a class="site-header__nav-link" href="/shop.html">Shop</a></li>
+        <li><a class="site-header__nav-link" href="/about.html">Über uns</a></li>
+        <li><a class="site-header__nav-link" href="/faq.html">FAQ</a></li>
+        <li><a class="site-header__nav-link" href="/kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <button class="theme-toggle" type="button" aria-label="Hell-/Dunkelmodus wechseln" aria-pressed="false" data-theme-toggle>
+        <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+      </button>
+      <button class="site-header__hamburger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="site-drawer" data-nav-toggle>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="site-header__drawer" id="site-drawer" data-nav-menu>
+    <nav class="site-header__drawer-nav" aria-label="Mobile Navigation">
+      <a class="site-header__drawer-link" href="/shop.html">Shop</a>
+      <a class="site-header__drawer-link" href="/about.html">Über uns</a>
+      <a class="site-header__drawer-link" href="/faq.html">FAQ</a>
+      <a class="site-header__drawer-link" href="/kontakt.html">Kontakt</a>
+    </nav>
+  </div>
+  <div class="site-header__backdrop" data-nav-backdrop aria-hidden="true"></div>
+</header>
+
+  <main id="main">
+    <!-- HERO -->
+<section class="hero">
+  <div class="container hero__inner">
+    <p class="hero__eyebrow eyebrow">Über uns</p>
+    <h1 class="hero__headline">Zwei Studenten. Eine Idee. Viel Leidenschaft.</h1>
+    <p class="hero__lead lead">Wir sind Florian und Paul – und wir glauben, dass aus Technik und Kreativität echte Produkte entstehen können, die Menschen begeistern.</p>
+  </div>
+</section>
+
+<hr class="section-divider section-divider--full">
+
+<!-- STORY -->
+<section class="section" aria-label="Unsere Geschichte">
+  <div class="container--narrow prose flow">
+    <p class="eyebrow">Geschichte</p>
+    <h2 class="serif">Wie Floppa3D entstand.</h2>
+    <p>Wir sind Florian und Paul – zwei Studenten mit Begeisterung für Technik, Kreativität und Innovation. Florian studiert Informatik, Paul Wirtschaftsingenieurwesen. Schon lange wollten wir gemeinsam ein eigenes Start-up gründen und etwas erschaffen, das technisches Wissen mit kreativen Ideen verbindet.</p>
+    <p>Mit dem 3D-Druck haben wir genau das gefunden. Uns fasziniert, wie aus einer Idee innerhalb kürzester Zeit ein echtes Produkt entstehen kann. Gleichzeitig haben wir gemerkt, dass die Möglichkeiten des 3D-Drucks in Deutschland oft noch unterschätzt werden – obwohl die Technologie unglaublich vielseitig ist und Menschen immer wieder begeistert.</p>
+    <p>Was als Hobby begann, wurde schnell zu einer größeren Vision: individuelle, kreative und hochwertige Produkte zu entwickeln und unsere Begeisterung für 3D-Druck mit anderen zu teilen. Neben Studium und Werkstudentenjobs arbeiten wir deshalb mit viel Leidenschaft daran, aus Floppa3D Schritt für Schritt mehr als nur ein Projekt zu machen.</p>
+  </div>
+</section>
+
+<hr class="section-divider section-divider--full">
+
+<!-- WERTE -->
+<section class="section section--tight" aria-label="Unsere Werte">
+  <div class="container">
+    <header class="flow">
+      <p class="eyebrow">Haltung</p>
+      <h2 class="serif">Was uns leitet.</h2>
+    </header>
+    <div class="grid-12" role="list" aria-label="Werte">
+
+      <article class="stack" style="grid-column: span 4;" role="listitem">
+        <p class="eyebrow">Form</p>
+        <h3 class="serif">Funktion ist notwendig. Form ist die Entscheidung danach.</h3>
+        <p>Jedes Objekt beginnt mit einer Geometrie, die sich rechtfertigen muss. Kein Ornament ohne Grund. Kein Volumen ohne Absicht.</p>
+      </article>
+
+      <article class="stack" style="grid-column: span 4;" role="listitem">
+        <p class="eyebrow">Material</p>
+        <h3 class="serif">PLA aus pflanzlichen Quellen. PETG für Haltbarkeit. Kein Greenwashing.</h3>
+        <p>Wir wählen Materialien nach ihrer tatsächlichen Eignung. PLA aus pflanzlichen Rohstoffen, industriell kompostierbar nach EN 13432 – PETG feuchtigkeitsbeständig und im Vergleich zu PLA deutlich UV-stabiler, ideal für überdachte Außenbereiche.</p>
+      </article>
+
+      <article class="stack" style="grid-column: span 4;" role="listitem">
+        <p class="eyebrow">Maß</p>
+        <h3 class="serif">Kleine Auflage. Kein Lager. Nichts wird gedruckt, was nicht gebraucht wird.</h3>
+        <p>Überproduktion ist keine Effizienz, sondern ein Versagen der Planung. Wir produzieren auf Nachfrage, nicht auf Vorrat.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider section-divider--full">
+
+<!-- VERSAND -->
+<section class="section section--tight" aria-label="Versand">
+  <div class="container--narrow flow">
+    <p class="eyebrow">Versand</p>
+    <h2 class="serif">Lieferung in Deutschland.</h2>
+    <p class="lead">Wir versenden aktuell ausschließlich innerhalb Deutschlands. In der Regel übergeben wir Ihre Bestellung innerhalb von 5 Werktagen an DHL.</p>
+    <p>Da jedes Stück auf Bestellung gedruckt wird, kann die Fertigungszeit je nach Auftragslage etwas variieren. Aktuelle Hinweise zur Lieferzeit finden Sie direkt im jeweiligen Etsy-Listing.</p>
+  </div>
+</section>
+
+<hr class="section-divider section-divider--full">
+
+<!-- CTA -->
+<section class="section section--tight" aria-label="Sortiment">
+  <div class="container--narrow flow">
+    <p class="eyebrow">Sortiment</p>
+    <h2 class="serif">Überzeugen Sie sich selbst.</h2>
+    <p class="lead">Alle aktuellen Stücke. Direkt auf Etsy. Ohne Umweg.</p>
+    <div class="cluster">
+      <a href="/shop.html" class="btn btn--primary">Sortiment ansehen →</a>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <!-- FOOTER Slot -->
+  <footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+
+      <div class="site-footer__brand">
+        <a class="site-footer__logo" href="/" aria-label="Floppa3D Startseite">
+          <img class="site-footer__mark" src="/assets/logos/mark.svg" alt="" width="42" height="32" aria-hidden="true">
+          <span class="site-footer__wordmark serif">Floppa3D</span>
+        </a>
+        <p class="site-footer__tagline">Professional Print Studio · Made in Germany</p>
+      </div>
+
+      <nav aria-label="Footer-Navigation">
+        <h3 class="site-footer__col-heading">Navigation</h3>
+        <ul class="site-footer__nav-list">
+          <li><a class="site-footer__nav-link" href="/shop.html">Shop</a></li>
+          <li><a class="site-footer__nav-link" href="/about.html">Über uns</a></li>
+          <li><a class="site-footer__nav-link" href="/faq.html">FAQ</a></li>
+          <li><a class="site-footer__nav-link" href="/kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Rechtliches">
+        <h3 class="site-footer__col-heading">Rechtliches</h3>
+        <ul class="site-footer__nav-list">
+          <li><a class="site-footer__nav-link" href="/impressum.html">Impressum</a></li>
+          <li><a class="site-footer__nav-link" href="/datenschutz.html">Datenschutz</a></li>
+          <li><a class="site-footer__nav-link" href="/agb.html">AGB</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h3 class="site-footer__col-heading">Folgen</h3>
+        <ul class="site-footer__nav-list">
+          <li><a class="site-footer__nav-link" href="https://www.instagram.com/floppa3d_ppstudio/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a class="site-footer__nav-link" href="#" rel="noopener">TikTok <span class="text-xs">(bald)</span></a></li>
+          <li><a class="site-footer__nav-link" href="https://www.etsy.com/de/shop/Floppa3D" target="_blank" rel="noopener noreferrer">Etsy</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="site-footer__bottom">
+      <p class="site-footer__copyright text-xs">&copy; 2026 Floppa3D · Alle Rechte vorbehalten.</p>
+      <ul class="site-footer__legal-links text-xs">
+        <li><a class="site-footer__legal-link" href="/impressum.html">Impressum</a></li>
+        <li><a class="site-footer__legal-link" href="/datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  <script type="module" src="/scripts/theme.js"></script>
+  <script type="module" src="/scripts/main.js"></script>
+</body>
+</html>

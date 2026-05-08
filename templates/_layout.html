@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F5F1EA" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1F1B17" media="(prefers-color-scheme: dark)">
+
+  <title>{{title}} | Floppa3D</title>
+  <meta name="description" content="{{description}}">
+  <link rel="canonical" href="{{canonicalUrl}}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="{{ogType}}">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Floppa3D">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:url" content="{{canonicalUrl}}">
+  <meta property="og:image" content="{{ogImage}}">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{title}}">
+  <meta name="twitter:description" content="{{description}}">
+  <meta name="twitter:image" content="{{ogImage}}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/logos/mark.svg">
+  <link rel="alternate icon" href="/assets/logos/mark-on-light.png">
+
+  <!-- Preload Critical Assets -->
+  <link rel="preload" href="/styles/main.css" as="style">
+  <link rel="preload" href="/assets/logos/mark.svg" as="image" type="image/svg+xml">
+
+  <!-- Theme: prevent flash by setting before render -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('floppa3d-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/styles/main.css">
+
+  {{jsonLd}}
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- HEADER (Navigation Slot) -->
+  {{header}}
+
+  <main id="main">
+    {{content}}
+  </main>
+
+  <!-- FOOTER Slot -->
+  {{footer}}
+
+  <script type="module" src="/scripts/theme.js"></script>
+  <script type="module" src="/scripts/main.js"></script>
+</body>
+</html>

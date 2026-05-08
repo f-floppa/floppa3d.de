@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F5F1EA" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1F1B17" media="(prefers-color-scheme: dark)">
+
+  <title>Shop | Floppa3D</title>
+  <meta name="description" content="Alle Stücke aus dem Floppa3D Studio. Filtern Sie nach Kategorie und Material – Blume, Deko, Organisation. Made in Germany aus PLA oder PETG.">
+  <link rel="canonical" href="https://floppa3d.de/shop.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Floppa3D">
+  <meta property="og:title" content="Shop">
+  <meta property="og:description" content="Alle Stücke aus dem Floppa3D Studio. Filtern Sie nach Kategorie und Material – Blume, Deko, Organisation. Made in Germany aus PLA oder PETG.">
+  <meta property="og:url" content="https://floppa3d.de/shop.html">
+  <meta property="og:image" content="https://floppa3d.de/assets/logos/full-on-light.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shop">
+  <meta name="twitter:description" content="Alle Stücke aus dem Floppa3D Studio. Filtern Sie nach Kategorie und Material – Blume, Deko, Organisation. Made in Germany aus PLA oder PETG.">
+  <meta name="twitter:image" content="https://floppa3d.de/assets/logos/full-on-light.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/logos/mark.svg">
+  <link rel="alternate icon" href="/assets/logos/mark-on-light.png">
+
+  <!-- Preload Critical Assets -->
+  <link rel="preload" href="/styles/main.css" as="style">
+  <link rel="preload" href="/assets/logos/mark.svg" as="image" type="image/svg+xml">
+
+  <!-- Theme: prevent flash by setting before render -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('floppa3d-theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="/styles/main.css">
+
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- HEADER (Navigation Slot) -->
+  <header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__logo" href="/" aria-label="Floppa3D Startseite">
+      <img class="site-header__mark" src="/assets/logos/mark.svg" alt="" width="42" height="32" aria-hidden="true">
+      <span class="site-header__wordmark serif">Floppa3D</span>
+    </a>
+
+    <nav class="site-header__nav" aria-label="Hauptnavigation">
+      <ul class="site-header__nav-list">
+        <li><a class="site-header__nav-link" href="/shop.html">Shop</a></li>
+        <li><a class="site-header__nav-link" href="/about.html">Über uns</a></li>
+        <li><a class="site-header__nav-link" href="/faq.html">FAQ</a></li>
+        <li><a class="site-header__nav-link" href="/kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <button class="theme-toggle" type="button" aria-label="Hell-/Dunkelmodus wechseln" aria-pressed="false" data-theme-toggle>
+        <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+      </button>
+      <button class="site-header__hamburger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="site-drawer" data-nav-toggle>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="site-header__drawer" id="site-drawer" data-nav-menu>
+    <nav class="site-header__drawer-nav" aria-label="Mobile Navigation">
+      <a class="site-header__drawer-link" href="/shop.html">Shop</a>
+      <a class="site-header__drawer-link" href="/about.html">Über uns</a>
+      <a class="site-header__drawer-link" href="/faq.html">FAQ</a>
+      <a class="site-header__drawer-link" href="/kontakt.html">Kontakt</a>
+    </nav>
+  </div>
+  <div class="site-header__backdrop" data-nav-backdrop aria-hidden="true"></div>
+</header>
+
+  <main id="main">
+    <!-- SHOP HEADER -->
+<section class="shop-header section--tight">
+  <div class="container flow">
+    <p class="eyebrow">Shop</p>
+    <h1 class="serif">Alle Stücke.</h1>
+    <p class="lead">6 Stücke aus drei Kategorien. Verkauf läuft direkt über Etsy.</p>
+  </div>
+</section>
+
+<!-- FILTER -->
+<section class="shop-filter" aria-label="Produktfilter">
+  <div class="container shop-filter__inner cluster">
+
+    <div data-filter-group="kategorie" class="cluster">
+      <span class="shop-filter__label eyebrow">Kategorie</span>
+      <button type="button" class="shop-filter__chip" data-filter="all">Alle</button>
+      <button type="button" class="shop-filter__chip" data-filter="kategorie:blumen">Blume</button>
+      <button type="button" class="shop-filter__chip" data-filter="kategorie:organisation">Organisation</button>
+      <button type="button" class="shop-filter__chip" data-filter="kategorie:deko">Deko</button>
+    </div>
+
+    <div data-filter-group="material" class="cluster">
+      <span class="shop-filter__label eyebrow">Material</span>
+      <button type="button" class="shop-filter__chip" data-filter="material:pla">PLA</button>
+      <button type="button" class="shop-filter__chip" data-filter="material:petg">PETG</button>
+    </div>
+
+    <p class="shop-filter__count text-sm" data-result-count></p>
+  </div>
+</section>
+
+<!-- PRODUKTE -->
+<section class="shop-grid-section section">
+  <div class="container">
+    <div class="shop-grid bento">
+      <a class="product-card" href="/produkte/nordic-flow.html"
+    data-product
+    data-category="blumen"
+    data-material="petg"
+    data-tags="blume,gerillt,minimalistisch,petg,indoor">
+    <figure class="product-card__image-wrap">
+      <img src="/assets/products/nordic-flow/01.png" alt="Nordic Flow – Geriffelter Blumentopf" loading="lazy" decoding="async" width="600" height="600">
+    </figure>
+    <div class="product-card__body">
+      <p class="eyebrow">Blume · PETG</p>
+      <h3 class="product-card__title serif">Nordic Flow – Geriffelter Blumentopf</h3>
+      <p class="product-card__price">22,00 €</p>
+    </div>
+  </a>
+<a class="product-card" href="/produkte/stack-pot.html"
+    data-product
+    data-category="blumen"
+    data-material="petg"
+    data-tags="blume,modular,sukkulenten,kräuter,pla,indoor">
+    <figure class="product-card__image-wrap">
+      <img src="/assets/products/stack-pot/01.png" alt="StackPot – Modularer Pflanzenwürfel" loading="lazy" decoding="async" width="600" height="600">
+    </figure>
+    <div class="product-card__body">
+      <p class="eyebrow">Blume · PETG</p>
+      <h3 class="product-card__title serif">StackPot – Modularer Pflanzenwürfel</h3>
+      <p class="product-card__price">18,00 €</p>
+    </div>
+  </a>
+<a class="product-card" href="/produkte/leaf-dock.html"
+    data-product
+    data-category="organisation"
+    data-material="pla"
+    data-tags="organisation,deko,geschenk,pflanzen,pla,indoor">
+    <figure class="product-card__image-wrap">
+      <img src="/assets/products/leaf-dock/01.png" alt="LeafDock – Pflanzen-Zubehörstation" loading="lazy" decoding="async" width="600" height="600">
+    </figure>
+    <div class="product-card__body">
+      <p class="eyebrow">Organisation · PLA</p>
+      <h3 class="product-card__title serif">LeafDock – Pflanzen-Zubehörstation</h3>
+      <p class="product-card__price">16,00 €</p>
+    </div>
+  </a>
+<a class="product-card" href="/produkte/luma-arch.html"
+    data-product
+    data-category="deko"
+    data-material="pla"
+    data-tags="deko,bogen,skandinavisch,regal,pla,indoor">
+    <figure class="product-card__image-wrap">
+      <img src="/assets/products/luma-arch/01.png" alt="Luma Arch – Moderne Bogenfigur" loading="lazy" decoding="async" width="600" height="600">
+    </figure>
+    <div class="product-card__body">
+      <p class="eyebrow">Deko · PLA</p>
+      <h3 class="product-card__title serif">Luma Arch – Moderne Bogenfigur</h3>
+      <p class="product-card__price">19,00 €</p>
+    </div>
+  </a>
+<a class="product-card" href="/produkte/cozy-bunny.html"
+    data-product
+    data-category="deko"
+    data-material="pla"
+    data-tags="deko,hase,ostern,fruehling,geschenk,pla,indoor">
+    <figure class="product-card__image-wrap">
+      <img src="/assets/products/cozy-bunny/01.png" alt="Cozy Bunny – Stilisierter Deko-Hase" loading="lazy" decoding="async" width="600" height="600">
+    </figure>
+    <div class="product-card__body">
+      <p class="eyebrow">Deko · PLA</p>
+      <h3 class="product-card__title serif">Cozy Bunny – Stilisierter Deko-Hase</h3>
+      <p class="product-card__price">17,00 €</p>
+    </div>
+  </a>
+<a class="product-card" href="/produkte/orbit-key-tray.html"
+    data-product
+    data-category="organisation"
+    data-material="pla"
+    data-tags="organisation,deko,schluessel,schmuck,eingang,pla,indoor">
+    <figure class="product-card__image-wrap">
+      <img src="/assets/products/orbit-key-tray/01.png" alt="Orbit Key Tray – Schlüssel- &amp; Schmuckablage" loading="lazy" decoding="async" width="600" height="600">
+    </figure>
+    <div class="product-card__body">
+      <p class="eyebrow">Organisation · PLA</p>
+      <h3 class="product-card__title serif">Orbit Key Tray – Schlüssel- &amp; Schmuckablage</h3>
+      <p class="product-card__price">21,00 €</p>
+    </div>
+  </a>
+    </div>
+
+    <div class="empty-state empty-state--centered" data-empty-state hidden>
+      <p class="empty-state__heading serif">Kein Stück passt zu Ihrer Auswahl.</p>
+      <p class="empty-state__body">Versuchen Sie eine andere Kombination – oder starten Sie mit allen Kategorien.</p>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <!-- FOOTER Slot -->
+  <footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+
+      <div class="site-footer__brand">
+        <a class="site-footer__logo" href="/" aria-label="Floppa3D Startseite">
+          <img class="site-footer__mark" src="/assets/logos/mark.svg" alt="" width="42" height="32" aria-hidden="true">
+          <span class="site-footer__wordmark serif">Floppa3D</span>
+        </a>
+        <p class="site-footer__tagline">Professional Print Studio · Made in Germany</p>
+      </div>
+
+      <nav aria-label="Footer-Navigation">
+        <h3 class="site-footer__col-heading">Navigation</h3>
+        <ul class="site-footer__nav-list">
+          <li><a class="site-footer__nav-link" href="/shop.html">Shop</a></li>
+          <li><a class="site-footer__nav-link" href="/about.html">Über uns</a></li>
+          <li><a class="site-footer__nav-link" href="/faq.html">FAQ</a></li>
+          <li><a class="site-footer__nav-link" href="/kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Rechtliches">
+        <h3 class="site-footer__col-heading">Rechtliches</h3>
+        <ul class="site-footer__nav-list">
+          <li><a class="site-footer__nav-link" href="/impressum.html">Impressum</a></li>
+          <li><a class="site-footer__nav-link" href="/datenschutz.html">Datenschutz</a></li>
+          <li><a class="site-footer__nav-link" href="/agb.html">AGB</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h3 class="site-footer__col-heading">Folgen</h3>
+        <ul class="site-footer__nav-list">
+          <li><a class="site-footer__nav-link" href="https://www.instagram.com/floppa3d_ppstudio/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+          <li><a class="site-footer__nav-link" href="#" rel="noopener">TikTok <span class="text-xs">(bald)</span></a></li>
+          <li><a class="site-footer__nav-link" href="https://www.etsy.com/de/shop/Floppa3D" target="_blank" rel="noopener noreferrer">Etsy</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="site-footer__bottom">
+      <p class="site-footer__copyright text-xs">&copy; 2026 Floppa3D · Alle Rechte vorbehalten.</p>
+      <ul class="site-footer__legal-links text-xs">
+        <li><a class="site-footer__legal-link" href="/impressum.html">Impressum</a></li>
+        <li><a class="site-footer__legal-link" href="/datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+  <script type="module" src="/scripts/theme.js"></script>
+  <script type="module" src="/scripts/main.js"></script>
+</body>
+</html>

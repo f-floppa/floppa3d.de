@@ -1,0 +1,163 @@
+/* =============================================================================
+   main.css — Entry Point
+   Floppa3D — floppa3d.de
+   Imports layer order: reset → variables → typography → layout → components
+   ============================================================================= */
+
+@import url("reset.css");
+@import url("variables.css");
+@import url("typography.css");
+@import url("layout.css");
+@import url("components.css");
+
+/* =============================================================================
+   Global Base Styles
+   ============================================================================= */
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  transition: var(--transition-theme);
+}
+
+[data-theme="dark"] body {
+  background-image: linear-gradient(160deg, #1A1C23 0%, #14161A 100%);
+  background-attachment: fixed;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) body {
+    background-image: linear-gradient(160deg, #1A1C23 0%, #14161A 100%);
+    background-attachment: fixed;
+  }
+}
+
+/* =============================================================================
+   Selection
+   ============================================================================= */
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+::-moz-selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* =============================================================================
+   Focus Styles — Brand-native
+   ============================================================================= */
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* =============================================================================
+   Skip-to-Content Link
+   ============================================================================= */
+
+.skip-link {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: var(--z-skip-link);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform var(--transition-fast);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* =============================================================================
+   Custom Scrollbar — subtle, theme-aware
+   ============================================================================= */
+
+:root {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-fg-muted);
+}
+
+/* =============================================================================
+   Smooth Theme Transitions
+   ============================================================================= */
+
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.no-transition,
+html.no-transition * {
+  transition: none !important;
+}
+
+/* =============================================================================
+   Surface / Card Base
+   ============================================================================= */
+
+.surface {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+/* =============================================================================
+   Divider
+   ============================================================================= */
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin-block: var(--space-6);
+}
+
+/* =============================================================================
+   View Transitions API (modern Chromium)
+   ============================================================================= */
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+}

@@ -1,0 +1,87 @@
+<article class="product">
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Brotkrumen">
+      <ol class="cluster mono text-xs">
+        <li><a href="/">Start</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/shop.html">Shop</a></li>
+        <li aria-hidden="true">›</li>
+        <li><a href="/shop.html?kategorie={{category}}">{{categoryLabel}}</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{{name}}</li>
+      </ol>
+    </nav>
+
+    <header class="product__header section--tight">
+      <p class="eyebrow">{{categoryLabel}} · {{material}}</p>
+      <h1 class="product__title">{{name}}</h1>
+      <p class="lead product__short">{{shortDescription}}</p>
+    </header>
+
+    <div class="product__layout grid-12">
+
+      <!-- Gallery -->
+      <section class="product__gallery-col" aria-label="Produktbilder">
+        {{galleryHtml}}
+      </section>
+
+      <!-- Sticky Info Column -->
+      <aside class="product__info-col">
+
+        <section class="product__story prose flow">
+          <p class="eyebrow">Über das Stück</p>
+          <h2 class="serif">Im Detail.</h2>
+          <p>{{longDescription}}</p>
+        </section>
+
+        <section class="product__meta surface" aria-label="Spezifikationen">
+          <h3 class="eyebrow">Spezifikationen</h3>
+          {{detailsHtml}}
+        </section>
+
+        {{colorsHtml}}
+
+        <section class="product__cta" aria-label="Kauf">
+          <p class="product__price serif">{{price}}</p>
+          <p class="text-sm text-muted">Kauf abgewickelt über Etsy.</p>
+          <a class="btn btn--primary" href="{{etsyUrl}}" target="_blank" rel="noopener noreferrer">
+            <span>Auf Etsy ansehen</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+            </svg>
+          </a>
+        </section>
+      </aside>
+    </div>
+
+    <!-- Sicherheits- und Pflegehinweise -->
+    <section class="product__safety section--tight" aria-label="Sicherheits- und Pflegehinweise">
+      <div class="surface product__safety-box">
+        <p class="eyebrow">Sicherheits- und Pflegehinweise</p>
+        <ul class="product__safety-list">
+          <li>Nicht in unmittelbarer Nähe von offenem Feuer, Heizkörpern oder anderen Hitzequellen platzieren.</li>
+          <li>PLA verformt sich bereits ab ca. 55–60 °C, PETG ab ca. 70–80 °C. Direkte, dauerhafte Sonneneinstrahlung im Innenraum (z. B. hinter Fensterglas) kann zu Verformungen führen.</li>
+          <li>Nicht spülmaschinenfest. Reinigung mit einem leicht feuchten Tuch ohne aggressive oder scheuernde Reinigungsmittel.</li>
+          <li>Kein Spielzeug. Nicht für Kinder unter 36 Monaten geeignet – Kleinteile können sich lösen und verschluckt werden.</li>
+          <li>Nicht für den Kontakt mit heißen Speisen oder Getränken sowie nicht für mikrowellengeeignete Anwendungen vorgesehen.</li>
+          <li>Bei sichtbaren Beschädigungen, Rissen oder Verformungen Verwendung einstellen.</li>
+        </ul>
+        <p class="text-sm text-muted">Detaillierte produktspezifische Hinweise finden Sie im jeweiligen Etsy-Listing.</p>
+      </div>
+    </section>
+
+    <!-- Related -->
+    <section class="product__related section">
+      <header class="product__related-header">
+        <p class="eyebrow">Mehr aus dieser Kategorie</p>
+        <h2 class="serif">Verwandte Stücke.</h2>
+      </header>
+      <div class="bento product__related-grid">
+        {{relatedHtml}}
+      </div>
+    </section>
+
+  </div>
+</article>
