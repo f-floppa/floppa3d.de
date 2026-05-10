@@ -71,11 +71,11 @@
    ============================================================================= */
 
 .section {
-  padding-block: clamp(4rem, 10vw, 8rem);
+  padding-block: clamp(1.75rem, 4vw, 3rem);
 }
 
 .section--tight {
-  padding-block: clamp(2rem, 5vw, 4rem);
+  padding-block: clamp(1rem, 2vw, 1.75rem);
 }
 
 /* =============================================================================
