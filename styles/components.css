@@ -249,9 +249,12 @@
 }
 
 .theme-toggle__icon {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 1.125rem;
   height: 1.125rem;
+  line-height: 1;
   pointer-events: none;
 }
 
@@ -466,11 +469,11 @@
 .btn--ghost {
   background-color: transparent;
   color: var(--color-fg);
-  border-color: var(--color-border);
+  border-color: var(--color-fg);
 }
 
 .btn--ghost:hover {
-  border-color: var(--color-fg);
+  background-color: var(--color-surface);
 }
 
 /* Accent fill */
@@ -1102,6 +1105,17 @@
 [data-theme="light"] .hero--featured .hero__headline,
 [data-theme="light"] .hero--featured .hero__lead {
   color: #F1ECE3;
+}
+
+/* Ghost button always needs light colors on the dark hero overlay */
+.hero--featured .btn--ghost {
+  color: #F1ECE3;
+  border-color: rgba(241, 236, 227, 0.7);
+}
+
+.hero--featured .btn--ghost:hover {
+  background-color: rgba(241, 236, 227, 0.12);
+  border-color: #F1ECE3;
 }
 
 @media (max-width: 768px) {
