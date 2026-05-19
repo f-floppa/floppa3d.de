@@ -32,17 +32,17 @@ function drawF(ctx, ox, oy, color, s) {
 
 function drawThree(ctx, ox, oy, color, s) {
   ctx.fillStyle = color;
-  const rx = ox + 73*s;
+  const rx = ox + 66*s;
   ctx.fillRect(ox, oy + ly(0)*s, 80*s, LAYER_H*s);
   ctx.fillRect(ox, oy + ly(1)*s, 80*s, LAYER_H*s);
-  ctx.fillRect(rx, oy + ly(2)*s, 7*s, LAYER_H*s);
-  ctx.fillRect(rx, oy + ly(3)*s, 7*s, LAYER_H*s);
-  ctx.fillRect(rx, oy + ly(4)*s, 7*s, LAYER_H*s);
+  ctx.fillRect(rx, oy + ly(2)*s, 14*s, LAYER_H*s);
+  ctx.fillRect(rx, oy + ly(3)*s, 14*s, LAYER_H*s);
+  ctx.fillRect(rx, oy + ly(4)*s, 14*s, LAYER_H*s);
   ctx.fillRect(ox, oy + ly(5)*s, 80*s, LAYER_H*s);
   ctx.fillRect(ox, oy + ly(6)*s, 80*s, LAYER_H*s);
-  ctx.fillRect(rx, oy + ly(7)*s, 7*s, LAYER_H*s);
-  ctx.fillRect(rx, oy + ly(8)*s, 7*s, LAYER_H*s);
-  ctx.fillRect(rx, oy + ly(9)*s, 7*s, LAYER_H*s);
+  ctx.fillRect(rx, oy + ly(7)*s, 14*s, LAYER_H*s);
+  ctx.fillRect(rx, oy + ly(8)*s, 14*s, LAYER_H*s);
+  ctx.fillRect(rx, oy + ly(9)*s, 14*s, LAYER_H*s);
   ctx.fillRect(ox, oy + ly(10)*s, 80*s, LAYER_H*s);
   ctx.fillRect(ox, oy + ly(11)*s, 80*s, LAYER_H*s);
 }
