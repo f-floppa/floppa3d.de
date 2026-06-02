@@ -33,9 +33,10 @@
   <link rel="preload" href="/styles/main.css" as="style">
   <link rel="preload" href="/assets/logos/mark.svg" as="image" type="image/svg+xml">
 
-  <!-- Theme: prevent flash by setting before render -->
+  <!-- Theme + JS-ready flag: prevent flash by setting before render -->
   <script>
     (function() {
+      document.documentElement.classList.add('js');
       try {
         var t = localStorage.getItem('floppa3d-theme');
         if (t === 'dark' || t === 'light') {
@@ -53,6 +54,9 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
 
   <!-- HEADER (Navigation Slot) -->
   <header class="site-header">
@@ -94,6 +98,22 @@
 
   <main id="main">
     <article class="product">
+  <!-- Sticky mobile CTA: shown when main CTA is scrolled out of view -->
+  <div class="product__sticky-cta" data-sticky-cta aria-hidden="true">
+    <div class="product__sticky-cta-inner">
+      <div class="product__sticky-cta-info">
+        <p class="product__sticky-cta-name">Orbit Key Tray – Schlüssel- &amp; Schmuckablage</p>
+        <p class="product__sticky-cta-price">21,00 € <span>zzgl. Versand</span></p>
+      </div>
+      <a class="btn btn--primary product__sticky-cta-btn" href="https://www.etsy.com/de/shop/Floppa3D?listing=PLATZHALTER" target="_blank" rel="noopener noreferrer">
+        Auf Etsy
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
   <div class="container">
 
     <!-- Breadcrumb -->
@@ -109,13 +129,13 @@
       </ol>
     </nav>
 
-    <header class="product__header section--tight">
+    <header class="product__header section--tight reveal">
       <p class="eyebrow">Organisation · PLA</p>
       <h1 class="product__title">Orbit Key Tray – Schlüssel- &amp; Schmuckablage</h1>
       <p class="lead product__short">Ablageschale mit organischer Wellenstruktur – für Schlüssel, Schmuck und Kleinteile am Eingang oder Schreibtisch.</p>
     </header>
 
-    <div class="product__layout grid-12">
+    <div class="product__layout grid-12 reveal">
 
       <!-- Gallery -->
       <section class="product__gallery-col" aria-label="Produktbilder">
@@ -137,26 +157,46 @@ Wir drucken den «Orbit Key Tray» aus PLA. Die Variante in Marble White verwend
 
         <section class="product__meta surface" aria-label="Spezifikationen">
           <h3 class="eyebrow">Spezifikationen</h3>
-          <dl class="details-list"><dt>Material</dt><dd>PLA (Marble White: Effektfilament)</dd><dt>Rand</dt><dd>Organische Wellenstruktur, erhöht</dd><dt>AirTag-Vertiefung</dt><dd>optional (bitte bei Bestellung angeben)</dd><dt>Einsatzbereich</dt><dd>Innenbereich</dd><dt>Schichthöhe</dt><dd>0,15 mm</dd></dl>
+          <dl class="details-list"><dt>Material</dt><dd>PLA (Marble White: Effektfilament)</dd><dt>Maße</dt><dd>Ø 16 × H 3 cm</dd><dt>Gewicht</dt><dd>ca. 120 g</dd><dt>Rand</dt><dd>Organische Wellenstruktur, erhöht</dd><dt>AirTag-Vertiefung</dt><dd>optional (bitte bei Bestellung angeben)</dd><dt>Einsatzbereich</dt><dd>Innenbereich</dd><dt>Schichthöhe</dt><dd>0,15 mm</dd><dt>Versand (DE)</dt><dd>DHL Päckchen S · 3,99 €</dd></dl>
         </section>
 
         <section class="product__colors" aria-label="Verfügbare Farben"><h3 class="eyebrow">Farben</h3><ul class="cluster"><li class="color-chip">Matte Black</li><li class="color-chip">Stone Grey</li><li class="color-chip">Sandstone</li><li class="color-chip">Forest Green</li><li class="color-chip">Marble White</li></ul></section>
 
-        <section class="product__cta" aria-label="Kauf">
+        <section class="product__cta" aria-label="Kauf" data-product-cta>
           <p class="product__price serif">21,00 €</p>
-          <p class="text-sm text-muted">Kauf abgewickelt über Etsy.</p>
+          <p class="text-sm text-muted">Preis zzgl. <a href="/faq.html">Versandkosten</a>. Kauf über Etsy.</p>
           <a class="btn btn--primary" href="https://www.etsy.com/de/shop/Floppa3D?listing=PLATZHALTER" target="_blank" rel="noopener noreferrer">
             <span>Auf Etsy ansehen</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
             </svg>
           </a>
+          <ul class="product__trust" aria-label="Vertrauenshinweise">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              Handgefertigt in Bayern
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              Versand mit DHL
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              Auf Bestellung gedruckt
+            </li>
+          </ul>
         </section>
       </aside>
     </div>
 
     <!-- Sicherheits- und Pflegehinweise -->
-    <section class="product__safety section--tight" aria-label="Sicherheits- und Pflegehinweise">
+    <section class="product__safety section--tight reveal" aria-label="Sicherheits- und Pflegehinweise">
       <div class="surface product__safety-box">
         <p class="eyebrow">Sicherheits- und Pflegehinweise</p>
         <ul class="product__safety-list">
@@ -171,13 +211,31 @@ Wir drucken den «Orbit Key Tray» aus PLA. Die Variante in Marble White verwend
       </div>
     </section>
 
+    <!-- Hersteller & Produktidentifikation (Pflichtangaben nach Art. 19 GPSR) -->
+    <section class="product__manufacturer section--tight reveal" aria-label="Hersteller und Produktidentifikation">
+      <div class="surface product__manufacturer-box">
+        <p class="eyebrow">Hersteller & Produktidentifikation</p>
+        <dl class="details-list">
+          <dt>Hersteller</dt>
+          <dd>Floppa3D GbR</dd>
+          <dt>Anschrift</dt>
+          <dd>Auweg 45, 85375 Neufarn bei Freising, Deutschland</dd>
+          <dt>Kontakt</dt>
+          <dd><a href="mailto:management@floppa3d.de">management@floppa3d.de</a></dd>
+          <dt>Modellbezeichnung</dt>
+          <dd>F3D-OKT</dd>
+        </dl>
+        <p class="text-sm text-muted">Pflichtangaben gemäß Art. 19 EU-Produktsicherheitsverordnung (VO (EU) 2023/988).</p>
+      </div>
+    </section>
+
     <!-- Related -->
-    <section class="product__related section">
+    <section class="product__related section reveal">
       <header class="product__related-header">
         <p class="eyebrow">Mehr aus dieser Kategorie</p>
         <h2 class="serif">Verwandte Stücke.</h2>
       </header>
-      <div class="bento product__related-grid">
+      <div class="bento product__related-grid reveal--stagger">
         <a class="product-card" href="/produkte/leaf-dock.html">
     <figure class="product-card__image-wrap">
       <img src="/assets/products/leaf-dock/01.png" alt="LeafDock – Pflanzen-Zubehörstation" loading="lazy" decoding="async" width="600" height="600">
@@ -185,7 +243,7 @@ Wir drucken den «Orbit Key Tray» aus PLA. Die Variante in Marble White verwend
     <div class="product-card__body">
       <p class="eyebrow">Organisation · PLA</p>
       <h3 class="product-card__title serif">LeafDock – Pflanzen-Zubehörstation</h3>
-      <p class="product-card__price">16,00 €</p>
+      <p class="product-card__price">16,00 € <span class="product-card__shipping">zzgl. Versand</span></p>
     </div>
   </a>
       </div>

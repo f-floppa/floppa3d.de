@@ -137,7 +137,7 @@ function productCard(p) {
     <div class="product-card__body">
       <p class="eyebrow">${escapeHtml(p.categoryLabel)} · ${escapeHtml(p.material)}</p>
       <h3 class="product-card__title serif">${escapeHtml(p.name)}</h3>
-      <p class="product-card__price">${escapeHtml(p.price)}</p>
+      <p class="product-card__price">${escapeHtml(p.price)} <span class="product-card__shipping">zzgl. Versand</span></p>
     </div>
   </a>`;
 }
@@ -176,8 +176,8 @@ function renderHeader() {
   return `<header class="site-header">
   <div class="container site-header__inner">
     <a class="site-header__logo" href="/" aria-label="Floppa3D Startseite">
-      <img class="site-header__mark" src="/assets/logos/mark.svg" alt="" width="42" height="32" aria-hidden="true">
-      <span class="site-header__wordmark serif">Floppa3D</span>
+      <img class="site-header__full-logo site-header__full-logo--light" src="/assets/logos/full-transparent.png" alt="Floppa3D">
+      <img class="site-header__full-logo site-header__full-logo--dark" src="/assets/logos/full-transparent-white.png" alt="" aria-hidden="true">
     </a>
 
     <nav class="site-header__nav" aria-label="Hauptnavigation">
@@ -276,6 +276,7 @@ function buildProductPage(product, allProducts, layoutTpl, productTpl) {
     category: escapeAttr(product.category),
     categoryLabel: escapeHtml(product.categoryLabel),
     material: escapeHtml(product.material),
+    modelId: escapeHtml(product.modelId || ''),
     price: escapeHtml(product.price),
     shortDescription: escapeHtml(product.shortDescription),
     longDescription: escapeHtml(product.longDescription),
@@ -417,7 +418,7 @@ function productCardWithDataAttrs(p) {
     <div class="product-card__body">
       <p class="eyebrow">${escapeHtml(p.categoryLabel)} · ${escapeHtml(p.material)}</p>
       <h3 class="product-card__title serif">${escapeHtml(p.name)}</h3>
-      <p class="product-card__price">${escapeHtml(p.price)}</p>
+      <p class="product-card__price">${escapeHtml(p.price)} <span class="product-card__shipping">zzgl. Versand</span></p>
     </div>
   </a>`;
 }

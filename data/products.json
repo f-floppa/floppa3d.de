@@ -2,20 +2,24 @@
   "products": [
     {
       "slug": "nordic-flow",
+      "modelId": "F3D-NF",
       "name": "Nordic Flow – Geriffelter Blumentopf",
       "category": "blumen",
       "categoryLabel": "Blume",
       "material": "PETG",
       "price": "22,00 €",
       "priceNumeric": "22.00",
-      "shortDescription": "Minimalistischer Blumentopf mit feinen vertikalen Rillen – schlicht, hochwertig und ideal für moderne Wohnräume.",
-      "longDescription": "Der «Nordic Flow» bricht mit der klassischen Topf-Form durch ein feines, gleichmäßiges Rillenmuster, das dem Stück eine ruhige Textur verleiht, ohne es zu überladen. Die leicht matte Oberfläche wirkt in jedem Licht gleichmäßig und macht ihn zur stilsicheren Ergänzung für Schreibtisch, Regal oder Fensterbrett. Er passt besonders gut zu Monstera, Efeutute oder kleinen Palmen.\n\nWir drucken den «Nordic Flow» aus PETG – einem robusten Kunststoff, der gegenüber Feuchtigkeit beständig und im Vergleich zu PLA deutlich UV-stabiler ist. Für den Einsatz im Innenbereich sowie auf überdachten Balkonen oder Terrassen ist er gut geeignet; bei dauerhafter direkter Sonneneinstrahlung kann es langfristig zu Farbveränderungen kommen. Im Lieferumfang ist ein versteckter Untersetzer enthalten, der das Abflusswasser aufnimmt, ohne sichtbar zu sein.",
+      "shortDescription": "Minimalistischer Blumentopf mit feinen vertikalen Rillen – schlicht, ruhig, für moderne Wohnräume.",
+      "longDescription": "Der «Nordic Flow» bricht mit der klassischen Topf-Form durch ein feines, gleichmäßiges Rillenmuster. Eine ruhige Textur, ohne zu überladen. Die leicht matte Oberfläche wirkt in jedem Licht gleichmäßig – passend für Schreibtisch, Regal oder Fensterbrett. Er steht gut zu Monstera, Efeutute oder kleinen Palmen.\n\nWir drucken den «Nordic Flow» aus PETG – einem robusten Kunststoff, der gegenüber Feuchtigkeit beständig und im Vergleich zu PLA deutlich UV-stabiler ist. Für den Einsatz im Innenbereich sowie auf überdachten Balkonen oder Terrassen ist er gut geeignet; bei dauerhafter direkter Sonneneinstrahlung kann es langfristig zu Farbveränderungen kommen. Im Lieferumfang ist ein versteckter Untersetzer enthalten, der das Abflusswasser aufnimmt, ohne sichtbar zu sein.",
       "details": {
         "Material": "PETG",
+        "Maße": "Ø 13 × H 14 cm",
+        "Gewicht": "ca. 250 g",
         "Oberfläche": "Matt, gerillt",
         "Drainage": "ja, mit verdecktem Untersetzer",
         "Einsatzbereich": "Innenbereich, überdachter Außenbereich",
-        "Schichthöhe": "0,2 mm"
+        "Schichthöhe": "0,2 mm",
+        "Versand (DE)": "DHL Päckchen M · 4,79 €"
       },
       "colors": ["Sand Beige", "Sage Green", "Terracotta", "Matt Schwarz", "Cremeweiß"],
       "images": [
@@ -31,21 +35,25 @@
     },
     {
       "slug": "stack-pot",
+      "modelId": "F3D-SP",
       "name": "StackPot – Modularer Pflanzenwürfel",
       "category": "blumen",
       "categoryLabel": "Blume",
       "material": "PETG",
       "price": "18,00 €",
       "priceNumeric": "18.00",
-      "shortDescription": "Geometrischer Pflanzwürfel mit stapelbarem Design – perfekt für Kräuter, Sukkulenten und kleine Indoor-Gärten.",
-      "longDescription": "Der «StackPot» ist kein einzelner Topf, sondern ein System. Jeder Würfel lässt sich mit weiteren Exemplaren nebeneinander stellen oder versetzt stapeln – so entstehen kleine Indoor-Gärten, die sich mit der Zeit erweitern lassen. Die klare, geometrische Form macht ihn besonders bei Kräutern und Sukkulenten zur Bühne: Die Pflanzen wirken, der Topf tritt zurück.\n\nJeder «StackPot» ist optional mit einem Wasserablaufloch erhältlich – einfach beim Kauf vermerken. Wir drucken ihn aus PETG – einem robusten Kunststoff, der gegenüber Feuchtigkeit beständig und im Vergleich zu PLA deutlich UV-stabiler ist. Gerade für Töpfe mit regelmäßigem Wasserkontakt ist das die richtige Wahl.",
+      "shortDescription": "Geometrischer Pflanzwürfel mit stapelbarem Design – für Kräuter, Sukkulenten und kleine Indoor-Gärten.",
+      "longDescription": "Der «StackPot» ist kein einzelner Topf, sondern ein System. Jeder Würfel lässt sich mit weiteren Exemplaren nebeneinander stellen oder versetzt stapeln – so entstehen kleine Indoor-Gärten, die mit der Zeit wachsen. Die klare, geometrische Form lässt die Pflanzen wirken, der Topf tritt zurück.\n\nJeder «StackPot» ist optional mit einem Wasserablaufloch erhältlich – einfach bei der Bestellung vermerken. Wir drucken ihn aus PETG: feuchtigkeitsbeständig und deutlich UV-stabiler als PLA – die richtige Wahl für regelmäßigen Wasserkontakt.",
       "details": {
         "Material": "PETG",
+        "Maße": "11 × 11 × 11 cm (pro Würfel)",
+        "Gewicht": "ca. 180 g",
         "Form": "Würfel, stapelbar",
         "Drainage": "optional (bitte bei Bestellung angeben)",
         "Ideal für": "Kräuter, Sukkulenten, kleine Pflanzen",
         "Einsatzbereich": "Innenbereich",
-        "Schichthöhe": "0,2 mm"
+        "Schichthöhe": "0,2 mm",
+        "Versand (DE)": "DHL Päckchen S · 3,99 €"
       },
       "colors": ["Olive Green", "Dusty Rose", "Stone Grey", "Soft Lavender", "Arctic White"],
       "images": [
@@ -61,6 +69,7 @@
     },
     {
       "slug": "leaf-dock",
+      "modelId": "F3D-LD",
       "name": "LeafDock – Pflanzen-Zubehörstation",
       "category": "organisation",
       "categoryLabel": "Organisation",
@@ -71,11 +80,13 @@
       "longDescription": "Der «LeafDock» löst ein stilles Problem: Pflanzenschere, Mini-Sprüher, Pflanzenschilder und Dünger-Pods landen entweder in einer Schublade oder wirken herumgelegt unordentlich. Die Station fasst all das zusammen – in einer organischen Form mit Blattoptik, die neben jedem Topf aussieht wie gewollt und nicht wie Aufbewahrung.\n\nDie Fächer sind für gängige Scheren-Größen, Standard-Mini-Sprüher und handelsübliche Pflanzenschilder ausgelegt. Der niedrige Materialverbrauch macht den «LeafDock» zu einem der am schnellsten produzierbaren Stücke im Sortiment – und zum idealen Geschenk für Pflanzenfreunde, die schon alles haben.\n\nWir drucken ihn aus pflanzenbasiertem PLA. PLA besteht aus nachwachsenden Rohstoffen und ist gemäß EN 13432 unter industriellen Kompostierbedingungen biologisch abbaubar – nicht jedoch im heimischen Kompost.",
       "details": {
         "Material": "PLA",
+        "Maße": "16 × 9 × 9 cm",
+        "Gewicht": "ca. 150 g",
         "Form": "Organisch, Blattoptik",
         "Fächer": "Schere, Sprüher, Pflanzenschilder, Pods",
         "Einsatzbereich": "Innenbereich",
         "Schichthöhe": "0,2 mm",
-        "Geschenkeignung": "sehr gut"
+        "Versand (DE)": "DHL Päckchen S · 3,99 €"
       },
       "colors": ["Forest Green", "Moss Green", "Sandstone", "Clay Brown", "Matte Cream"],
       "images": [
@@ -91,20 +102,24 @@
     },
     {
       "slug": "luma-arch",
+      "modelId": "F3D-LA",
       "name": "Luma Arch – Moderne Bogenfigur",
       "category": "deko",
       "categoryLabel": "Deko",
       "material": "PLA",
       "price": "19,00 €",
       "priceNumeric": "19.00",
-      "shortDescription": "Minimalistische Bogenfigur im skandinavischen Stil – weiche Rundungen, matte Oberfläche, perfekt auf Regal oder Sideboard.",
+      "shortDescription": "Minimalistische Bogenfigur im skandinavischen Stil – weiche Rundungen, matte Oberfläche, für Regal oder Sideboard.",
       "longDescription": "Der «Luma Arch» ist eine Bogenfigur, die nichts behaupten muss. Weiche, mehrschichtige Rundungen und eine konsequent matte Oberfläche machen ihn zur ruhigen Ergänzung für Regal, Schreibtisch oder Sideboard – einzeln als Akzent, zu mehreren als kleines Arrangement.\n\nDas Design ist bewusst zeitlos gehalten: kein Trend, kein Kitsch. Er funktioniert neben Büchern genauso gut wie neben Pflanzen oder Kerzen. Einzeln erhältlich oder als 2er-Set in zwei Größen.\n\nWir drucken den «Luma Arch» aus pflanzenbasiertem PLA. PLA besteht aus nachwachsenden Rohstoffen und ist gemäß EN 13432 unter industriellen Kompostierbedingungen biologisch abbaubar – nicht jedoch im heimischen Kompost.",
       "details": {
         "Material": "PLA",
+        "Maße": "12 × 4 × H 18 cm (Einzelstück)",
+        "Gewicht": "ca. 200 g",
         "Oberfläche": "Matt",
         "Erhältlich als": "Einzelstück oder 2er-Set",
         "Einsatzbereich": "Innenbereich",
-        "Schichthöhe": "0,15 mm"
+        "Schichthöhe": "0,15 mm",
+        "Versand (DE)": "DHL Päckchen M · 4,79 €"
       },
       "colors": ["Sage Green", "Sand Beige", "Dusty Rose", "Lavendel", "Cremeweiß"],
       "images": [
@@ -120,21 +135,24 @@
     },
     {
       "slug": "cozy-bunny",
+      "modelId": "F3D-CB",
       "name": "Cozy Bunny – Stilisierter Deko-Hase",
       "category": "deko",
       "categoryLabel": "Deko",
       "material": "PLA",
       "price": "17,00 €",
       "priceNumeric": "17.00",
-      "shortDescription": "Minimalistischer Deko-Hase mit geriffelter Oberfläche – ganzjährig schön, unschlagbar im Frühling.",
+      "shortDescription": "Minimalistischer Deko-Hase mit geriffelter Oberfläche – ganzjährig schön, besonders zur Osterzeit.",
       "longDescription": "Der «Cozy Bunny» ist stilisiert genug, um das ganze Jahr auf dem Regal zu stehen, und charmant genug, um zu Ostern und im Frühling besonders zu wirken. Die organisch-runde Form und die gerillte Oberfläche – passend zu unseren Blumentöpfen – machen ihn zu einem kohärenten Teil eines größeren Arrangements.\n\nEr ist in zwei Größen erhältlich: die kleine Version (ca. 8 cm) als Einzelfigur oder Tischkarte, die große Version (ca. 14 cm) als zentrales Deko-Element. Optional mit einer Öffnung für ein LED-Teelicht erhältlich – einfach beim Kauf vermerken.\n\nWir drucken den «Cozy Bunny» aus pflanzenbasiertem PLA. PLA besteht aus nachwachsenden Rohstoffen und ist gemäß EN 13432 unter industriellen Kompostierbedingungen biologisch abbaubar – nicht jedoch im heimischen Kompost.",
       "details": {
         "Material": "PLA",
+        "Maße": "Klein: 6 × 6 × H 8 cm · Groß: 9 × 9 × H 14 cm",
+        "Gewicht": "Klein: ca. 90 g · Groß: ca. 220 g",
         "Oberfläche": "Matt, gerillt",
-        "Größen": "Klein (ca. 8 cm) · Groß (ca. 14 cm)",
         "LED-Teelicht-Öffnung": "optional (bitte bei Bestellung angeben)",
         "Einsatzbereich": "Innenbereich",
-        "Schichthöhe": "0,15 mm"
+        "Schichthöhe": "0,15 mm",
+        "Versand (DE)": "Klein: DHL Päckchen S · 3,99 € · Groß: DHL Päckchen M · 4,79 €"
       },
       "colors": ["Terracotta", "Soft Peach", "Matt Weiß", "Olive Green", "Warm Grey"],
       "images": [
@@ -150,20 +168,24 @@
     },
     {
       "slug": "orbit-key-tray",
+      "modelId": "F3D-OKT",
       "name": "Orbit Key Tray – Schlüssel- & Schmuckablage",
       "category": "organisation",
       "categoryLabel": "Organisation",
       "material": "PLA",
       "price": "21,00 €",
       "priceNumeric": "21.00",
-      "shortDescription": "Elegante Ablageschale mit organischer Wellenstruktur – für Schlüssel, Schmuck und Kleinteile am Eingang oder Schreibtisch.",
-      "longDescription": "Der «Orbit Key Tray» ist die Antwort auf den Moment, in dem Schlüssel, Ring und Kopfhörer auf der Ablage landen. Die organische Spiral- und Wellenstruktur des Randes macht aus diesem alltäglichen Moment etwas Bewusstes – die Ablage sieht wie Deko aus, funktioniert aber wie ein Organizer.\n\nDer erhöhte Rand hält Kleinteile an Ort und Stelle. Eine optionale Vertiefung im Boden bietet Platz für einen AirTag oder Münzen – einfach beim Kauf vermerken. Die minimalistische Luxusoptik passt zum Eingangsbereich genauso gut wie zum Nachttisch oder Schreibtisch.\n\nWir drucken den «Orbit Key Tray» aus PLA. Die Variante in Marble White verwendet ein Effektfilament mit natürlicher Maserung – jedes Stück ist dadurch ein Unikat.",
+      "shortDescription": "Ablageschale mit organischer Wellenstruktur – für Schlüssel, Schmuck und Kleinteile am Eingang oder Schreibtisch.",
+      "longDescription": "Der «Orbit Key Tray» ist die Antwort auf den Moment, in dem Schlüssel, Ring und Kopfhörer auf der Ablage landen. Die organische Spiral- und Wellenstruktur des Randes macht aus diesem alltäglichen Moment etwas Bewusstes – die Ablage sieht wie Deko aus, funktioniert aber wie ein Organizer.\n\nDer erhöhte Rand hält Kleinteile an Ort und Stelle. Eine optionale Vertiefung im Boden bietet Platz für einen AirTag oder Münzen – einfach bei der Bestellung vermerken. Die minimalistische Optik passt zum Eingangsbereich, Nachttisch oder Schreibtisch.\n\nWir drucken den «Orbit Key Tray» aus PLA. Die Variante in Marble White verwendet ein Effektfilament mit natürlicher Maserung – jedes Stück ist dadurch ein Unikat.",
       "details": {
         "Material": "PLA (Marble White: Effektfilament)",
+        "Maße": "Ø 16 × H 3 cm",
+        "Gewicht": "ca. 120 g",
         "Rand": "Organische Wellenstruktur, erhöht",
         "AirTag-Vertiefung": "optional (bitte bei Bestellung angeben)",
         "Einsatzbereich": "Innenbereich",
-        "Schichthöhe": "0,15 mm"
+        "Schichthöhe": "0,15 mm",
+        "Versand (DE)": "DHL Päckchen S · 3,99 €"
       },
       "colors": ["Matte Black", "Stone Grey", "Sandstone", "Forest Green", "Marble White"],
       "images": [

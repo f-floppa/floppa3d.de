@@ -33,9 +33,10 @@
   <link rel="preload" href="/styles/main.css" as="style">
   <link rel="preload" href="/assets/logos/mark.svg" as="image" type="image/svg+xml">
 
-  <!-- Theme: prevent flash by setting before render -->
+  <!-- Theme + JS-ready flag: prevent flash by setting before render -->
   <script>
     (function() {
+      document.documentElement.classList.add('js');
       try {
         var t = localStorage.getItem('floppa3d-theme');
         if (t === 'dark' || t === 'light') {
@@ -53,6 +54,9 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
 
   <!-- HEADER (Navigation Slot) -->
   <header class="site-header">
@@ -94,7 +98,7 @@
 
   <main id="main">
     <!-- HERO -->
-<section class="hero section--tight">
+<section class="hero section--tight reveal">
   <div class="container hero__inner">
     <p class="hero__eyebrow eyebrow">Rechtliches</p>
     <h1 class="hero__headline">Datenschutzerklärung</h1>
@@ -105,7 +109,7 @@
 <hr class="section-divider section-divider--full">
 
 <!-- DATENSCHUTZ INHALT -->
-<section class="section" aria-label="Datenschutzerklärung">
+<section class="section reveal" aria-label="Datenschutzerklärung">
   <div class="container--narrow prose flow">
 
     <!-- 1. Verantwortlicher -->

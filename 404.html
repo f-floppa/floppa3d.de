@@ -33,9 +33,10 @@
   <link rel="preload" href="/styles/main.css" as="style">
   <link rel="preload" href="/assets/logos/mark.svg" as="image" type="image/svg+xml">
 
-  <!-- Theme: prevent flash by setting before render -->
+  <!-- Theme + JS-ready flag: prevent flash by setting before render -->
   <script>
     (function() {
+      document.documentElement.classList.add('js');
       try {
         var t = localStorage.getItem('floppa3d-theme');
         if (t === 'dark' || t === 'light') {
@@ -53,6 +54,9 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
 
   <!-- HEADER (Navigation Slot) -->
   <header class="site-header">
@@ -93,7 +97,7 @@
 </header>
 
   <main id="main">
-    <section class="error-page error-page--centered">
+    <section class="error-page error-page--centered reveal">
   <div class="container container--narrow flow">
     <p class="eyebrow">404</p>
     <h1 class="error-page__heading serif">Hier ist nichts.</h1>

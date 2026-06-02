@@ -33,9 +33,10 @@
   <link rel="preload" href="/styles/main.css" as="style">
   <link rel="preload" href="/assets/logos/mark.svg" as="image" type="image/svg+xml">
 
-  <!-- Theme: prevent flash by setting before render -->
+  <!-- Theme + JS-ready flag: prevent flash by setting before render -->
   <script>
     (function() {
+      document.documentElement.classList.add('js');
       try {
         var t = localStorage.getItem('floppa3d-theme');
         if (t === 'dark' || t === 'light') {
@@ -53,6 +54,9 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
 
   <!-- HEADER (Navigation Slot) -->
   <header class="site-header">
@@ -94,7 +98,7 @@
 
   <main id="main">
     <!-- HERO -->
-<section class="hero">
+<section class="hero reveal">
   <div class="container hero__inner">
     <p class="hero__eyebrow eyebrow">Über uns</p>
     <h1 class="hero__headline">Zwei Studenten. Eine Idee. Viel Leidenschaft.</h1>
@@ -105,7 +109,7 @@
 <hr class="section-divider section-divider--full">
 
 <!-- STORY -->
-<section class="section" aria-label="Unsere Geschichte">
+<section class="section reveal" aria-label="Unsere Geschichte">
   <div class="container">
     <p class="eyebrow">Geschichte</p>
     <h2 class="serif">Wie Floppa3D entstand.</h2>
@@ -135,11 +139,11 @@
 <hr class="section-divider section-divider--full">
 
 <!-- WERTE -->
-<section class="section section--tight" aria-label="Unsere Werte">
+<section class="section section--tight reveal" aria-label="Unsere Werte">
   <div class="container">
     <p class="eyebrow">Haltung</p>
     <h2 class="serif">Was uns leitet.</h2>
-    <div class="grid-12" role="list" aria-label="Werte">
+    <div class="grid-12 reveal--stagger" role="list" aria-label="Werte">
 
       <article class="stack" style="grid-column: span 4;" role="listitem">
         <p class="eyebrow">Form</p>
@@ -166,7 +170,7 @@
 <hr class="section-divider section-divider--full">
 
 <!-- CTA -->
-<section class="section section--tight" aria-label="Sortiment">
+<section class="section section--tight reveal" aria-label="Sortiment">
   <div class="container--narrow flow">
     <p class="eyebrow">Sortiment</p>
     <h2 class="serif">Überzeugen Sie sich selbst.</h2>

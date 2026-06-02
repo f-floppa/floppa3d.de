@@ -279,10 +279,14 @@
    ============================================================================= */
 
 .site-footer {
-  padding-block: var(--space-10);
+  padding-block: var(--space-8);
   background-color: var(--color-surface);
   border-top: 1px solid var(--color-border);
   transition: var(--transition-theme);
+}
+
+.site-footer > .container {
+  max-width: 1080px;
 }
 
 .site-footer__grid {
@@ -356,8 +360,8 @@
 
 /* Bottom strip */
 .site-footer__bottom {
-  margin-block-start: var(--space-10);
-  padding-block-start: var(--space-5);
+  margin-block-start: var(--space-7);
+  padding-block-start: var(--space-4);
   border-top: 1px solid var(--color-border);
   display: flex;
   align-items: center;
@@ -598,6 +602,12 @@
   margin-block-start: var(--space-2);
 }
 
+.product-card__shipping {
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  margin-inline-start: 0.4em;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .product-card__image-wrap img,
   .product-card__image-wrap picture {
@@ -734,6 +744,18 @@
 
 .product__safety-list li {
   line-height: 1.55;
+}
+
+.product__manufacturer {
+  margin-block-start: var(--space-8);
+}
+
+.product__manufacturer-box {
+  padding: var(--space-5) var(--space-6);
+}
+
+.product__manufacturer-box .details-list {
+  margin-block: var(--space-3) var(--space-4);
 }
 
 .product__price {
@@ -988,9 +1010,13 @@
    ============================================================================= */
 
 .hero {
-  padding-block: var(--space-8);
+  padding-block: var(--space-7) var(--space-4);
   position: relative;
   overflow: hidden;
+}
+
+.hero.section--tight {
+  padding-block: var(--space-6) var(--space-3);
 }
 
 /* Decorative background pseudo-element (F3-pattern feel) */
@@ -1761,7 +1787,7 @@
   background-color: var(--color-border);
   max-width: 200px;
   border: none;
-  margin-block: var(--space-5);
+  margin-block: var(--space-3);
   margin-inline: 0;
 }
 
@@ -1880,4 +1906,214 @@ section h2.serif {
   content: "";
   display: table;
   clear: both;
+}
+
+
+/* =============================================================================
+   REVEAL ON SCROLL — subtle fade-up for sections
+   ============================================================================= */
+
+/* Default (no-JS): always visible, no animation */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* When JS is ready: hide until intersected */
+html.js .reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+html.js .reveal {
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+html.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Staggered children: each child slightly delayed */
+html.js .reveal--stagger > * {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.js .reveal--stagger.is-visible > *:nth-child(1) { transition-delay: 0ms; }
+html.js .reveal--stagger.is-visible > *:nth-child(2) { transition-delay: 60ms; }
+html.js .reveal--stagger.is-visible > *:nth-child(3) { transition-delay: 120ms; }
+html.js .reveal--stagger.is-visible > *:nth-child(4) { transition-delay: 180ms; }
+html.js .reveal--stagger.is-visible > *:nth-child(5) { transition-delay: 240ms; }
+html.js .reveal--stagger.is-visible > *:nth-child(6) { transition-delay: 300ms; }
+html.js .reveal--stagger.is-visible > *:nth-child(n+7) { transition-delay: 360ms; }
+
+html.js .reveal--stagger.is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+
+/* Reduced motion: no transforms, no transitions */
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal,
+  html.js .reveal--stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* =============================================================================
+   PRODUCT CARD HOVER LIFT — subtle vertical lift on hover
+   ============================================================================= */
+
+.product-card {
+  transition: transform var(--transition-base);
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card,
+  .product-card:hover {
+    transform: none;
+    transition: none;
+  }
+}
+
+
+/* =============================================================================
+   SCROLL PROGRESS INDICATOR
+   ============================================================================= */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  z-index: 110;
+  pointer-events: none;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress { display: none; }
+}
+
+/* =============================================================================
+   PRODUCT TRUST STRIP — three reassurance bullets under main CTA
+   ============================================================================= */
+
+.product__trust {
+  margin-block-start: var(--space-4);
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.product__trust li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-xs);
+  color: var(--color-fg-muted);
+  letter-spacing: 0.01em;
+}
+
+.product__trust svg {
+  flex-shrink: 0;
+  color: var(--color-accent);
+  opacity: 0.85;
+}
+
+/* =============================================================================
+   STICKY PRODUCT CTA — mobile bottom bar with price + Etsy button
+   ============================================================================= */
+
+.product__sticky-cta {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-3) var(--space-4);
+  padding-block-end: max(var(--space-3), env(safe-area-inset-bottom));
+  z-index: 90;
+  transform: translateY(110%);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.04);
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .product__sticky-cta {
+    display: block;
+  }
+  body.has-sticky-cta {
+    padding-block-end: 76px;
+  }
+}
+
+.product__sticky-cta.is-visible {
+  transform: translateY(0);
+}
+
+.product__sticky-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  max-width: 100%;
+}
+
+.product__sticky-cta-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.product__sticky-cta-name {
+  font-family: var(--font-serif);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product__sticky-cta-price {
+  font-size: var(--fs-xs);
+  color: var(--color-fg-muted);
+  margin-block-start: 2px;
+}
+
+.product__sticky-cta-price span {
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+.product__sticky-cta-btn {
+  flex-shrink: 0;
+  padding-inline: var(--space-4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product__sticky-cta {
+    transition: none;
+  }
 }

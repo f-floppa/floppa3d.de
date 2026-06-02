@@ -33,9 +33,10 @@
   <link rel="preload" href="/styles/main.css" as="style">
   <link rel="preload" href="/assets/logos/mark.svg" as="image" type="image/svg+xml">
 
-  <!-- Theme: prevent flash by setting before render -->
+  <!-- Theme + JS-ready flag: prevent flash by setting before render -->
   <script>
     (function() {
+      document.documentElement.classList.add('js');
       try {
         var t = localStorage.getItem('floppa3d-theme');
         if (t === 'dark' || t === 'light') {
@@ -53,6 +54,9 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
 
   <!-- HEADER (Navigation Slot) -->
   <header class="site-header">
@@ -94,7 +98,7 @@
 
   <main id="main">
     <!-- HERO -->
-<section class="hero section--tight">
+<section class="hero section--tight reveal">
   <div class="container hero__inner">
     <p class="hero__eyebrow eyebrow">Rechtliches</p>
     <h1 class="hero__headline">Impressum</h1>
@@ -105,7 +109,7 @@
 <hr class="section-divider section-divider--full">
 
 <!-- IMPRESSUM INHALT -->
-<section class="section" aria-label="Impressum">
+<section class="section reveal" aria-label="Impressum">
   <div class="container--narrow prose flow">
 
     <!-- Diensteanbieter -->
@@ -158,13 +162,6 @@
 
     <!-- Streitschlichtung -->
     <h2 class="serif">Streitschlichtung</h2>
-    <p>
-      Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
-      <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr</a>.
-    </p>
-    <p>
-      Unsere E-Mail-Adresse lautet: <a href="mailto:management@floppa3d.de">management@floppa3d.de</a>
-    </p>
     <p>
       Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen (§ 36 Verbraucherstreitbeilegungsgesetz – VSBG).
     </p>

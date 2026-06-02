@@ -61,7 +61,7 @@ function setupSmoothScroll() {
  * Intersection Observer for reveal animations
  */
 function setupRevealObserver() {
-  const reveals = document.querySelectorAll('.reveal');
+  const reveals = document.querySelectorAll('.reveal, .reveal--stagger');
 
   // If reduced motion is preferred, just show all reveals immediately
   if (REDUCED_MOTION.matches) {
@@ -81,8 +81,8 @@ function setupRevealObserver() {
       });
     },
     {
-      threshold: 0.15,
-      rootMargin: '-50px',
+      threshold: 0.08,
+      rootMargin: '0px 0px -80px 0px',
     }
   );
 
@@ -219,6 +219,63 @@ function setupShopFilter() {
 }
 
 /**
+ * Scroll progress bar at the top of the viewport.
+ * Reflects how far through the document the user has scrolled.
+ */
+function setupScrollProgress() {
+  if (REDUCED_MOTION.matches) return;
+  const bar = document.querySelector('[data-scroll-progress]');
+  if (!bar) return;
+
+  let ticking = false;
+  function update() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+    bar.style.transform = `scaleX(${Math.min(Math.max(progress, 0), 1)})`;
+    ticking = false;
+  }
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    },
+    { passive: true }
+  );
+
+  update();
+}
+
+/**
+ * Sticky CTA bar on product detail pages:
+ * shows when the in-page CTA scrolls out of view (mobile only via CSS).
+ */
+function setupStickyProductCta() {
+  const sticky = document.querySelector('[data-sticky-cta]');
+  const cta = document.querySelector('[data-product-cta]');
+  if (!sticky || !cta) return;
+
+  // Reserve bottom space on mobile so the sticky bar never overlaps content
+  document.body.classList.add('has-sticky-cta');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const entry = entries[0];
+      const show = !entry.isIntersecting;
+      sticky.classList.toggle('is-visible', show);
+      sticky.setAttribute('aria-hidden', show ? 'false' : 'true');
+    },
+    { threshold: 0, rootMargin: '0px 0px -10px 0px' }
+  );
+
+  observer.observe(cta);
+}
+
+/**
  * Main initialization function
  */
 function init() {
@@ -227,6 +284,8 @@ function init() {
   setupRevealObserver();
   setupGallery();
   setupShopFilter();
+  setupScrollProgress();
+  setupStickyProductCta();
 }
 
 /**
