@@ -93,6 +93,7 @@ function setupRevealObserver() {
 
 /**
  * Gallery: hover = preview, click = select, mouseleave = revert to selected
+ * Also wires up tap-to-zoom lightbox and mobile swipe pagination dots.
  */
 function setupGallery() {
   const gallery = document.querySelector('.gallery');
@@ -101,56 +102,134 @@ function setupGallery() {
   const mainImg = gallery.querySelector('.gallery__main img');
   const thumbs = gallery.querySelectorAll('.gallery__thumb');
 
-  if (!mainImg || thumbs.length === 0) return;
+  if (mainImg && thumbs.length > 0) {
+    let selectedSrc = mainImg.src;
 
-  let selectedSrc = mainImg.src;
+    function setMainSrc(src) {
+      mainImg.src = src;
+    }
 
-  function setMainSrc(src) {
-    mainImg.src = src;
+    function setSelected(thumb) {
+      thumbs.forEach((t) => t.removeAttribute('aria-current'));
+      thumb.setAttribute('aria-current', 'true');
+      selectedSrc = thumb.dataset.src;
+    }
+
+    thumbs.forEach((thumb) => {
+      thumb.addEventListener('mouseenter', () => setMainSrc(thumb.dataset.src));
+      thumb.addEventListener('mouseleave', () => setMainSrc(selectedSrc));
+      thumb.addEventListener('click', () => {
+        setSelected(thumb);
+        setMainSrc(selectedSrc);
+      });
+    });
   }
 
-  function setSelected(thumb) {
-    thumbs.forEach((t) => t.removeAttribute('aria-current'));
-    thumb.setAttribute('aria-current', 'true');
-    selectedSrc = thumb.dataset.src;
+  // Tap-to-Zoom lightbox
+  setupGalleryZoom(gallery);
+
+  // Mobile swipe pagination dots
+  setupGallerySwipe(gallery);
+}
+
+/**
+ * Tap-to-Zoom: click the main image to open a <dialog> lightbox.
+ */
+function setupGalleryZoom(gallery) {
+  const trigger = gallery.querySelector('[data-gallery-zoom]');
+  if (!trigger) return;
+
+  let dialog = document.querySelector('.gallery-lightbox');
+  if (!dialog) {
+    dialog = document.createElement('dialog');
+    dialog.className = 'gallery-lightbox';
+    dialog.setAttribute('aria-label', 'Bildvorschau');
+    dialog.innerHTML = `
+      <button class="gallery-lightbox__close" aria-label="Schließen" autofocus>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <figure class="gallery-lightbox__figure">
+        <img class="gallery-lightbox__img" src="" alt="">
+      </figure>`;
+    document.body.appendChild(dialog);
+
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog || e.target.closest('.gallery-lightbox__close')) {
+        dialog.close();
+      }
+    });
+    dialog.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') dialog.close();
+    });
   }
 
-  thumbs.forEach((thumb) => {
-    thumb.addEventListener('mouseenter', () => {
-      setMainSrc(thumb.dataset.src);
-    });
+  const lightboxImg = dialog.querySelector('.gallery-lightbox__img');
 
-    thumb.addEventListener('mouseleave', () => {
-      setMainSrc(selectedSrc);
-    });
+  trigger.style.cursor = 'zoom-in';
+  trigger.addEventListener('click', () => {
+    lightboxImg.src = trigger.src;
+    lightboxImg.alt = trigger.alt;
+    dialog.showModal();
+  });
+}
 
-    thumb.addEventListener('click', () => {
-      setSelected(thumb);
-      setMainSrc(selectedSrc);
+/**
+ * Mobile swipe gallery: sync pagination dots with scroll-snap track.
+ */
+function setupGallerySwipe(gallery) {
+  const track = gallery.querySelector('.gallery__swipe-track');
+  const dots = gallery.querySelectorAll('.gallery__swipe-dot');
+  if (!track || dots.length === 0) return;
+
+  function updateDots() {
+    const slides = track.querySelectorAll('.gallery__swipe-slide');
+    if (slides.length === 0) return;
+    const slideWidth = slides[0].offsetWidth;
+    if (slideWidth === 0) return;
+    const index = Math.round(track.scrollLeft / slideWidth);
+    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+  }
+
+  track.addEventListener('scroll', updateDots, { passive: true });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      const slides = track.querySelectorAll('.gallery__swipe-slide');
+      if (slides[i]) {
+        track.scrollTo({ left: slides[i].offsetLeft, behavior: 'smooth' });
+      }
     });
   });
 }
 
 /**
  * Shop filter: multi-select chips for kategorie + material.
+ * Works across both the desktop sticky bar and the mobile bottom-sheet.
  * - Click chip: toggle on/off (multiple allowed per group)
- * - "Alle" clears the kategorie group
+ * - "Alle" clears both groups
  * - Empty group = no restriction (show all)
  * - URL param ?kategorie=blumen,deko&material=pla pre-selects on load
  */
 function setupShopFilter() {
+  // All chips — desktop bar + bottom sheet
   const chips = document.querySelectorAll('.shop-filter__chip[data-filter]');
   if (chips.length === 0) return;
 
   const cards = document.querySelectorAll('[data-product]');
   const emptyState = document.querySelector('[data-empty-state]');
   const countEl = document.querySelector('[data-result-count]');
+  const activeCountEl = document.querySelector('[data-filter-active-count]');
 
-  // Active filter state: Sets per group
   const active = {
     kategorie: new Set(),
     material: new Set(),
   };
+
+  function activeTotal() {
+    return active.kategorie.size + active.material.size;
+  }
 
   function applyFilter() {
     let visible = 0;
@@ -166,6 +245,11 @@ function setupShopFilter() {
       countEl.textContent = visible === cards.length
         ? `${visible} Stücke`
         : `${visible} von ${cards.length} Stücken`;
+    }
+    if (activeCountEl) {
+      const n = activeTotal();
+      activeCountEl.textContent = n;
+      activeCountEl.hidden = n === 0;
     }
   }
 
@@ -201,21 +285,44 @@ function setupShopFilter() {
     });
   });
 
-  // Read URL params on load: comma-separated for multi-select
-  // ?kategorie=blumen,deko&material=pla
   const params = new URLSearchParams(window.location.search);
   const katParam = params.get('kategorie');
   const matParam = params.get('material');
-
-  if (katParam) {
-    katParam.split(',').forEach((v) => v && active.kategorie.add(v.trim()));
-  }
-  if (matParam) {
-    matParam.split(',').forEach((v) => v && active.material.add(v.trim()));
-  }
+  if (katParam) katParam.split(',').forEach((v) => v && active.kategorie.add(v.trim()));
+  if (matParam) matParam.split(',').forEach((v) => v && active.material.add(v.trim()));
 
   syncChipStates();
   applyFilter();
+}
+
+/**
+ * Mobile bottom-sheet filter panel.
+ */
+function setupFilterSheet() {
+  const sheet = document.querySelector('[data-filter-sheet]');
+  if (!sheet) return;
+
+  const openBtns = document.querySelectorAll('[data-filter-sheet-open]');
+  const closeBtns = document.querySelectorAll('[data-filter-sheet-close]');
+
+  function openSheet() {
+    sheet.classList.add('is-open');
+    sheet.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSheet() {
+    sheet.classList.remove('is-open');
+    sheet.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  openBtns.forEach((btn) => btn.addEventListener('click', openSheet));
+  closeBtns.forEach((btn) => btn.addEventListener('click', closeSheet));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sheet.classList.contains('is-open')) closeSheet();
+  });
 }
 
 /**
@@ -284,6 +391,7 @@ function init() {
   setupRevealObserver();
   setupGallery();
   setupShopFilter();
+  setupFilterSheet();
   setupScrollProgress();
   setupStickyProductCta();
 }

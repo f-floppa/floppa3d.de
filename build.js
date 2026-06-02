@@ -74,8 +74,10 @@ function generateGallery(images, name) {
   const safeName = escapeAttr(name);
 
   let html = '<div class="gallery">';
+
+  // Desktop: main image (zoomable) + thumbs column
   html += `<figure class="gallery__main" id="gallery-main">`;
-  html += `<img src="/assets/products/${escapeAttr(main)}" alt="${safeName}" loading="eager" decoding="async" width="1200" height="1200">`;
+  html += `<img src="/assets/products/${escapeAttr(main)}" alt="${safeName}" loading="eager" decoding="async" width="1200" height="1200" data-gallery-zoom aria-label="Vergrößern">`;
   html += `</figure>`;
 
   html += '<div class="gallery__thumbs">';
@@ -86,6 +88,25 @@ function generateGallery(images, name) {
     html += `<button class="gallery__thumb" data-src="${src}" data-index="${i}" aria-label="Bild ${i + 1} anzeigen"${current}>`;
     html += `<img src="${src}" alt="" loading="lazy" decoding="async" width="200" height="200">`;
     html += `</button>`;
+  }
+  html += '</div>';
+
+  // Mobile: horizontal scroll-snap swipe track
+  html += '<div class="gallery__swipe" aria-hidden="true">';
+  html += '<div class="gallery__swipe-track">';
+  for (let i = 0; i < images.length; i++) {
+    const src = `/assets/products/${escapeAttr(images[i])}`;
+    html += `<figure class="gallery__swipe-slide">`;
+    html += `<img src="${src}" alt="${i === 0 ? safeName : ''}" loading="${i === 0 ? 'eager' : 'lazy'}" decoding="async" width="1200" height="1200">`;
+    html += `</figure>`;
+  }
+  html += '</div>';
+  if (images.length > 1) {
+    html += '<div class="gallery__swipe-dots" role="tablist" aria-label="Bild wählen">';
+    for (let i = 0; i < images.length; i++) {
+      html += `<button class="gallery__swipe-dot${i === 0 ? ' is-active' : ''}" role="tab" aria-label="Bild ${i + 1}" data-dot="${i}"></button>`;
+    }
+    html += '</div>';
   }
   html += '</div>';
 
@@ -130,16 +151,17 @@ function generateRelated(currentSlug, currentCategory, allProducts) {
 
 function productCard(p) {
   const img = (p.images && p.images[0]) ? p.images[0] : 'placeholder.webp';
-  return `<a class="product-card" href="/produkte/${escapeAttr(p.slug)}.html">
+  const href = `/produkte/${escapeAttr(p.slug)}.html`;
+  return `<div class="product-card">
     <figure class="product-card__image-wrap">
       <img src="/assets/products/${escapeAttr(img)}" alt="${escapeAttr(p.name)}" loading="lazy" decoding="async" width="600" height="600">
     </figure>
     <div class="product-card__body">
       <p class="eyebrow">${escapeHtml(p.categoryLabel)} · ${escapeHtml(p.material)}</p>
-      <h3 class="product-card__title serif">${escapeHtml(p.name)}</h3>
+      <h3 class="product-card__title serif"><a class="product-card__link" href="${href}">${escapeHtml(p.name)}</a></h3>
       <p class="product-card__price">${escapeHtml(p.price)} <span class="product-card__shipping">zzgl. Versand</span></p>
     </div>
-  </a>`;
+  </div>`;
 }
 
 function generateJsonLd(product) {
@@ -407,7 +429,8 @@ function buildStaticPage(page, layoutTpl, allProducts) {
 function productCardWithDataAttrs(p) {
   const img = (p.images && p.images[0]) ? p.images[0] : 'placeholder.webp';
   const tags = (p.tags || []).join(',');
-  return `<a class="product-card" href="/produkte/${escapeAttr(p.slug)}.html"
+  const href = `/produkte/${escapeAttr(p.slug)}.html`;
+  return `<div class="product-card"
     data-product
     data-category="${escapeAttr(p.category)}"
     data-material="${escapeAttr(p.material.toLowerCase())}"
@@ -417,10 +440,10 @@ function productCardWithDataAttrs(p) {
     </figure>
     <div class="product-card__body">
       <p class="eyebrow">${escapeHtml(p.categoryLabel)} · ${escapeHtml(p.material)}</p>
-      <h3 class="product-card__title serif">${escapeHtml(p.name)}</h3>
+      <h3 class="product-card__title serif"><a class="product-card__link" href="${href}">${escapeHtml(p.name)}</a></h3>
       <p class="product-card__price">${escapeHtml(p.price)} <span class="product-card__shipping">zzgl. Versand</span></p>
     </div>
-  </a>`;
+  </div>`;
 }
 
 // -----------------------------------------------------------------------------
