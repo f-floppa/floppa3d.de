@@ -1,5 +1,19 @@
 # Offene Punkte — nur Florian/Paul können das liefern
 
+## [P7] Hero-Timelapse drehen (sobald möglich)
+- **Was fehlt:** Video eines Drucks im Zeitraffer: 10–15 s, 1080p, loopfähig, **< 15 MB**
+- **Wo:** `assets/video/hero-timelapse.mp4` ablegen — die Startseite bindet es automatisch ein (bei Reduced-Motion bleibt es aus). Kein Build nötig.
+
+## [P7] Instagram-Grid (10 Min)
+- **Was fehlt:** Mindestens 6 quadratische Bilder unter `assets/social/`
+- **Status:** Bewusst noch nicht eingebaut (kein Embed, keine externen Scripts geplant — statisches Grid mit Link aufs Profil). Bilder ablegen, dann kurz Bescheid geben oder selbst ein 6er-Grid auf der Startseite ergänzen.
+
+## [P7] Analytics aktivieren (optional, 5 Min)
+- Vorbereitet aber inaktiv — Anleitung in `docs/analytics-setup.md`, DSE-Absatz-Entwurf in `docs/dse-absatz-analytics.md` (vor Einbau prüfen!).
+
+## [Bonus] Schrift-Subsets prüfen (optional)
+- Fraunces/Inter Tight/JetBrains Mono wurden als Variable Fonts (latin-Subset, SIL-OFL) self-hosted nach `assets/fonts/` geladen — die Site nutzt damit erstmals ihre eigentliche Typografie. Kurz visuell abnehmen.
+
 ## [P5] Farbbilder für Swatch-Bildwechsel (optional, ca. 30 Min)
 - **Was fehlt:** Je Produkt Fotos/Renders pro Farbvariante — aktuell existiert für KEIN Produkt ein Farbbild
 - **Schema:** `assets/products/<slug>/farbe-<name>.webp` (Name kleingeschrieben, Leerzeichen → `-`, Umlaute ae/oe/ue/ss; z. B. `farbe-sand-beige.webp`)

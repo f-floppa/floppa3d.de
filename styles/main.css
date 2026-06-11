@@ -334,3 +334,35 @@ html.no-transition * {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
 }
+
+/* =============================================================================
+   Timelapse-Hero-Video (wird per JS nur eingefügt, wenn die Datei existiert)
+   ============================================================================= */
+
+.hero--featured {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Lesbarkeits-Overlay über dem Video, unter dem Inhalt */
+.hero--featured:has(.hero-video)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18, 24, 32, 0.55), rgba(18, 24, 32, 0.35));
+  z-index: 0;
+}
+
+.hero--featured .hero__inner {
+  position: relative;
+  z-index: 1;
+}

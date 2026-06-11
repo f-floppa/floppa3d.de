@@ -283,6 +283,40 @@ function setupViewer3d() {
 }
 
 /**
+ * Timelapse-Hero: Video nur einbinden, wenn die Datei existiert
+ * und keine Reduced-Motion-Präferenz gesetzt ist.
+ */
+async function setupHeroVideo() {
+  const hero = document.querySelector('.hero--featured');
+  if (!hero || REDUCED_MOTION.matches) return;
+
+  try {
+    const r = await fetch('/assets/video/hero-timelapse.mp4', { method: 'HEAD' });
+    if (!r.ok) return;
+    const v = document.createElement('video');
+    Object.assign(v, { muted: true, loop: true, autoplay: true, playsInline: true });
+    v.setAttribute('muted', '');
+    v.setAttribute('playsinline', '');
+    v.src = '/assets/video/hero-timelapse.mp4';
+    v.className = 'hero-video';
+    v.setAttribute('aria-hidden', 'true');
+    hero.prepend(v);
+  } catch (e) {
+    /* Datei fehlt/offline → Hero bleibt wie gehabt */
+  }
+}
+
+/**
+ * Kontaktformular: ?betreff=… aus der URL ins Betreff-Feld übernehmen
+ */
+function setupContactPrefill() {
+  const subject = document.getElementById('contact-subject');
+  if (!subject) return;
+  const betreff = new URLSearchParams(window.location.search).get('betreff');
+  if (betreff && !subject.value) subject.value = betreff;
+}
+
+/**
  * Main initialization function
  */
 function init() {
@@ -294,6 +328,8 @@ function init() {
   setupStickyCta();
   setupSwatches();
   setupViewer3d();
+  setupHeroVideo();
+  setupContactPrefill();
 }
 
 /**
