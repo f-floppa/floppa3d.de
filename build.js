@@ -65,17 +65,51 @@ function renderTemplate(tpl, data) {
 }
 
 // -----------------------------------------------------------------------------
+// Images: echte PNG-Maße lesen (IHDR-Header, nur Builtins) + <picture>-Helper
+// -----------------------------------------------------------------------------
+
+const PNG_DIM_CACHE = new Map();
+
+function pngDimensions(relPath) {
+  if (PNG_DIM_CACHE.has(relPath)) return PNG_DIM_CACHE.get(relPath);
+  let dims = null;
+  try {
+    const fd = fs.openSync(path.join(ROOT, relPath), 'r');
+    const buf = Buffer.alloc(24);
+    fs.readSync(fd, buf, 0, 24, 0);
+    fs.closeSync(fd);
+    if (buf.readUInt32BE(12) === 0x49484452) { // "IHDR"
+      dims = { width: buf.readUInt32BE(16), height: buf.readUInt32BE(20) };
+    }
+  } catch (e) { /* Datei fehlt → Fallback-Maße des Aufrufers */ }
+  PNG_DIM_CACHE.set(relPath, dims);
+  return dims;
+}
+
+/**
+ * <picture> mit WebP-Quelle und PNG-Fallback. `srcPng` beginnt mit "/".
+ * priority=true → fetchpriority=high statt lazy (für LCP-Bilder).
+ */
+function pictureHtml(srcPng, alt, { fallbackW = 600, fallbackH = 600, priority = false } = {}) {
+  const webp = srcPng.replace(/\.png$/i, '.webp');
+  const dims = pngDimensions(srcPng.slice(1)) || { width: fallbackW, height: fallbackH };
+  const loadingAttrs = priority
+    ? 'fetchpriority="high" decoding="async"'
+    : 'loading="lazy" decoding="async"';
+  return `<picture><source srcset="${escapeAttr(webp)}" type="image/webp"><img src="${escapeAttr(srcPng)}" alt="${escapeAttr(alt)}" width="${dims.width}" height="${dims.height}" ${loadingAttrs}></picture>`;
+}
+
+// -----------------------------------------------------------------------------
 // HTML Generators
 // -----------------------------------------------------------------------------
 
-function generateGallery(images, name) {
+function generateGallery(images, name, slug) {
   if (!images || images.length === 0) return '';
   const main = images[0];
-  const safeName = escapeAttr(name);
 
   let html = '<div class="gallery">';
-  html += `<figure class="gallery__main" id="gallery-main">`;
-  html += `<img src="/assets/products/${escapeAttr(main)}" alt="${safeName}" loading="eager" decoding="async" width="1200" height="1200">`;
+  html += `<figure class="gallery__main" id="gallery-main" style="view-transition-name: vt-${escapeAttr(slug)}">`;
+  html += pictureHtml(`/assets/products/${main}`, name, { priority: true });
   html += `</figure>`;
 
   html += '<div class="gallery__thumbs">';
@@ -84,7 +118,7 @@ function generateGallery(images, name) {
     const src = `/assets/products/${escapeAttr(img)}`;
     const current = i === 0 ? ' aria-current="true"' : '';
     html += `<button class="gallery__thumb" data-src="${src}" data-index="${i}" aria-label="Bild ${i + 1} anzeigen"${current}>`;
-    html += `<img src="${src}" alt="" loading="lazy" decoding="async" width="200" height="200">`;
+    html += pictureHtml(`/assets/products/${img}`, '', { fallbackW: 200, fallbackH: 200 });
     html += `</button>`;
   }
   html += '</div>';
@@ -155,8 +189,8 @@ function generateRelated(currentSlug, currentCategory, allProducts) {
 function productCard(p) {
   const img = (p.images && p.images[0]) ? p.images[0] : 'placeholder.webp';
   return `<a class="product-card" href="/produkte/${escapeAttr(p.slug)}.html">
-    <figure class="product-card__image-wrap">
-      <img src="/assets/products/${escapeAttr(img)}" alt="${escapeAttr(p.name)}" loading="lazy" decoding="async" width="600" height="600">
+    <figure class="product-card__image-wrap" style="view-transition-name: vt-${escapeAttr(p.slug)}">
+      ${pictureHtml(`/assets/products/${img}`, p.name)}
     </figure>
     <div class="product-card__body">
       <p class="eyebrow">${escapeHtml(p.categoryLabel)} · ${escapeHtml(p.material)}</p>
@@ -311,7 +345,7 @@ function buildProductPage(product, allProducts, layoutTpl, productTpl) {
     shortDescription: escapeHtml(product.shortDescription),
     longDescription: escapeHtml(product.longDescription),
     etsyCtaHtml: generateEtsyCta(product),
-    galleryHtml: generateGallery(product.images, product.name),
+    galleryHtml: generateGallery(product.images, product.name, product.slug),
     detailsHtml: generateDetails(product.details),
     colorsHtml: generateColors(product.colors),
     relatedHtml: generateRelated(product.slug, product.category, allProducts)
@@ -442,8 +476,8 @@ function productCardWithDataAttrs(p) {
     data-category="${escapeAttr(p.category)}"
     data-material="${escapeAttr(p.material.toLowerCase())}"
     data-tags="${escapeAttr(tags)}">
-    <figure class="product-card__image-wrap">
-      <img src="/assets/products/${escapeAttr(img)}" alt="${escapeAttr(p.name)}" loading="lazy" decoding="async" width="600" height="600">
+    <figure class="product-card__image-wrap" style="view-transition-name: vt-${escapeAttr(p.slug)}">
+      ${pictureHtml(`/assets/products/${img}`, p.name)}
     </figure>
     <div class="product-card__body">
       <p class="eyebrow">${escapeHtml(p.categoryLabel)} · ${escapeHtml(p.material)}</p>

@@ -1049,7 +1049,7 @@
   min-height: clamp(480px, 70vh, 720px);
   display: flex;
   align-items: center;
-  background-image: url('/assets/hero/hero-filament.png');
+  background-image: url('/assets/hero/hero-filament.webp');
   background-size: cover;
   background-position: center right;
   background-repeat: no-repeat;
@@ -1332,9 +1332,9 @@
 }
 
 /* Per-category background images */
-.category-tile--blumen        { background-image: url('/assets/categories/category-blumen.png'); }
-.category-tile--organisation  { background-image: url('/assets/categories/category-organisation.png'); }
-.category-tile--deko          { background-image: url('/assets/categories/category-deko.png'); }
+.category-tile--blumen        { background-image: url('/assets/categories/category-blumen.webp'); }
+.category-tile--organisation  { background-image: url('/assets/categories/category-organisation.webp'); }
+.category-tile--deko          { background-image: url('/assets/categories/category-deko.webp'); }
 
 .category-tile__image {
   position: absolute;

@@ -169,4 +169,9 @@ out('mark-on-light.png', drawIconOnly({
   bg: '#f5f5f5', colorF: '#00875A', colorThree: '#26B99F',
 }));
 
-console.log('\nAll 7 logos generated. (full-transparent.png separat via gen-transparent.js)');
+// Mark only transparent
+out('mark-transparent.png', drawIconOnly({
+  bg: null, colorF: '#00875A', colorThree: '#26B99F',
+}));
+
+console.log('\nAll 8 logos generated. (full-transparent.png separat via gen-transparent.js)');

@@ -106,6 +106,9 @@ function setupGallery() {
   let selectedSrc = mainImg.src;
 
   function setMainSrc(src) {
+    // Bei <picture> gewinnt die <source> — beide nachziehen
+    const source = mainImg.parentElement.querySelector('source');
+    if (source) source.srcset = src.replace(/\.png$/i, '.webp');
     mainImg.src = src;
   }
 
