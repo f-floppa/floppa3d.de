@@ -173,7 +173,8 @@
   transform: translateY(-6.5px) rotate(-45deg);
 }
 
-/* Mobile drawer */
+/* Mobile drawer — liegt als Geschwister des Headers direkt im body
+   (der backdrop-filter des Headers würde position:fixed sonst einfangen) */
 .site-header__drawer {
   display: none;
   position: fixed;
@@ -182,16 +183,60 @@
   width: min(320px, 85vw);
   background-color: var(--color-bg);
   border-inline-start: 1px solid var(--color-border);
+  box-shadow: -16px 0 48px rgba(0, 0, 0, 0.25);
   z-index: var(--z-overlay);
-  padding: var(--space-8) var(--space-6);
+  padding: var(--space-5) var(--space-6) var(--space-8);
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-5);
   transform: translateX(100%);
   transition: transform var(--transition-slow);
 }
 
 .site-header__drawer.is-open {
   transform: translateX(0);
+}
+
+/* Kopfzeile im Drawer: Label + deutlich sichtbarer Schließen-Knopf */
+.site-header__drawer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block-end: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__drawer-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-fg);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.site-header__drawer-close:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.site-header__drawer-close:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.site-header__drawer-close svg {
+  display: block;
+}
+
+/* Seite hinter offenem Drawer nicht scrollen */
+body.nav-open {
+  overflow-y: hidden;
 }
 
 .site-header__drawer-nav {

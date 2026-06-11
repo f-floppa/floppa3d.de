@@ -11,28 +11,42 @@ const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)');
 function setupMobileNav() {
   const toggle = document.querySelector('[data-nav-toggle]');
   const menu = document.querySelector('[data-nav-menu]');
+  const backdrop = document.querySelector('[data-nav-backdrop]');
+  const closeBtn = document.querySelector('[data-nav-close]');
 
   if (!toggle || !menu) return;
 
+  function setOpen(open) {
+    menu.classList.toggle('is-open', open);
+    if (backdrop) backdrop.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    // Seite hinter dem offenen Menü nicht mitscrollen lassen
+    document.body.classList.toggle('nav-open', open);
+    if (open && closeBtn) closeBtn.focus();
+    if (!open) toggle.focus();
+  }
+
   toggle.addEventListener('click', () => {
-    const isOpen = menu.classList.contains('is-open');
-    menu.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', !isOpen);
+    setOpen(!menu.classList.contains('is-open'));
   });
 
-  // Close menu on click outside
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => setOpen(false));
+  }
+
+  // Close menu on click outside (Backdrop) or on a drawer link
   document.addEventListener('click', (e) => {
+    if (!menu.classList.contains('is-open')) return;
+    if (e.target.closest('.site-header__drawer-link')) return; // Navigation läuft
     if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-      menu.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
+      setOpen(false);
     }
   });
 
   // Close menu on Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && menu.classList.contains('is-open')) {
-      menu.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
+      setOpen(false);
     }
   });
 }

@@ -383,17 +383,27 @@ function renderHeader() {
     </div>
   </div>
 
-  <div class="site-header__drawer" id="site-drawer" data-nav-menu>
-    <nav class="site-header__drawer-nav" aria-label="Mobile Navigation">
-      <a class="site-header__drawer-link" href="/shop.html">Shop</a>
-      <a class="site-header__drawer-link" href="/auftragsdruck.html">Auftragsdruck</a>
-      <a class="site-header__drawer-link" href="/about.html">Über uns</a>
-      <a class="site-header__drawer-link" href="/faq.html">FAQ</a>
-      <a class="site-header__drawer-link" href="/kontakt.html">Kontakt</a>
-    </nav>
+</header>
+
+<!-- Drawer + Backdrop bewusst AUSSERHALB des Headers: dessen backdrop-filter
+     macht ihn sonst zum Containing Block für position:fixed — der Drawer
+     würde in den Header-Kasten gequetscht. -->
+<div class="site-header__drawer" id="site-drawer" data-nav-menu>
+  <div class="site-header__drawer-top">
+    <span class="eyebrow">Menü</span>
+    <button class="site-header__drawer-close" type="button" aria-label="Menü schließen" data-nav-close>
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+    </button>
   </div>
-  <div class="site-header__backdrop" data-nav-backdrop aria-hidden="true"></div>
-</header>`;
+  <nav class="site-header__drawer-nav" aria-label="Mobile Navigation">
+    <a class="site-header__drawer-link" href="/shop.html">Shop</a>
+    <a class="site-header__drawer-link" href="/auftragsdruck.html">Auftragsdruck</a>
+    <a class="site-header__drawer-link" href="/about.html">Über uns</a>
+    <a class="site-header__drawer-link" href="/faq.html">FAQ</a>
+    <a class="site-header__drawer-link" href="/kontakt.html">Kontakt</a>
+  </nav>
+</div>
+<div class="site-header__backdrop" data-nav-backdrop aria-hidden="true"></div>`;
 }
 
 let ETSY_SHOP_URL = '';
