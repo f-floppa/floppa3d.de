@@ -87,6 +87,17 @@ h6 {
   font-size: var(--fs-base);
 }
 
+/* Lange deutsche Komposita (z. B. „Verbraucherstreitbeilegung") dürfen
+   Überschriften auf schmalen Screens nicht sprengen */
+h1, h2, h3, h4 {
+  overflow-wrap: break-word;
+}
+
+.prose h2,
+.prose h3 {
+  hyphens: auto;
+}
+
 /* =============================================================================
    Body & Prose
    ============================================================================= */

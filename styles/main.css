@@ -14,6 +14,14 @@
    Global Base Styles
    ============================================================================= */
 
+/* clip statt hidden: erzeugt keinen Scroll-Container, sticky bleibt intakt.
+   Verhindert seitliches Wischen in die Leere (z. B. durch den per
+   translateX(100%) geparkten Mobile-Drawer). */
+html,
+body {
+  overflow-x: clip;
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-fg);

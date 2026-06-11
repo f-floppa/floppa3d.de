@@ -419,7 +419,7 @@ function renderFooter(etsyShopUrl = ETSY_SHOP_URL) {
       </div>
 
       <nav aria-label="Footer-Navigation">
-        <h3 class="site-footer__col-heading">Navigation</h3>
+        <h3 class="site-footer__col-heading eyebrow">Navigation</h3>
         <ul class="site-footer__nav-list">
           <li><a class="site-footer__nav-link" href="/shop.html">Shop</a></li>
           <li><a class="site-footer__nav-link" href="/auftragsdruck.html">Auftragsdruck</a></li>
@@ -432,7 +432,7 @@ function renderFooter(etsyShopUrl = ETSY_SHOP_URL) {
       </nav>
 
       <nav aria-label="Rechtliches">
-        <h3 class="site-footer__col-heading">Rechtliches</h3>
+        <h3 class="site-footer__col-heading eyebrow">Rechtliches</h3>
         <ul class="site-footer__nav-list">
           <li><a class="site-footer__nav-link" href="/impressum.html">Impressum</a></li>
           <li><a class="site-footer__nav-link" href="/datenschutz.html">Datenschutz</a></li>
@@ -441,7 +441,7 @@ function renderFooter(etsyShopUrl = ETSY_SHOP_URL) {
       </nav>
 
       <div>
-        <h3 class="site-footer__col-heading">Folgen</h3>
+        <h3 class="site-footer__col-heading eyebrow">Folgen</h3>
         <ul class="site-footer__nav-list">
           <li><a class="site-footer__nav-link" href="https://www.instagram.com/floppa3d_ppstudio/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
           <li><a class="site-footer__nav-link" href="#" rel="noopener">TikTok <span class="text-xs">(bald)</span></a></li>

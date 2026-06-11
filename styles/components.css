@@ -1247,15 +1247,19 @@
   font-weight: 400;
   letter-spacing: -0.01em;
   margin-block-end: var(--space-6);
+  flex-wrap: wrap;
+  row-gap: var(--space-2);
 }
 
-/* Asymmetric bento layout for featured items */
-.featured-strip__grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: var(--space-5);
-  grid-auto-flow: dense;
+/* „Alle ansehen →" als Ganzes umbrechen, nicht mitten im Text */
+.featured-strip__heading > a {
+  white-space: nowrap;
 }
+
+/* Grid-Definition kommt vollständig von .bento (responsive 12/6/4/2 Spalten).
+   Keine eigene grid-template hier — die hatte die Mobile-Breakpoints von
+   .bento überschrieben (Karten wurden auf dem Handy 12-spaltig gequetscht). */
+.featured-strip__grid {}
 
 .featured-strip__item {
   display: block;
