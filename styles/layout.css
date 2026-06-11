@@ -15,10 +15,17 @@
   padding-inline: clamp(1.5rem, 4vw, 3rem);
 }
 
+/* Einheitliche Außenkante mit .container — Textblöcke werden über die
+   Kind-Regel auf Lesebreite begrenzt, bleiben aber linksbündig an der
+   gemeinsamen Rasterkante (kein Springen schmal/breit mehr). */
 .container--narrow {
-  max-width: 720px;
+  max-width: 1280px;
   margin-inline: auto;
   padding-inline: clamp(1.5rem, 4vw, 3rem);
+}
+
+.container--narrow > * {
+  max-width: 42rem;
 }
 
 .container--wide {

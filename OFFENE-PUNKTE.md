@@ -26,15 +26,15 @@
 - **Was fehlt:** 3D-Modelle unter `assets/models/<slug>.glb` (+ `.usdz` für iOS-AR)
 - **Anleitung:** `tools/README-3D.md` — Viewer erscheint automatisch, sobald die Dateien liegen.
 
-## [P4] Interview-Input für die Über-uns-Seite (15 Min)
-- **Was fehlt:** Persönliche Details für die Story (Platzhalter `[INPUT: …]` auf `pages/about.html`)
-- **Fragen:**
-  1. Wie seid ihr konkret zum 3D-Druck gekommen?
-  2. Was war euer erster Drucker?
-  3. Woher kommt der Name „Floppa"?
-  4. Wer entwirft, wer druckt?
-  5. Lieblingsstück im Sortiment – und warum?
-- **Danach:** Antworten an die Story-Absätze anfügen, Platzhalter entfernen, `node build.js`.
+## ~~[P4] Interview-Input für die Über-uns-Seite~~ ✓ ERLEDIGT
+- Antworten wurden in die Story auf `pages/about.html` eingearbeitet (Name Flo+Paul → Floppa, Prusa Mini+ als Geschenk, Paul entwirft / Flo druckt). Platzhalter entfernt. Lieblingsstück-Frage wie gewünscht weggelassen.
+
+## [P8] Foto-Shotlist — echte Bilder statt Stock (je 1 Foto, quer, mind. 1600 px breit)
+Die Site nutzt bewusst keine Stockfotos. Diese vier Motive würden die Seiten deutlich aufwerten — einfach fotografieren, als WebP/PNG ablegen und Bescheid geben:
+1. **Drucker in Aktion** (Nahaufnahme Düse + sichtbare Schichten) → für Auftragsdruck „Druck"-Station. Ablage: `assets/workshop/drucker-aktion.webp`
+2. **Filamentrollen als Farbpalette** (mehrere Rollen nebeneinander) → für Material & Nachhaltigkeit. Ablage: `assets/workshop/filament-farben.webp`
+3. **Hände beim Prüfen/Entgraten eines frischen Drucks** → für About/Qualitätsanspruch. Ablage: `assets/workshop/qualitaetspruefung.webp`
+4. **Fertig verpacktes Paket** (gern mit Logo-Aufkleber) → für Auftragsdruck „Versand"-Station. Ablage: `assets/workshop/paket.webp`
 
 ## [P2] Etsy-URLs eintragen, sobald der Shop live ist (5 Min)
 - **Was fehlt:** Echte Etsy-URLs (Shop + 6 Listings)
