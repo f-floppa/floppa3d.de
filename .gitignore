@@ -1,3 +1,6 @@
 node_modules/
 .DS_Store
 Thumbs.db
+
+# Interne Dokumente — nie ins öffentliche Repo
+Gesellschaftsvertrag*
