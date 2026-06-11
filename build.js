@@ -115,6 +115,30 @@ function generateColors(colors) {
   return html;
 }
 
+/**
+ * Etsy CTA: solange keine URL gepflegt ist (Shop noch nicht live),
+ * wird ein deaktivierter "Bald verfügbar"-Zustand gerendert.
+ */
+function generateEtsyCta(product) {
+  const href = safeUrl(product.etsyUrl);
+  const isLive = Boolean(product.etsyUrl) && href !== '#';
+
+  if (isLive) {
+    return `<p class="text-sm text-muted">Kauf abgewickelt über Etsy.</p>
+          <a class="btn btn--primary" href="${escapeAttr(href)}" target="_blank" rel="noopener noreferrer">
+            <span>Auf Etsy ansehen</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+            </svg>
+          </a>
+          <a class="etsy-hint text-sm" href="/kontakt.html">Frage vorab stellen →</a>`;
+  }
+
+  return `<p class="text-sm text-muted">Der Verkauf startet in Kürze über Etsy.</p>
+          <span class="btn btn--primary is-coming-soon" aria-disabled="true">Bald auf Etsy verfügbar</span>
+          <a class="etsy-hint text-sm" href="/kontakt.html">Frage vorab stellen →</a>`;
+}
+
 function generateRelated(currentSlug, currentCategory, allProducts) {
   const related = allProducts
     .filter(p => p.slug !== currentSlug && p.category === currentCategory)
@@ -211,7 +235,13 @@ function renderHeader() {
 </header>`;
 }
 
-function renderFooter() {
+let ETSY_SHOP_URL = '';
+
+function renderFooter(etsyShopUrl = ETSY_SHOP_URL) {
+  const shopHref = safeUrl(etsyShopUrl);
+  const etsyItem = (etsyShopUrl && shopHref !== '#')
+    ? `<li><a class="site-footer__nav-link" href="${escapeAttr(shopHref)}" target="_blank" rel="noopener noreferrer">Etsy</a></li>`
+    : `<li><span class="site-footer__nav-link site-footer__nav-link--soon">Etsy <span class="text-xs">(bald)</span></span></li>`;
   return `<footer class="site-footer">
   <div class="container">
     <div class="site-footer__grid">
@@ -248,7 +278,7 @@ function renderFooter() {
         <ul class="site-footer__nav-list">
           <li><a class="site-footer__nav-link" href="https://www.instagram.com/floppa3d_ppstudio/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
           <li><a class="site-footer__nav-link" href="#" rel="noopener">TikTok <span class="text-xs">(bald)</span></a></li>
-          <li><a class="site-footer__nav-link" href="https://www.etsy.com/de/shop/Floppa3D" target="_blank" rel="noopener noreferrer">Etsy</a></li>
+          ${etsyItem}
         </ul>
       </div>
 
@@ -280,7 +310,7 @@ function buildProductPage(product, allProducts, layoutTpl, productTpl) {
     price: escapeHtml(product.price),
     shortDescription: escapeHtml(product.shortDescription),
     longDescription: escapeHtml(product.longDescription),
-    etsyUrl: escapeAttr(safeUrl(product.etsyUrl)),
+    etsyCtaHtml: generateEtsyCta(product),
     galleryHtml: generateGallery(product.images, product.name),
     detailsHtml: generateDetails(product.details),
     colorsHtml: generateColors(product.colors),
@@ -432,7 +462,8 @@ function main() {
   console.log('───────────────────────────────────');
 
   const productsRaw = readFile('data/products.json');
-  const { products } = JSON.parse(productsRaw);
+  const { products, etsyShopUrl } = JSON.parse(productsRaw);
+  ETSY_SHOP_URL = etsyShopUrl || '';
   console.log(`✓ Loaded ${products.length} products`);
 
   const layoutTpl = readFile('templates/_layout.html');

@@ -1,4 +1,5 @@
 {
+  "etsyShopUrl": "",
   "products": [
     {
       "slug": "nordic-flow",
@@ -25,7 +26,7 @@
         "nordic-flow/04.png",
         "nordic-flow/05.png"
       ],
-      "etsyUrl": "https://www.etsy.com/de/shop/Floppa3D?listing=PLATZHALTER",
+      "etsyUrl": "",
       "tags": ["blume", "gerillt", "minimalistisch", "petg", "indoor"],
       "featured": true
     },
@@ -55,7 +56,7 @@
         "stack-pot/04.png",
         "stack-pot/05.png"
       ],
-      "etsyUrl": "https://www.etsy.com/de/shop/Floppa3D?listing=PLATZHALTER",
+      "etsyUrl": "",
       "tags": ["blume", "modular", "sukkulenten", "kräuter", "pla", "indoor"],
       "featured": true
     },
@@ -85,7 +86,7 @@
         "leaf-dock/04.png",
         "leaf-dock/05.png"
       ],
-      "etsyUrl": "https://www.etsy.com/de/shop/Floppa3D?listing=PLATZHALTER",
+      "etsyUrl": "",
       "tags": ["organisation", "deko", "geschenk", "pflanzen", "pla", "indoor"],
       "featured": true
     },
@@ -114,7 +115,7 @@
         "luma-arch/04.png",
         "luma-arch/05.png"
       ],
-      "etsyUrl": "https://www.etsy.com/de/shop/Floppa3D?listing=PLATZHALTER",
+      "etsyUrl": "",
       "tags": ["deko", "bogen", "skandinavisch", "regal", "pla", "indoor"],
       "featured": true
     },
@@ -144,7 +145,7 @@
         "cozy-bunny/04.png",
         "cozy-bunny/05.png"
       ],
-      "etsyUrl": "https://www.etsy.com/de/shop/Floppa3D?listing=PLATZHALTER",
+      "etsyUrl": "",
       "tags": ["deko", "hase", "ostern", "fruehling", "geschenk", "pla", "indoor"],
       "featured": true
     },
@@ -173,7 +174,7 @@
         "orbit-key-tray/04.png",
         "orbit-key-tray/05.png"
       ],
-      "etsyUrl": "https://www.etsy.com/de/shop/Floppa3D?listing=PLATZHALTER",
+      "etsyUrl": "",
       "tags": ["organisation", "deko", "schluessel", "schmuck", "eingang", "pla", "indoor"],
       "featured": true
     }

@@ -148,6 +148,26 @@ html.no-transition * {
 }
 
 /* =============================================================================
+   Etsy Coming-Soon State (aktiv, solange keine etsyUrl gepflegt ist)
+   ============================================================================= */
+
+.is-coming-soon {
+  opacity: 0.55;
+  pointer-events: none;
+  cursor: default;
+}
+
+.site-footer__nav-link--soon {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.etsy-hint {
+  display: inline-block;
+  margin-top: var(--space-2);
+}
+
+/* =============================================================================
    Divider
    ============================================================================= */
 
