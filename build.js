@@ -200,6 +200,12 @@ function productCard(p) {
   </a>`;
 }
 
+function jsonLdScript(data) {
+  // Defensive: escape any "</" inside JSON to prevent breaking the script tag
+  const json = JSON.stringify(data).replace(/<\//g, '<\\/');
+  return `<script type="application/ld+json">${json}</script>`;
+}
+
 function generateJsonLd(product) {
   const url = `${SITE_URL}/produkte/${product.slug}.html`;
   const images = (product.images || []).map(i => `${SITE_URL}/assets/products/${i}`);
@@ -212,18 +218,75 @@ function generateJsonLd(product) {
     "brand": { "@type": "Brand", "name": "Floppa3D" },
     "category": product.categoryLabel,
     "material": product.material,
-    "url": url,
-    "offers": {
+    "url": url
+  };
+  // offers erst, wenn der Etsy-Shop live ist (gepflegte etsyUrl)
+  if (product.etsyUrl && safeUrl(product.etsyUrl) !== '#') {
+    data.offers = {
       "@type": "Offer",
       "price": product.priceNumeric,
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
       "url": safeUrl(product.etsyUrl)
-    }
-  };
-  // Defensive: escape any "</" inside JSON to prevent breaking the script tag
-  const json = JSON.stringify(data).replace(/<\//g, '<\\/');
-  return `<script type="application/ld+json">${json}</script>`;
+    };
+  }
+  return jsonLdScript(data);
+}
+
+function generateOrgJsonLd() {
+  return jsonLdScript({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Floppa3D GbR",
+    "url": SITE_URL,
+    "logo": `${SITE_URL}/assets/logos/full-on-light.png`,
+    "email": "management@floppa3d.de",
+    "telephone": "+49 1515 4837335",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Auweg 45",
+      "postalCode": "85375",
+      "addressLocality": "Neufarn bei Freising",
+      "addressCountry": "DE"
+    },
+    "sameAs": ["https://www.instagram.com/floppa3d_ppstudio/"]
+  });
+}
+
+function generateBreadcrumbJsonLd(product) {
+  return jsonLdScript({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Start", "item": `${SITE_URL}/` },
+      { "@type": "ListItem", "position": 2, "name": "Shop", "item": `${SITE_URL}/shop.html` },
+      { "@type": "ListItem", "position": 3, "name": product.name }
+    ]
+  });
+}
+
+/**
+ * FAQPage-Schema aus den <details class="faq-item">-Blöcken der FAQ-Quelle.
+ * Antworttexte werden 1:1 (ohne Markup) übernommen.
+ */
+function generateFaqJsonLd(faqHtml) {
+  const items = [];
+  const re = /<details class="faq-item">\s*<summary>([\s\S]*?)<\/summary>\s*<div class="faq-item__content">([\s\S]*?)<\/div>/g;
+  let m;
+  while ((m = re.exec(faqHtml)) !== null) {
+    const strip = (s) => s.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    items.push({
+      "@type": "Question",
+      "name": strip(m[1]),
+      "acceptedAnswer": { "@type": "Answer", "text": strip(m[2]) }
+    });
+  }
+  if (items.length === 0) return '';
+  return jsonLdScript({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": items
+  });
 }
 
 // -----------------------------------------------------------------------------
@@ -359,11 +422,12 @@ function buildProductPage(product, allProducts, layoutTpl, productTpl) {
 
   const layoutData = {
     title: escapeHtml(product.name),
+    titleTag: escapeHtml(`${product.name} | Floppa3D`),
     description: escapeAttr(product.shortDescription),
     canonicalUrl: `${SITE_URL}/produkte/${product.slug}.html`,
     ogType: 'product',
     ogImage: ogImage,
-    jsonLd: generateJsonLd(product),
+    jsonLd: generateOrgJsonLd() + '\n  ' + generateJsonLd(product) + '\n  ' + generateBreadcrumbJsonLd(product),
     header: renderHeader(),
     footer: renderFooter(),
     content: innerContent
@@ -453,13 +517,23 @@ function buildStaticPage(page, layoutTpl, allProducts) {
   const isHome = page.name === 'index';
   const canonicalUrl = isHome ? `${SITE_URL}/` : `${SITE_URL}/${page.output}`;
 
+  const titleTag = isHome
+    ? 'Floppa3D – 3D-gedruckte Pflanztöpfe & Deko aus Bayern'
+    : `${page.title} | Floppa3D`;
+
+  let jsonLd = generateOrgJsonLd();
+  if (page.name === 'faq') {
+    jsonLd += '\n  ' + generateFaqJsonLd(innerContent);
+  }
+
   const layoutData = {
     title: escapeHtml(page.title),
+    titleTag: escapeHtml(titleTag),
     description: escapeAttr(page.description),
     canonicalUrl: canonicalUrl,
     ogType: page.ogType,
-    ogImage: `${SITE_URL}/assets/logos/full-on-light.png`,
-    jsonLd: '',
+    ogImage: page.ogImage || `${SITE_URL}/assets/logos/full-on-light.png`,
+    jsonLd: jsonLd,
     header: renderHeader(),
     footer: renderFooter(),
     content: innerContent
