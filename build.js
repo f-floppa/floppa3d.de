@@ -363,6 +363,7 @@ function renderHeader() {
     <nav class="site-header__nav" aria-label="Hauptnavigation">
       <ul class="site-header__nav-list">
         <li><a class="site-header__nav-link" href="/shop.html">Shop</a></li>
+        <li><a class="site-header__nav-link" href="/auftragsdruck.html">Auftragsdruck</a></li>
         <li><a class="site-header__nav-link" href="/about.html">Über uns</a></li>
         <li><a class="site-header__nav-link" href="/faq.html">FAQ</a></li>
         <li><a class="site-header__nav-link" href="/kontakt.html">Kontakt</a></li>
@@ -382,6 +383,7 @@ function renderHeader() {
   <div class="site-header__drawer" id="site-drawer" data-nav-menu>
     <nav class="site-header__drawer-nav" aria-label="Mobile Navigation">
       <a class="site-header__drawer-link" href="/shop.html">Shop</a>
+      <a class="site-header__drawer-link" href="/auftragsdruck.html">Auftragsdruck</a>
       <a class="site-header__drawer-link" href="/about.html">Über uns</a>
       <a class="site-header__drawer-link" href="/faq.html">FAQ</a>
       <a class="site-header__drawer-link" href="/kontakt.html">Kontakt</a>
@@ -414,6 +416,9 @@ function renderFooter(etsyShopUrl = ETSY_SHOP_URL) {
         <h3 class="site-footer__col-heading">Navigation</h3>
         <ul class="site-footer__nav-list">
           <li><a class="site-footer__nav-link" href="/shop.html">Shop</a></li>
+          <li><a class="site-footer__nav-link" href="/auftragsdruck.html">Auftragsdruck</a></li>
+          <li><a class="site-footer__nav-link" href="/material.html">Material &amp; Nachhaltigkeit</a></li>
+          <li><a class="site-footer__nav-link" href="/journal/index.html">Journal</a></li>
           <li><a class="site-footer__nav-link" href="/about.html">Über uns</a></li>
           <li><a class="site-footer__nav-link" href="/faq.html">FAQ</a></li>
           <li><a class="site-footer__nav-link" href="/kontakt.html">Kontakt</a></li>
@@ -503,7 +508,12 @@ function generateSitemap(products) {
   const staticPages = [
     { loc: '/',                 priority: '1.0' },
     { loc: '/shop.html',        priority: '0.9' },
+    { loc: '/auftragsdruck.html', priority: '0.8' },
+    { loc: '/material.html',    priority: '0.7' },
     { loc: '/about.html',       priority: '0.7' },
+    { loc: '/journal/index.html', priority: '0.6' },
+    { loc: '/journal/pla-vs-petg.html', priority: '0.6' },
+    { loc: '/journal/3d-druck-deko-pflegen.html', priority: '0.6' },
     { loc: '/faq.html',         priority: '0.6' },
     { loc: '/kontakt.html',     priority: '0.6' },
     { loc: '/impressum.html',   priority: '0.3' },
@@ -553,7 +563,12 @@ const STATIC_PAGES = [
   { name: 'impressum',   output: 'impressum.html',    title: 'Impressum',                   description: 'Impressum nach § 5 DDG.', ogType: 'website' },
   { name: 'datenschutz', output: 'datenschutz.html',  title: 'Datenschutzerklärung',        description: 'Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.', ogType: 'website' },
   { name: 'agb',         output: 'agb.html',          title: 'Allgemeine Geschäftsbedingungen', description: 'Allgemeine Geschäftsbedingungen für die Nutzung von floppa3d.de.', ogType: 'website' },
-  { name: '404',         output: '404.html',          title: 'Seite nicht gefunden',        description: 'Die angeforderte Seite konnte nicht gefunden werden.', ogType: 'website' }
+  { name: '404',         output: '404.html',          title: 'Seite nicht gefunden',        description: 'Die angeforderte Seite konnte nicht gefunden werden.', ogType: 'website' },
+  { name: 'auftragsdruck', output: 'auftragsdruck.html', title: 'Auftragsdruck',             description: 'Einzelstücke, Kleinserien und Prototypen aus dem 3D-Drucker – für Vereine, Unternehmen und private Ideen. Anfrage → Angebot → Druck, aus der Werkstatt bei Freising.', ogType: 'website' },
+  { name: 'material',    output: 'material.html',     title: 'Material & Nachhaltigkeit',   description: 'Was PLA und PETG wirklich können: Eigenschaften, Grenzen und eine ehrliche Einordnung der Kompostierbarkeit. Produktion auf Bestellung statt Lager.', ogType: 'article' },
+  { name: 'journal',     output: 'journal/index.html', title: 'Journal',                    description: 'Notizen aus der Floppa3D-Werkstatt: Materialvergleiche, Pflegetipps und was wir beim Entwerfen und Drucken lernen.', ogType: 'website' },
+  { name: 'journal-pla-vs-petg', output: 'journal/pla-vs-petg.html', title: 'PLA oder PETG – welcher Topf passt zu Ihnen?', description: 'PLA und PETG im ehrlichen Vergleich: Wasser, UV, Hitze und Optik – und welche Wahl für Fensterbrett oder Balkon die richtige ist.', ogType: 'article' },
+  { name: 'journal-pflege', output: 'journal/3d-druck-deko-pflegen.html', title: '3D-gedruckte Deko richtig pflegen', description: 'Reinigen mit lauwarmem Wasser, was Sie vermeiden sollten, Umgang mit Kratzern – und wann ein Stück wirklich ersetzt werden muss.', ogType: 'article' }
 ];
 
 function buildStaticPage(page, layoutTpl, allProducts) {
