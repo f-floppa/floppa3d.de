@@ -137,15 +137,55 @@ function generateDetails(details) {
   return html;
 }
 
-function generateColors(colors) {
+/**
+ * Farb-Swatches: Hex-Näherungen an die Brand-Palette.
+ * Unbekannte Farbnamen fallen auf neutrales Grau zurück (Name bleibt sichtbar).
+ */
+const COLOR_HEX = {
+  'Sand Beige': '#D6C4A8',
+  'Sage Green': '#9CAF88',
+  'Terracotta': '#C56B4E',
+  'Matt Schwarz': '#3A3A3A',
+  'Matte Black': '#2B2B2B',
+  'Cremeweiß': '#F2EFE9',
+  'Matt Weiß': '#F2EFE9',
+  'Arctic White': '#F4F6F5',
+  'Marble White': '#EDEAE4',
+  'Olive Green': '#7A8450',
+  'Forest Green': '#2F4F3E',
+  'Moss Green': '#6B7F59',
+  'Dusty Rose': '#C9A9A6',
+  'Soft Peach': '#F2C4A8',
+  'Soft Lavender': '#B9A7C9',
+  'Lavendel': '#B9A7C9',
+  'Stone Grey': '#9A9A94',
+  'Warm Grey': '#A39E93',
+  'Sandstone': '#C8B597',
+  'Clay Brown': '#9B6A4F',
+  'Matte Cream': '#EFE6D5'
+};
+
+function colorFileSlug(name) {
+  return name.toLowerCase()
+    .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+    .replace(/\s+/g, '-');
+}
+
+function generateColors(colors, slug) {
   if (!colors || colors.length === 0) return '';
   let html = '<section class="product__colors" aria-label="Verfügbare Farben">';
   html += '<h3 class="eyebrow">Farben</h3>';
-  html += '<ul class="cluster">';
-  for (const c of colors) {
-    html += `<li class="color-chip">${escapeHtml(c)}</li>`;
-  }
-  html += '</ul></section>';
+  html += '<div class="swatches" role="group" aria-label="Farbe wählen">';
+  colors.forEach((c, i) => {
+    const hex = COLOR_HEX[c] || '#8A8A8A';
+    // Bildwechsel nur, wenn ein Farbbild wirklich existiert
+    const rel = `assets/products/${slug}/farbe-${colorFileSlug(c)}.webp`;
+    const dataImg = fs.existsSync(path.join(ROOT, rel)) ? ` data-img="/${rel}"` : '';
+    html += `<button type="button" data-color="${escapeAttr(c)}" title="${escapeAttr(c)}" aria-label="${escapeAttr(c)}" aria-pressed="${i === 0 ? 'true' : 'false'}" style="--sw:${hex}"${dataImg}></button>`;
+  });
+  html += '</div>';
+  html += `<p class="swatch-label text-sm">Gewählte Farbe: ${escapeHtml(colors[0])}</p>`;
+  html += '</section>';
   return html;
 }
 
@@ -173,6 +213,19 @@ function generateEtsyCta(product) {
           <a class="etsy-hint text-sm" href="/kontakt.html">Frage vorab stellen →</a>`;
 }
 
+/** Sticky Mobile-CTA (erscheint, sobald der Haupt-CTA aus dem Viewport scrollt) */
+function generateStickyCta(product) {
+  const href = safeUrl(product.etsyUrl);
+  const isLive = Boolean(product.etsyUrl) && href !== '#';
+  const btn = isLive
+    ? `<a class="btn btn--primary btn--sm" href="${escapeAttr(href)}" target="_blank" rel="noopener noreferrer">Auf Etsy ansehen</a>`
+    : `<span class="btn btn--primary btn--sm is-coming-soon" aria-disabled="true">Bald auf Etsy</span>`;
+  return `<div class="sticky-cta" hidden>
+  <span class="sticky-cta__price serif">${escapeHtml(product.price)} <small class="text-xs text-muted">zzgl. Versand</small></span>
+  ${btn}
+</div>`;
+}
+
 function generateRelated(currentSlug, currentCategory, allProducts) {
   const related = allProducts
     .filter(p => p.slug !== currentSlug && p.category === currentCategory)
@@ -186,11 +239,17 @@ function generateRelated(currentSlug, currentCategory, allProducts) {
   return related.map(productCard).join('');
 }
 
+/** Zweites Produktbild als Hover-Crossfade (nur wenn vorhanden) */
+function cardAltImage(p) {
+  if (!p.images || !p.images[1]) return '';
+  return `<span class="product-card__img-alt" aria-hidden="true">${pictureHtml(`/assets/products/${p.images[1]}`, '')}</span>`;
+}
+
 function productCard(p) {
   const img = (p.images && p.images[0]) ? p.images[0] : 'placeholder.webp';
-  return `<a class="product-card" href="/produkte/${escapeAttr(p.slug)}.html">
+  return `<a class="product-card reveal" href="/produkte/${escapeAttr(p.slug)}.html">
     <figure class="product-card__image-wrap" style="view-transition-name: vt-${escapeAttr(p.slug)}">
-      ${pictureHtml(`/assets/products/${img}`, p.name)}
+      ${pictureHtml(`/assets/products/${img}`, p.name)}${cardAltImage(p)}
     </figure>
     <div class="product-card__body">
       <p class="eyebrow">${escapeHtml(p.categoryLabel)} · ${escapeHtml(p.material)}</p>
@@ -410,7 +469,8 @@ function buildProductPage(product, allProducts, layoutTpl, productTpl) {
     etsyCtaHtml: generateEtsyCta(product),
     galleryHtml: generateGallery(product.images, product.name, product.slug),
     detailsHtml: generateDetails(product.details),
-    colorsHtml: generateColors(product.colors),
+    colorsHtml: generateColors(product.colors, product.slug),
+    stickyCtaHtml: generateStickyCta(product),
     relatedHtml: generateRelated(product.slug, product.category, allProducts)
   };
 
@@ -545,13 +605,13 @@ function buildStaticPage(page, layoutTpl, allProducts) {
 function productCardWithDataAttrs(p) {
   const img = (p.images && p.images[0]) ? p.images[0] : 'placeholder.webp';
   const tags = (p.tags || []).join(',');
-  return `<a class="product-card" href="/produkte/${escapeAttr(p.slug)}.html"
+  return `<a class="product-card reveal" href="/produkte/${escapeAttr(p.slug)}.html"
     data-product
     data-category="${escapeAttr(p.category)}"
     data-material="${escapeAttr(p.material.toLowerCase())}"
     data-tags="${escapeAttr(tags)}">
     <figure class="product-card__image-wrap" style="view-transition-name: vt-${escapeAttr(p.slug)}">
-      ${pictureHtml(`/assets/products/${img}`, p.name)}
+      ${pictureHtml(`/assets/products/${img}`, p.name)}${cardAltImage(p)}
     </figure>
     <div class="product-card__body">
       <p class="eyebrow">${escapeHtml(p.categoryLabel)} · ${escapeHtml(p.material)}</p>

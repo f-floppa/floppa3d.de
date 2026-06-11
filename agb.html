@@ -40,6 +40,7 @@
   <!-- Theme: prevent flash by setting before render -->
   <script>
     (function() {
+      document.documentElement.classList.add('js');
       try {
         var t = localStorage.getItem('floppa3d-theme');
         if (t === 'dark' || t === 'light') {

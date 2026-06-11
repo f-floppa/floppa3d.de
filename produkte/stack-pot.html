@@ -40,6 +40,7 @@
   <!-- Theme: prevent flash by setting before render -->
   <script>
     (function() {
+      document.documentElement.classList.add('js');
       try {
         var t = localStorage.getItem('floppa3d-theme');
         if (t === 'dark' || t === 'light') {
@@ -144,7 +145,7 @@ Jeder «StackPot» ist optional mit einem Wasserablaufloch erhältlich – einfa
           <dl class="details-list"><dt>Material</dt><dd>PETG</dd><dt>Form</dt><dd>Würfel, stapelbar</dd><dt>Drainage</dt><dd>optional (bitte bei Bestellung angeben)</dd><dt>Ideal für</dt><dd>Kräuter, Sukkulenten, kleine Pflanzen</dd><dt>Einsatzbereich</dt><dd>Innenbereich</dd><dt>Schichthöhe</dt><dd>0,2 mm</dd></dl>
         </section>
 
-        <section class="product__colors" aria-label="Verfügbare Farben"><h3 class="eyebrow">Farben</h3><ul class="cluster"><li class="color-chip">Olive Green</li><li class="color-chip">Dusty Rose</li><li class="color-chip">Stone Grey</li><li class="color-chip">Soft Lavender</li><li class="color-chip">Arctic White</li></ul></section>
+        <section class="product__colors" aria-label="Verfügbare Farben"><h3 class="eyebrow">Farben</h3><div class="swatches" role="group" aria-label="Farbe wählen"><button type="button" data-color="Olive Green" title="Olive Green" aria-label="Olive Green" aria-pressed="true" style="--sw:#7A8450"></button><button type="button" data-color="Dusty Rose" title="Dusty Rose" aria-label="Dusty Rose" aria-pressed="false" style="--sw:#C9A9A6"></button><button type="button" data-color="Stone Grey" title="Stone Grey" aria-label="Stone Grey" aria-pressed="false" style="--sw:#9A9A94"></button><button type="button" data-color="Soft Lavender" title="Soft Lavender" aria-label="Soft Lavender" aria-pressed="false" style="--sw:#B9A7C9"></button><button type="button" data-color="Arctic White" title="Arctic White" aria-label="Arctic White" aria-pressed="false" style="--sw:#F4F6F5"></button></div><p class="swatch-label text-sm">Gewählte Farbe: Olive Green</p></section>
 
         <section class="product__cta" aria-label="Kauf">
           <p class="product__price serif">18,00 €</p>
@@ -176,12 +177,12 @@ Jeder «StackPot» ist optional mit einem Wasserablaufloch erhältlich – einfa
     <section class="product__related section">
       <header class="product__related-header">
         <p class="eyebrow">Mehr aus dieser Kategorie</p>
-        <h2 class="serif">Verwandte Stücke.</h2>
+        <h2 class="serif layer-reveal">Verwandte Stücke.</h2>
       </header>
       <div class="bento product__related-grid">
-        <a class="product-card" href="/produkte/nordic-flow.html">
+        <a class="product-card reveal" href="/produkte/nordic-flow.html">
     <figure class="product-card__image-wrap" style="view-transition-name: vt-nordic-flow">
-      <picture><source srcset="/assets/products/nordic-flow/01.webp" type="image/webp"><img src="/assets/products/nordic-flow/01.png" alt="Nordic Flow – Geriffelter Blumentopf" width="644" height="512" loading="lazy" decoding="async"></picture>
+      <picture><source srcset="/assets/products/nordic-flow/01.webp" type="image/webp"><img src="/assets/products/nordic-flow/01.png" alt="Nordic Flow – Geriffelter Blumentopf" width="644" height="512" loading="lazy" decoding="async"></picture><span class="product-card__img-alt" aria-hidden="true"><picture><source srcset="/assets/products/nordic-flow/02.webp" type="image/webp"><img src="/assets/products/nordic-flow/02.png" alt="" width="643" height="512" loading="lazy" decoding="async"></picture></span>
     </figure>
     <div class="product-card__body">
       <p class="eyebrow">Blume · PETG</p>
@@ -193,6 +194,11 @@ Jeder «StackPot» ist optional mit einem Wasserablaufloch erhältlich – einfa
     </section>
 
   </div>
+
+  <div class="sticky-cta" hidden>
+  <span class="sticky-cta__price serif">18,00 € <small class="text-xs text-muted">zzgl. Versand</small></span>
+  <span class="btn btn--primary btn--sm is-coming-soon" aria-disabled="true">Bald auf Etsy</span>
+</div>
 </article>
 
   </main>

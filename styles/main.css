@@ -190,3 +190,133 @@ html.no-transition * {
   animation-duration: 0.4s;
   animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
 }
+
+/* =============================================================================
+   Scroll-Reveals (IntersectionObserver in scripts/main.js setzt .is-visible)
+   Nur aktiv mit JS (html.js) und ohne Reduced-Motion — sonst alles sichtbar.
+   ============================================================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+  html.js .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  html.js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =============================================================================
+   Layer-Print-Reveal — Headlines bauen sich in 5 "Schichten" auf (FDM-Anspielung)
+   CSS-scroll-driven; ohne Support einfach sofort sichtbar.
+   ============================================================================= */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .layer-reveal {
+      animation: layerReveal 0.9s steps(5, end) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+
+    @keyframes layerReveal {
+      from { clip-path: inset(100% 0 0 0); }
+      to   { clip-path: inset(0 0 0 0); }
+    }
+  }
+}
+
+/* =============================================================================
+   Produktkarten: Lift + Bild-Crossfade beim Hover (nur echte Pointer)
+   ============================================================================= */
+
+.product-card__image-wrap {
+  position: relative;
+}
+
+.product-card__img-alt {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .product-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, var(--transition-theme);
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
+  }
+
+  .product-card__img-alt {
+    transition: opacity 0.2s ease;
+  }
+
+  .product-card:hover .product-card__img-alt {
+    opacity: 1;
+  }
+}
+
+/* =============================================================================
+   Sticky Mobile-CTA (Produktseiten, < 768px)
+   ============================================================================= */
+
+.sticky-cta {
+  position: fixed;
+  inset: auto 0 0 0;
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px var(--space-4);
+  padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  z-index: var(--z-nav);
+}
+
+@media (min-width: 768px) {
+  .sticky-cta {
+    display: none;
+  }
+}
+
+/* =============================================================================
+   Farb-Swatches (Produktseiten)
+   ============================================================================= */
+
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.swatches button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--sw, #8A8A8A);
+  border: 2px solid var(--color-border);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.swatches button:hover {
+  transform: scale(1.1);
+}
+
+.swatches button[aria-pressed="true"] {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-bg) inset;
+}
+
+.swatch-label {
+  margin-top: var(--space-2);
+  color: var(--color-fg-muted);
+}

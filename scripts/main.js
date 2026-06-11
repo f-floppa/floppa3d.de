@@ -222,6 +222,45 @@ function setupShopFilter() {
 }
 
 /**
+ * Sticky Mobile-CTA auf Produktseiten:
+ * sichtbar, sobald der Haupt-CTA aus dem Viewport gescrollt ist
+ */
+function setupStickyCta() {
+  const cta = document.querySelector('.product__cta');
+  const bar = document.querySelector('.sticky-cta');
+  if (!cta || !bar) return;
+
+  new IntersectionObserver(([entry]) => {
+    bar.hidden = entry.isIntersecting;
+  }).observe(cta);
+}
+
+/**
+ * Farb-Swatches: Auswahl-Status + Label; Bildwechsel nur bei data-img
+ */
+function setupSwatches() {
+  document.querySelectorAll('.swatches').forEach((group) => {
+    const label = group.closest('section, main')?.querySelector('.swatch-label');
+    const buttons = group.querySelectorAll('button');
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        buttons.forEach((b) => b.setAttribute('aria-pressed', 'false'));
+        btn.setAttribute('aria-pressed', 'true');
+        if (label) label.textContent = `Gewählte Farbe: ${btn.dataset.color}`;
+
+        if (btn.dataset.img) {
+          const img = document.querySelector('.gallery__main img');
+          const source = document.querySelector('.gallery__main source');
+          if (source) source.srcset = btn.dataset.img;
+          if (img) img.src = btn.dataset.img;
+        }
+      });
+    });
+  });
+}
+
+/**
  * Main initialization function
  */
 function init() {
@@ -230,6 +269,8 @@ function init() {
   setupRevealObserver();
   setupGallery();
   setupShopFilter();
+  setupStickyCta();
+  setupSwatches();
 }
 
 /**

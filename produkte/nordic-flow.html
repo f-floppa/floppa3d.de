@@ -40,6 +40,7 @@
   <!-- Theme: prevent flash by setting before render -->
   <script>
     (function() {
+      document.documentElement.classList.add('js');
       try {
         var t = localStorage.getItem('floppa3d-theme');
         if (t === 'dark' || t === 'light') {
@@ -144,7 +145,7 @@ Wir drucken den «Nordic Flow» aus PETG – einem robusten Kunststoff, der gege
           <dl class="details-list"><dt>Material</dt><dd>PETG</dd><dt>Oberfläche</dt><dd>Matt, gerillt</dd><dt>Drainage</dt><dd>ja, mit verdecktem Untersetzer</dd><dt>Einsatzbereich</dt><dd>Innenbereich, überdachter Außenbereich</dd><dt>Schichthöhe</dt><dd>0,2 mm</dd></dl>
         </section>
 
-        <section class="product__colors" aria-label="Verfügbare Farben"><h3 class="eyebrow">Farben</h3><ul class="cluster"><li class="color-chip">Sand Beige</li><li class="color-chip">Sage Green</li><li class="color-chip">Terracotta</li><li class="color-chip">Matt Schwarz</li><li class="color-chip">Cremeweiß</li></ul></section>
+        <section class="product__colors" aria-label="Verfügbare Farben"><h3 class="eyebrow">Farben</h3><div class="swatches" role="group" aria-label="Farbe wählen"><button type="button" data-color="Sand Beige" title="Sand Beige" aria-label="Sand Beige" aria-pressed="true" style="--sw:#D6C4A8"></button><button type="button" data-color="Sage Green" title="Sage Green" aria-label="Sage Green" aria-pressed="false" style="--sw:#9CAF88"></button><button type="button" data-color="Terracotta" title="Terracotta" aria-label="Terracotta" aria-pressed="false" style="--sw:#C56B4E"></button><button type="button" data-color="Matt Schwarz" title="Matt Schwarz" aria-label="Matt Schwarz" aria-pressed="false" style="--sw:#3A3A3A"></button><button type="button" data-color="Cremeweiß" title="Cremeweiß" aria-label="Cremeweiß" aria-pressed="false" style="--sw:#F2EFE9"></button></div><p class="swatch-label text-sm">Gewählte Farbe: Sand Beige</p></section>
 
         <section class="product__cta" aria-label="Kauf">
           <p class="product__price serif">22,00 €</p>
@@ -176,12 +177,12 @@ Wir drucken den «Nordic Flow» aus PETG – einem robusten Kunststoff, der gege
     <section class="product__related section">
       <header class="product__related-header">
         <p class="eyebrow">Mehr aus dieser Kategorie</p>
-        <h2 class="serif">Verwandte Stücke.</h2>
+        <h2 class="serif layer-reveal">Verwandte Stücke.</h2>
       </header>
       <div class="bento product__related-grid">
-        <a class="product-card" href="/produkte/stack-pot.html">
+        <a class="product-card reveal" href="/produkte/stack-pot.html">
     <figure class="product-card__image-wrap" style="view-transition-name: vt-stack-pot">
-      <picture><source srcset="/assets/products/stack-pot/01.webp" type="image/webp"><img src="/assets/products/stack-pot/01.png" alt="StackPot – Modularer Pflanzenwürfel" width="643" height="513" loading="lazy" decoding="async"></picture>
+      <picture><source srcset="/assets/products/stack-pot/01.webp" type="image/webp"><img src="/assets/products/stack-pot/01.png" alt="StackPot – Modularer Pflanzenwürfel" width="643" height="513" loading="lazy" decoding="async"></picture><span class="product-card__img-alt" aria-hidden="true"><picture><source srcset="/assets/products/stack-pot/02.webp" type="image/webp"><img src="/assets/products/stack-pot/02.png" alt="" width="643" height="511" loading="lazy" decoding="async"></picture></span>
     </figure>
     <div class="product-card__body">
       <p class="eyebrow">Blume · PETG</p>
@@ -193,6 +194,11 @@ Wir drucken den «Nordic Flow» aus PETG – einem robusten Kunststoff, der gege
     </section>
 
   </div>
+
+  <div class="sticky-cta" hidden>
+  <span class="sticky-cta__price serif">22,00 € <small class="text-xs text-muted">zzgl. Versand</small></span>
+  <span class="btn btn--primary btn--sm is-coming-soon" aria-disabled="true">Bald auf Etsy</span>
+</div>
 </article>
 
   </main>
