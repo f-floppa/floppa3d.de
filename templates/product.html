@@ -25,6 +25,15 @@
       <!-- Gallery -->
       <section class="product__gallery-col" aria-label="Produktbilder">
         {{galleryHtml}}
+
+        <!-- 3D-/AR-Viewer: bleibt verborgen, solange kein GLB-Modell existiert -->
+        <section class="viewer3d" data-model="{{slug}}" hidden>
+          <h2 class="serif">In 3D ansehen</h2>
+          <model-viewer src="/assets/models/{{slug}}.glb" ios-src="/assets/models/{{slug}}.usdz"
+            ar camera-controls touch-action="pan-y"
+            poster="{{posterWebp}}" style="width:100%; height:420px;"></model-viewer>
+          <p class="viewer3d__hint text-sm text-muted">Tipp: Auf dem Smartphone „AR" tippen und das Stück direkt ins eigene Regal stellen.</p>
+        </section>
       </section>
 
       <!-- Sticky Info Column -->

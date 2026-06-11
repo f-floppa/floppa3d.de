@@ -261,6 +261,28 @@ function setupSwatches() {
 }
 
 /**
+ * 3D-/AR-Viewer: Sektion nur einblenden (und Vendor-Code nur laden),
+ * wenn das GLB-Modell wirklich existiert — sonst bleibt alles unsichtbar.
+ */
+function setupViewer3d() {
+  document.querySelectorAll('.viewer3d[data-model]').forEach(async (sec) => {
+    try {
+      const r = await fetch(`/assets/models/${sec.dataset.model}.glb`, { method: 'HEAD' });
+      if (!r.ok) return;
+      if (!customElements.get('model-viewer')) {
+        const s = document.createElement('script');
+        s.type = 'module';
+        s.src = '/assets/vendor/model-viewer.min.js';
+        document.head.append(s);
+      }
+      sec.hidden = false;
+    } catch (e) {
+      /* offline/Fehler → Sektion bleibt verborgen, keine Konsolen-Fehler */
+    }
+  });
+}
+
+/**
  * Main initialization function
  */
 function init() {
@@ -271,6 +293,7 @@ function init() {
   setupShopFilter();
   setupStickyCta();
   setupSwatches();
+  setupViewer3d();
 }
 
 /**

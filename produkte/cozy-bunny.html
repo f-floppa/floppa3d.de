@@ -127,6 +127,15 @@
       <!-- Gallery -->
       <section class="product__gallery-col" aria-label="Produktbilder">
         <div class="gallery"><figure class="gallery__main" id="gallery-main" style="view-transition-name: vt-cozy-bunny"><picture><source srcset="/assets/products/cozy-bunny/01.webp" type="image/webp"><img src="/assets/products/cozy-bunny/01.png" alt="Cozy Bunny – Stilisierter Deko-Hase" width="641" height="511" fetchpriority="high" decoding="async"></picture></figure><div class="gallery__thumbs"><button class="gallery__thumb" data-src="/assets/products/cozy-bunny/01.png" data-index="0" aria-label="Bild 1 anzeigen" aria-current="true"><picture><source srcset="/assets/products/cozy-bunny/01.webp" type="image/webp"><img src="/assets/products/cozy-bunny/01.png" alt="" width="641" height="511" loading="lazy" decoding="async"></picture></button><button class="gallery__thumb" data-src="/assets/products/cozy-bunny/02.png" data-index="1" aria-label="Bild 2 anzeigen"><picture><source srcset="/assets/products/cozy-bunny/02.webp" type="image/webp"><img src="/assets/products/cozy-bunny/02.png" alt="" width="644" height="511" loading="lazy" decoding="async"></picture></button><button class="gallery__thumb" data-src="/assets/products/cozy-bunny/03.png" data-index="2" aria-label="Bild 3 anzeigen"><picture><source srcset="/assets/products/cozy-bunny/03.webp" type="image/webp"><img src="/assets/products/cozy-bunny/03.png" alt="" width="644" height="514" loading="lazy" decoding="async"></picture></button><button class="gallery__thumb" data-src="/assets/products/cozy-bunny/04.png" data-index="3" aria-label="Bild 4 anzeigen"><picture><source srcset="/assets/products/cozy-bunny/04.webp" type="image/webp"><img src="/assets/products/cozy-bunny/04.png" alt="" width="644" height="516" loading="lazy" decoding="async"></picture></button><button class="gallery__thumb" data-src="/assets/products/cozy-bunny/05.png" data-index="4" aria-label="Bild 5 anzeigen"><picture><source srcset="/assets/products/cozy-bunny/05.webp" type="image/webp"><img src="/assets/products/cozy-bunny/05.png" alt="" width="1536" height="1024" loading="lazy" decoding="async"></picture></button></div></div>
+
+        <!-- 3D-/AR-Viewer: bleibt verborgen, solange kein GLB-Modell existiert -->
+        <section class="viewer3d" data-model="cozy-bunny" hidden>
+          <h2 class="serif">In 3D ansehen</h2>
+          <model-viewer src="/assets/models/cozy-bunny.glb" ios-src="/assets/models/cozy-bunny.usdz"
+            ar camera-controls touch-action="pan-y"
+            poster="/assets/products/cozy-bunny/01.webp" style="width:100%; height:420px;"></model-viewer>
+          <p class="viewer3d__hint text-sm text-muted">Tipp: Auf dem Smartphone „AR" tippen und das Stück direkt ins eigene Regal stellen.</p>
+        </section>
       </section>
 
       <!-- Sticky Info Column -->

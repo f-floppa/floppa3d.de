@@ -471,6 +471,9 @@ function buildProductPage(product, allProducts, layoutTpl, productTpl) {
     detailsHtml: generateDetails(product.details),
     colorsHtml: generateColors(product.colors, product.slug),
     stickyCtaHtml: generateStickyCta(product),
+    posterWebp: product.images && product.images[0]
+      ? escapeAttr(`/assets/products/${product.images[0]}`.replace(/\.png$/i, '.webp'))
+      : '',
     relatedHtml: generateRelated(product.slug, product.category, allProducts)
   };
 

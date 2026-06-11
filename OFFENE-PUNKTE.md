@@ -1,5 +1,14 @@
 # Offene Punkte — nur Florian/Paul können das liefern
 
+## [P5] Farbbilder für Swatch-Bildwechsel (optional, ca. 30 Min)
+- **Was fehlt:** Je Produkt Fotos/Renders pro Farbvariante — aktuell existiert für KEIN Produkt ein Farbbild
+- **Schema:** `assets/products/<slug>/farbe-<name>.webp` (Name kleingeschrieben, Leerzeichen → `-`, Umlaute ae/oe/ue/ss; z. B. `farbe-sand-beige.webp`)
+- **Danach:** `node build.js` — Swatches bekommen automatisch `data-img` und wechseln das Hauptbild.
+
+## [P6] GLB + USDZ für alle 6 Produkte exportieren (ca. 20 Min/Produkt)
+- **Was fehlt:** 3D-Modelle unter `assets/models/<slug>.glb` (+ `.usdz` für iOS-AR)
+- **Anleitung:** `tools/README-3D.md` — Viewer erscheint automatisch, sobald die Dateien liegen.
+
 ## [P4] Interview-Input für die Über-uns-Seite (15 Min)
 - **Was fehlt:** Persönliche Details für die Story (Platzhalter `[INPUT: …]` auf `pages/about.html`)
 - **Fragen:**
