@@ -482,7 +482,7 @@ Sitemap: ${SITE_URL}/sitemap.xml
 // -----------------------------------------------------------------------------
 
 const STATIC_PAGES = [
-  { name: 'index',       output: 'index.html',        title: 'Floppa3D',                    description: 'Floppa3D – Professional Print Studio. Minimalistische Objekte aus dem 3D-Drucker: Blume, Deko, Organisation. Aus PLA und PETG, Made in Germany.', ogType: 'website' },
+  { name: 'index',       output: 'index.html',        title: 'Floppa3D',                    description: 'Floppa3D – Professional Print Studio. Minimalistische Objekte aus dem 3D-Drucker: Blume, Deko, Organisation. Aus PLA und PETG, Made in Germany.', ogType: 'website', ogImage: `${SITE_URL}/assets/og/home.png` },
   { name: 'shop',        output: 'shop.html',         title: 'Shop',                        description: 'Alle Stücke aus dem Floppa3D Studio. Filtern Sie nach Kategorie und Material – Blume, Deko, Organisation. Made in Germany aus PLA oder PETG.', ogType: 'website' },
   { name: 'about',       output: 'about.html',        title: 'Über uns',                    description: 'Wer steckt hinter Floppa3D, wie drucken wir und warum. Unsere Material-Philosophie und der Anspruch an gute Form.', ogType: 'article' },
   { name: 'faq',         output: 'faq.html',          title: 'FAQ',                         description: 'Antworten auf häufige Fragen zu Versand, Materialien, Pflege und Sonderwünschen. Verkauf läuft über Etsy.', ogType: 'website' },
