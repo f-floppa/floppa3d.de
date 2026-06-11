@@ -358,7 +358,7 @@ const STATIC_PAGES = [
   { name: 'about',       output: 'about.html',        title: 'Über uns',                    description: 'Wer steckt hinter Floppa3D, wie drucken wir und warum. Unsere Material-Philosophie und der Anspruch an gute Form.', ogType: 'article' },
   { name: 'faq',         output: 'faq.html',          title: 'FAQ',                         description: 'Antworten auf häufige Fragen zu Versand, Materialien, Pflege und Sonderwünschen. Verkauf läuft über Etsy.', ogType: 'website' },
   { name: 'kontakt',     output: 'kontakt.html',      title: 'Kontakt',                     description: 'Schreiben Sie uns – Kooperationen, Sonderanfertigungen oder Fragen zu unseren Produkten.', ogType: 'website' },
-  { name: 'impressum',   output: 'impressum.html',    title: 'Impressum',                   description: 'Impressum nach § 5 TMG.', ogType: 'website' },
+  { name: 'impressum',   output: 'impressum.html',    title: 'Impressum',                   description: 'Impressum nach § 5 DDG.', ogType: 'website' },
   { name: 'datenschutz', output: 'datenschutz.html',  title: 'Datenschutzerklärung',        description: 'Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.', ogType: 'website' },
   { name: 'agb',         output: 'agb.html',          title: 'Allgemeine Geschäftsbedingungen', description: 'Allgemeine Geschäftsbedingungen für die Nutzung von floppa3d.de.', ogType: 'website' },
   { name: '404',         output: '404.html',          title: 'Seite nicht gefunden',        description: 'Die angeforderte Seite konnte nicht gefunden werden.', ogType: 'website' }
