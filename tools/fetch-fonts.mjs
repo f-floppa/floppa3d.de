@@ -41,13 +41,13 @@ async function download(url, filename) {
 }
 
 const fraunces = await cssText('Fraunces:opsz,wght@9..144,100..900');
-await download(latinUrl(fraunces), 'Fraunces[opsz,SOFT,WONK,wght].woff2');
+await download(latinUrl(fraunces), 'Fraunces-Variable.woff2');
 
 const interTight = await cssText('Inter+Tight:ital,wght@0,100..900;1,100..900');
-await download(latinUrl(interTight, 'normal'), 'InterTight[wght].woff2');
-await download(latinUrl(interTight, 'italic'), 'InterTight-Italic[wght].woff2');
+await download(latinUrl(interTight, 'normal'), 'InterTight-Variable.woff2');
+await download(latinUrl(interTight, 'italic'), 'InterTight-Italic-Variable.woff2');
 
 const jbMono = await cssText('JetBrains+Mono:wght@100..800');
-await download(latinUrl(jbMono), 'JetBrainsMono[wght].woff2');
+await download(latinUrl(jbMono), 'JetBrainsMono-Variable.woff2');
 
 console.log('✓ Fonts geladen.');

@@ -1,5 +1,8 @@
 # Offene Punkte — nur Florian/Paul können das liefern
 
+## [A-T3] Draft-PR manuell öffnen (2 Min)
+- `gh` CLI ist auf diesem Rechner nicht installiert — Branch `feat/website-upgrade` ist gepusht, der PR muss über github.com geöffnet werden (Base: `main`, Body: `ZUSAMMENFASSUNG.md`). Alternativ: `winget install GitHub.cli`, `gh auth login` (f-floppa), dann `gh pr create --draft --title "Website-Upgrade" --body-file ZUSAMMENFASSUNG.md`.
+
 ## [P7] Hero-Timelapse drehen (sobald möglich)
 - **Was fehlt:** Video eines Drucks im Zeitraffer: 10–15 s, 1080p, loopfähig, **< 15 MB**
 - **Wo:** `assets/video/hero-timelapse.mp4` ablegen — die Startseite bindet es automatisch ein (bei Reduced-Motion bleibt es aus). Kein Build nötig.
