@@ -115,35 +115,111 @@ function setupGallery() {
   const mainImg = gallery.querySelector('.gallery__main img');
   const thumbs = gallery.querySelectorAll('.gallery__thumb');
 
-  if (!mainImg || thumbs.length === 0) return;
+  if (mainImg && thumbs.length > 0) {
+    let selectedSrc = mainImg.src;
 
-  let selectedSrc = mainImg.src;
+    function setMainSrc(src) {
+      // Bei <picture> gewinnt die <source> — beide nachziehen
+      const source = mainImg.parentElement.querySelector('source');
+      if (source) source.srcset = src.replace(/\.png$/i, '.webp');
+      mainImg.src = src;
+    }
 
-  function setMainSrc(src) {
-    // Bei <picture> gewinnt die <source> — beide nachziehen
-    const source = mainImg.parentElement.querySelector('source');
-    if (source) source.srcset = src.replace(/\.png$/i, '.webp');
-    mainImg.src = src;
+    function setSelected(thumb) {
+      thumbs.forEach((t) => t.removeAttribute('aria-current'));
+      thumb.setAttribute('aria-current', 'true');
+      selectedSrc = thumb.dataset.src;
+    }
+
+    thumbs.forEach((thumb) => {
+      thumb.addEventListener('mouseenter', () => {
+        setMainSrc(thumb.dataset.src);
+      });
+
+      thumb.addEventListener('mouseleave', () => {
+        setMainSrc(selectedSrc);
+      });
+
+      thumb.addEventListener('click', () => {
+        setSelected(thumb);
+        setMainSrc(selectedSrc);
+      });
+    });
   }
 
-  function setSelected(thumb) {
-    thumbs.forEach((t) => t.removeAttribute('aria-current'));
-    thumb.setAttribute('aria-current', 'true');
-    selectedSrc = thumb.dataset.src;
+  // Tap-to-Zoom Lightbox (Desktop) + mobile Swipe-Pagination
+  setupGalleryZoom(gallery);
+  setupGallerySwipe(gallery);
+}
+
+/**
+ * Tap-to-Zoom: Klick aufs Hauptbild öffnet eine <dialog>-Lightbox.
+ */
+function setupGalleryZoom(gallery) {
+  const trigger = gallery.querySelector('[data-gallery-zoom]');
+  if (!trigger) return;
+
+  let dialog = document.querySelector('.gallery-lightbox');
+  if (!dialog) {
+    dialog = document.createElement('dialog');
+    dialog.className = 'gallery-lightbox';
+    dialog.setAttribute('aria-label', 'Bildvorschau');
+    dialog.innerHTML = `
+      <button class="gallery-lightbox__close" aria-label="Schließen" autofocus>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <figure class="gallery-lightbox__figure">
+        <img class="gallery-lightbox__img" src="" alt="">
+      </figure>`;
+    document.body.appendChild(dialog);
+
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog || e.target.closest('.gallery-lightbox__close')) {
+        dialog.close();
+      }
+    });
+    dialog.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') dialog.close();
+    });
   }
 
-  thumbs.forEach((thumb) => {
-    thumb.addEventListener('mouseenter', () => {
-      setMainSrc(thumb.dataset.src);
-    });
+  const lightboxImg = dialog.querySelector('.gallery-lightbox__img');
 
-    thumb.addEventListener('mouseleave', () => {
-      setMainSrc(selectedSrc);
-    });
+  trigger.style.cursor = 'zoom-in';
+  trigger.addEventListener('click', () => {
+    lightboxImg.src = trigger.src;
+    lightboxImg.alt = trigger.alt;
+    dialog.showModal();
+  });
+}
 
-    thumb.addEventListener('click', () => {
-      setSelected(thumb);
-      setMainSrc(selectedSrc);
+/**
+ * Mobile Swipe-Galerie: Pagination-Dots mit dem Scroll-Snap-Track synchronisieren.
+ */
+function setupGallerySwipe(gallery) {
+  const track = gallery.querySelector('.gallery__swipe-track');
+  const dots = gallery.querySelectorAll('.gallery__swipe-dot');
+  if (!track || dots.length === 0) return;
+
+  function updateDots() {
+    const slides = track.querySelectorAll('.gallery__swipe-slide');
+    if (slides.length === 0) return;
+    const slideWidth = slides[0].offsetWidth;
+    if (slideWidth === 0) return;
+    const index = Math.round(track.scrollLeft / slideWidth);
+    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+  }
+
+  track.addEventListener('scroll', updateDots, { passive: true });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      const slides = track.querySelectorAll('.gallery__swipe-slide');
+      if (slides[i]) {
+        track.scrollTo({ left: slides[i].offsetLeft, behavior: 'smooth' });
+      }
     });
   });
 }

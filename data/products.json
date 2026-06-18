@@ -3,6 +3,7 @@
   "products": [
     {
       "slug": "nordic-flow",
+      "modelId": "F3D-NF",
       "name": "Nordic Flow – Geriffelter Blumentopf",
       "category": "blumen",
       "categoryLabel": "Blume",
@@ -32,6 +33,7 @@
     },
     {
       "slug": "stack-pot",
+      "modelId": "F3D-SP",
       "name": "StackPot – Modularer Pflanzenwürfel",
       "category": "blumen",
       "categoryLabel": "Blume",
@@ -62,6 +64,7 @@
     },
     {
       "slug": "leaf-dock",
+      "modelId": "F3D-LD",
       "name": "LeafDock – Pflanzen-Zubehörstation",
       "category": "organisation",
       "categoryLabel": "Organisation",
@@ -92,6 +95,7 @@
     },
     {
       "slug": "luma-arch",
+      "modelId": "F3D-LA",
       "name": "Luma Arch – Moderne Bogenfigur",
       "category": "deko",
       "categoryLabel": "Deko",
@@ -121,6 +125,7 @@
     },
     {
       "slug": "cozy-bunny",
+      "modelId": "F3D-CB",
       "name": "Cozy Bunny – Stilisierter Deko-Hase",
       "category": "deko",
       "categoryLabel": "Deko",
@@ -151,6 +156,7 @@
     },
     {
       "slug": "orbit-key-tray",
+      "modelId": "F3D-OKT",
       "name": "Orbit Key Tray – Schlüssel- & Schmuckablage",
       "category": "organisation",
       "categoryLabel": "Organisation",

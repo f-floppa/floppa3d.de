@@ -90,13 +90,14 @@ function pngDimensions(relPath) {
  * <picture> mit WebP-Quelle und PNG-Fallback. `srcPng` beginnt mit "/".
  * priority=true → fetchpriority=high statt lazy (für LCP-Bilder).
  */
-function pictureHtml(srcPng, alt, { fallbackW = 600, fallbackH = 600, priority = false } = {}) {
+function pictureHtml(srcPng, alt, { fallbackW = 600, fallbackH = 600, priority = false, imgAttrs = '' } = {}) {
   const webp = srcPng.replace(/\.png$/i, '.webp');
   const dims = pngDimensions(srcPng.slice(1)) || { width: fallbackW, height: fallbackH };
   const loadingAttrs = priority
     ? 'fetchpriority="high" decoding="async"'
     : 'loading="lazy" decoding="async"';
-  return `<picture><source srcset="${escapeAttr(webp)}" type="image/webp"><img src="${escapeAttr(srcPng)}" alt="${escapeAttr(alt)}" width="${dims.width}" height="${dims.height}" ${loadingAttrs}></picture>`;
+  const extra = imgAttrs ? ` ${imgAttrs}` : '';
+  return `<picture><source srcset="${escapeAttr(webp)}" type="image/webp"><img src="${escapeAttr(srcPng)}" alt="${escapeAttr(alt)}" width="${dims.width}" height="${dims.height}" ${loadingAttrs}${extra}></picture>`;
 }
 
 // -----------------------------------------------------------------------------
@@ -108,8 +109,10 @@ function generateGallery(images, name, slug) {
   const main = images[0];
 
   let html = '<div class="gallery">';
+
+  // Desktop: zoombares Hauptbild + Thumbnail-Spalte
   html += `<figure class="gallery__main" id="gallery-main" style="view-transition-name: vt-${escapeAttr(slug)}">`;
-  html += pictureHtml(`/assets/products/${main}`, name, { priority: true });
+  html += pictureHtml(`/assets/products/${main}`, name, { priority: true, imgAttrs: 'data-gallery-zoom aria-label="Bild vergrößern"' });
   html += `</figure>`;
 
   html += '<div class="gallery__thumbs">';
@@ -120,6 +123,24 @@ function generateGallery(images, name, slug) {
     html += `<button class="gallery__thumb" data-src="${src}" data-index="${i}" aria-label="Bild ${i + 1} anzeigen"${current}>`;
     html += pictureHtml(`/assets/products/${img}`, '', { fallbackW: 200, fallbackH: 200 });
     html += `</button>`;
+  }
+  html += '</div>';
+
+  // Mobile: horizontale Swipe-Spur mit Pagination-Dots (per CSS nur < 480px sichtbar)
+  html += '<div class="gallery__swipe" aria-hidden="true">';
+  html += '<div class="gallery__swipe-track">';
+  for (let i = 0; i < images.length; i++) {
+    html += '<figure class="gallery__swipe-slide">';
+    html += pictureHtml(`/assets/products/${images[i]}`, i === 0 ? name : '', { priority: i === 0 });
+    html += '</figure>';
+  }
+  html += '</div>';
+  if (images.length > 1) {
+    html += '<div class="gallery__swipe-dots" role="tablist" aria-label="Bild wählen">';
+    for (let i = 0; i < images.length; i++) {
+      html += `<button class="gallery__swipe-dot${i === 0 ? ' is-active' : ''}" role="tab" aria-label="Bild ${i + 1}" data-dot="${i}"></button>`;
+    }
+    html += '</div>';
   }
   html += '</div>';
 
@@ -305,7 +326,7 @@ function generateOrgJsonLd() {
       "@type": "PostalAddress",
       "streetAddress": "Auweg 45",
       "postalCode": "85375",
-      "addressLocality": "Neufarn bei Freising",
+      "addressLocality": "Neufahrn bei Freising",
       "addressCountry": "DE"
     },
     "sameAs": ["https://www.instagram.com/floppa3d_ppstudio/"]
@@ -481,6 +502,7 @@ function buildProductPage(product, allProducts, layoutTpl, productTpl) {
   const productData = {
     name: escapeHtml(product.name),
     slug: escapeAttr(product.slug),
+    modelId: escapeHtml(product.modelId || ''),
     category: escapeAttr(product.category),
     categoryLabel: escapeHtml(product.categoryLabel),
     material: escapeHtml(product.material),

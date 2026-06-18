@@ -56,6 +56,32 @@
           <p class="product__price serif">{{price}}</p>
           <p class="legal-note">Kein Ausweis der Umsatzsteuer gemäß § 19 UStG (Kleinunternehmerregelung).</p>
           {{etsyCtaHtml}}
+          <ul class="product__trust" aria-label="Vertrauenshinweise">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              Handgefertigt in Bayern
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              Versand mit DHL
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              Auf Bestellung gedruckt
+            </li>
+          </ul>
+          <p class="product__bundle-hint">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            </svg>
+            Mehrere Stücke? Versandkosten fallen nur einmal an.
+          </p>
         </section>
       </aside>
     </div>
@@ -73,6 +99,24 @@
           <li>Bei sichtbaren Beschädigungen, Rissen oder Verformungen Verwendung einstellen.</li>
         </ul>
         <p class="text-sm text-muted">Detaillierte produktspezifische Hinweise finden Sie im jeweiligen Etsy-Listing.</p>
+      </div>
+    </section>
+
+    <!-- Hersteller & Produktidentifikation (Pflichtangaben nach Art. 19 GPSR) -->
+    <section class="product__manufacturer section--tight" aria-label="Hersteller und Produktidentifikation">
+      <div class="surface product__manufacturer-box">
+        <p class="eyebrow">Hersteller &amp; Produktidentifikation</p>
+        <dl class="details-list">
+          <dt>Hersteller</dt>
+          <dd>Floppa3D GbR</dd>
+          <dt>Anschrift</dt>
+          <dd>Auweg 45, 85375 Neufahrn bei Freising, Deutschland</dd>
+          <dt>Kontakt</dt>
+          <dd><a href="mailto:management@floppa3d.de">management@floppa3d.de</a></dd>
+          <dt>Modellbezeichnung</dt>
+          <dd>{{modelId}}</dd>
+        </dl>
+        <p class="text-sm text-muted">Pflichtangaben gemäß Art. 19 EU-Produktsicherheitsverordnung (VO (EU) 2023/988).</p>
       </div>
     </section>
 
