@@ -218,6 +218,17 @@ function generateEtsyCta(product) {
   const href = safeUrl(product.etsyUrl);
   const isLive = Boolean(product.etsyUrl) && href !== '#';
 
+  if (product.category === 'auftragsdruck') {
+    return `<p class="text-sm text-muted">Anfragen und Bestellung über Auftragsdruck-Service.</p>
+          <a class="btn btn--primary" href="/auftragsdruck.html">
+            <span>Zur Auftragsdruck-Seite</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17L17 7"/><path d="M7 7h10v10"/>
+            </svg>
+          </a>
+          <a class="etsy-hint text-sm" href="/kontakt.html">Direkter Kontakt →</a>`;
+  }
+
   if (isLive) {
     return `<p class="text-sm text-muted">Kauf abgewickelt über Etsy.</p>
           <a class="btn btn--primary" href="${escapeAttr(href)}" target="_blank" rel="noopener noreferrer">
@@ -238,9 +249,16 @@ function generateEtsyCta(product) {
 function generateStickyCta(product) {
   const href = safeUrl(product.etsyUrl);
   const isLive = Boolean(product.etsyUrl) && href !== '#';
-  const btn = isLive
-    ? `<a class="btn btn--primary btn--sm" href="${escapeAttr(href)}" target="_blank" rel="noopener noreferrer">Auf Etsy ansehen</a>`
-    : `<span class="btn btn--primary btn--sm is-coming-soon" aria-disabled="true">Bald auf Etsy</span>`;
+
+  let btn;
+  if (product.category === 'auftragsdruck') {
+    btn = `<a class="btn btn--primary btn--sm" href="/auftragsdruck.html">Zum Auftragsdruck</a>`;
+  } else {
+    btn = isLive
+      ? `<a class="btn btn--primary btn--sm" href="${escapeAttr(href)}" target="_blank" rel="noopener noreferrer">Auf Etsy ansehen</a>`
+      : `<span class="btn btn--primary btn--sm is-coming-soon" aria-disabled="true">Bald auf Etsy</span>`;
+  }
+
   return `<div class="sticky-cta" hidden>
   <span class="sticky-cta__price serif">${escapeHtml(product.price)} <small class="text-xs text-muted">zzgl. Versand</small></span>
   ${btn}

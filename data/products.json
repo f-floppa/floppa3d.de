@@ -183,6 +183,38 @@
       "etsyUrl": "",
       "tags": ["organisation", "deko", "schluessel", "schmuck", "eingang", "pla", "indoor"],
       "featured": true
+    },
+    {
+      "slug": "custom-fonts",
+      "modelId": "F3D-CF",
+      "name": "Custom Fonts – Personalisierte Schriftzüge",
+      "category": "auftragsdruck",
+      "categoryLabel": "Auftragsdruck",
+      "material": "PLA / PETG",
+      "price": "auf Anfrage",
+      "priceNumeric": "",
+      "shortDescription": "Individuelle 3D-gedruckte Schriftzüge und Worte – Namen, Zitate, Logos. Jeder Druck ein Unikat, genau nach Ihren Vorgaben.",
+      "longDescription": "Custom Fonts – das ist die Möglichkeit, Ihre eigenen Worte, Namen oder Zitate als 3D-gedrucktes Kunstwerk zu realisieren. Ob über dem Schreibtisch, im Wohnzimmer oder als Geschenk: personalisierte Schriftzüge verleihen jedem Raum eine persönliche Note.\n\nDas Besondere: Sie entscheiden über Schriftart, Größe, Material und Farbe. Unser Team übernimmt die technische Umsetzung – von der Vektorisierung bis zum perfekten Druck. Dank mehrschichtiger Fertigung entstehen lebendige Dimensionalität und Textur, die flache Drucke nicht erreichen.\n\nMöglich sind Schriftzüge aus PLA (biologisch abbaubar, matte Oberfläche) oder PETG (robuster, UV-beständiger). Große Farbpalette, variable Dimensionen, beleuchtbar mit LED (optional). Jeder Druck ist ein Einzelstück nach Ihren Vorgaben – Preis auf Anfrage nach Größe und Komplexität.",
+      "details": {
+        "Basis": "Ihre Schriftart, Ihr Text",
+        "Material": "PLA oder PETG – Sie wählen",
+        "Farbe": "Beliebig aus unserer Palette",
+        "Größe": "Nach Anfrage (ca. 10–100 cm Breite)",
+        "LED-Integration": "Optional für zusätzliche Effekte",
+        "Lieferzeit": "ca. 5–7 Arbeitstage nach Bestätigung"
+      },
+      "colors": ["Frei wählbar"],
+      "images": [
+        "custom-fonts/01.png",
+        "custom-fonts/02.png",
+        "custom-fonts/03.png",
+        "custom-fonts/04.png",
+        "custom-fonts/05.png",
+        "custom-fonts/06.png"
+      ],
+      "etsyUrl": "",
+      "tags": ["auftragsdruck", "custom", "schriften", "personalisiert", "unikat", "text"],
+      "featured": true
     }
   ]
 }
