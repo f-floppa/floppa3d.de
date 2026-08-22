@@ -1,6 +1,7 @@
 node_modules/
 .DS_Store
 Thumbs.db
+.wrangler/
 
 # Interne Dokumente — nie ins öffentliche Repo
 Gesellschaftsvertrag*
