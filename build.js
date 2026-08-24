@@ -507,7 +507,7 @@ function renderFooter(etsyShopUrl = ETSY_SHOP_URL) {
         <li><a class="site-footer__legal-link" href="/datenschutz.html">Datenschutz</a></li>
       </ul>
     </div>
-    <p class="legal-note">Kein Ausweis der Umsatzsteuer gemäß § 19 UStG (Kleinunternehmerregelung).</p>
+    <p class="legal-note">Alle Preise verstehen sich inkl. der gesetzlichen Umsatzsteuer.</p>
   </div>
 </footer>`;
 }
