@@ -447,6 +447,20 @@ function renderHeader() {
 
 let ETSY_SHOP_URL = '';
 
+/**
+ * Etsy-Shop-Block (Kontaktseite): spiegelt das Verhalten von renderFooter —
+ * leere etsyShopUrl ⇒ Coming-soon-Zustand, gepflegte URL ⇒ klickbarer Link.
+ */
+function renderEtsyShopContact(etsyShopUrl = ETSY_SHOP_URL) {
+  const shopHref = safeUrl(etsyShopUrl);
+  if (etsyShopUrl && shopHref !== '#') {
+    return `<p><a href="${escapeAttr(shopHref)}" target="_blank" rel="noopener noreferrer">Zum Floppa3D-Shop auf Etsy</a></p>
+          <p class="text-sm" style="color: var(--color-fg-muted);">Bestellungen, Zahlung und Versand laufen über Etsy. Fragen vorab beantworten wir gern über das Formular oder per E-Mail.</p>`;
+  }
+  return `<p>Bald auf Etsy verfügbar</p>
+          <p class="text-sm" style="color: var(--color-fg-muted);">Unser Etsy-Shop startet in Kürze. Bis dahin erreichen Sie uns am schnellsten über das Formular oder per E-Mail.</p>`;
+}
+
 function renderFooter(etsyShopUrl = ETSY_SHOP_URL) {
   const shopHref = safeUrl(etsyShopUrl);
   const etsyItem = (etsyShopUrl && shopHref !== '#')
@@ -645,7 +659,8 @@ function buildStaticPage(page, layoutTpl, allProducts) {
     featuredProductsHtml,
     allProductsHtml,
     productCount: String(productCount),
-    year: String(new Date().getFullYear())
+    year: String(new Date().getFullYear()),
+    etsyShopContactHtml: renderEtsyShopContact()
   });
 
   const isHome = page.name === 'index';
@@ -741,11 +756,6 @@ function main() {
   if (!fs.existsSync(path.join(ROOT, '.nojekyll'))) {
     writeFile('.nojekyll', '');
     console.log('✓ .nojekyll');
-  }
-
-  if (!fs.existsSync(path.join(ROOT, 'CNAME'))) {
-    writeFile('CNAME', 'floppa3d.de\n');
-    console.log('✓ CNAME');
   }
 
   console.log('───────────────────────────────────');
