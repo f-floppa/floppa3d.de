@@ -45,7 +45,7 @@ Lege die Datei beim ersten Blocker im Repo-Root an. Format pro Eintrag:
 - Produkt-Slugs (Quelle: `data/products.json`): `nordic-flow`, `stack-pot`, `leaf-dock`, `luma-arch`, `cozy-bunny`, `orbit-key-tray`.
 - `data/products.json` enthält je Produkt: `name`, `price`, `shortDescription`, `longDescription`, `details` (= Spezifikations-Tabelle), `colors`, `images` (PNG-Pfade), `etsyUrl` (aktuell PLATZHALTER), `tags`, `featured`.
 - Brand: Dark-/Light-Theme (localStorage-Key `floppa3d-theme`), dunkle Basis `#1F1B17`, Teal-Akzent (echten Wert aus dem bestehenden CSS lesen!), Logo = F aus Layer-Lines. Das **Layer-Line-Motiv** ist das Signature-Element.
-- Sprache: Deutsch, Anrede „Sie". Betreiber: Floppa3D GbR (2 Gründer: Florian & Paul), Kleinunternehmer § 19 UStG, Werkstatt in Neufahrn bei Freising.
+- Sprache: Deutsch, Anrede „Sie". Betreiber: Floppa3D GbR (2 Gründer: Florian & Paul), Preise inkl. 19 % USt (keine Kleinunternehmerregelung), Werkstatt in Neufahrn bei Freising.
 - Der Etsy-Shop ist **noch nicht live** — alle Etsy-Links sind Platzhalter (`etsyUrl` in `data/products.json` + fest verdrahteter Shop-Link im Footer in `build.js`).
 
 ## F2) Build-System: verbindliche Task-Anpassungen
@@ -111,17 +111,17 @@ Auch Meta-Descriptions prüfen (Impressum erwähnt TMG im `<meta>` — Quelle: `
 Nur auf den drei Rechtsseiten (Quellen, siehe F2): Wo „Firma" als Beschriftung/Label für „Floppa3D GbR" steht → „Unternehmen". (Eine GbR führt keine Firma im Rechtssinn.) Andere Vorkommen des Wortes unverändert lassen.
 **COMMIT:** `fix: gbr-korrekte bezeichnung im impressum`
 
-### P1-T3 § 19-UStG-Hinweis
+### P1-T3 USt-Hinweis
 Füge im Footer (`templates/_layout.html`) unter der Copyright-Zeile ein:
 ```html
-<p class="legal-note">Kein Ausweis der Umsatzsteuer gemäß § 19 UStG (Kleinunternehmerregelung).</p>
+<p class="legal-note">Alle Preise verstehen sich inkl. der gesetzlichen Umsatzsteuer.</p>
 ```
-Dieselbe Zeile zusätzlich in `templates/product.html` direkt unter dem Preis. CSS einmal global:
+CSS einmal global:
 ```css
 .legal-note { font-size: .78rem; opacity: .7; }
 ```
-**AKZEPTANZ:** Zeile auf jeder generierten Seite im Footer sichtbar + auf 6 Produktseiten beim Preis.
-**COMMIT:** `feat: §19-ustg-hinweis ergänzt`
+**AKZEPTANZ:** Zeile auf jeder generierten Seite im Footer sichtbar.
+**COMMIT:** `feat: ust-hinweis ergänzt`
 
 ### P1-T4 Stand-Datum
 „Stand:"-Datum auf den drei Rechtsseiten (Quellen) auf den aktuellen Monat setzen.

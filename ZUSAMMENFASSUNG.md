@@ -9,7 +9,7 @@ Branch `feat/website-upgrade` · Juni 2026 · Alle Phasen des Playbooks (`FLOPPA
 ## Phase 1 — Rechts-Fixes
 - TMG→DDG, TTDSG→TDDDG in allen Quellen (Grep über Output: 0 Treffer).
 - „Firma" → „Unternehmen" auf den drei Rechtsseiten; Stand-Datum → Juni 2026.
-- § 19-UStG-Hinweis im Footer aller Seiten + unter jedem Produktpreis.
+- USt-Hinweis („inkl. der gesetzlichen Umsatzsteuer“) im Footer aller Seiten. Keine Kleinunternehmerregelung.
 
 ## Phase 2 — Etsy-Link-System
 - Zentrale Pflege in `data/products.json` (`etsyUrl` je Produkt + neu `etsyShopUrl` für den Footer). Leer ⇒ Build rendert „Bald auf Etsy verfügbar" (deaktiviert, `aria-disabled`) + „Frage vorab stellen →"-Link; URL eingetragen ⇒ klickbarer Button. Getestet in beide Richtungen.
